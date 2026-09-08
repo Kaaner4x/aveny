@@ -8,6 +8,7 @@
 
 # Template directories
 Template/
+Templates/
 
 # User-specific files
 *.rsuser
