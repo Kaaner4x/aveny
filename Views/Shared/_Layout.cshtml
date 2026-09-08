@@ -4,12 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Aveny</title>
+    <title>@ViewData["Title"] - NascCore</title>
 
     <!-- Google Fonts Preconnect & Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Work+Sans:wght@400;500;600;700;800&subset=latin,latin-ext&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Work+Sans:wght@400;500;600;700;800&subset=latin,latin-ext&display=swap"
+    rel="stylesheet">
 
     <!-- Plugins Needed for the Project -->
     <link rel="stylesheet" href="~/user-interface/plugins/bootstrap/bootstrap.min.css" />
@@ -27,10 +29,40 @@
 
 <body>
     <header>
+        <!-- Header Top Bar (Minimal Style) -->
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-7 col-12 text-center text-md-left">
+                        <ul class="list-inline mb-0 top-contact-info">
+                            <li class="list-inline-item mr-3">
+                                <a href="tel:+902125550123">
+                                    <i class="ti-mobile mr-1"></i>+90 (212) 555 01 23
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="mailto:info@nasccore.com">
+                                    <i class="ti-email mr-1"></i>info@nasccore.com
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 col-12 text-center text-md-right d-none d-md-block">
+                        <ul class="list-inline mb-0 top-social-links">
+                            <li class="list-inline-item"><a href="#!" title="LinkedIn"><i class="ti-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" title="Instagram"><i class="ti-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" title="Twitter"><i class="ti-twitter-alt"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" title="GitHub"><i class="ti-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <nav class="navbar navbar-expand-lg  main-nav " id="navbar">
             <div class="container">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                    <img src="~/user-interface/images/logo.png" alt="Aveny Logo" class="img-fluid">
+                    <img src="~/user-interface/images/logo.png" alt="NascCore Logo" class="img-fluid">
                 </a>
 
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
@@ -42,84 +74,90 @@
                 <div class="collapse navbar-collapse" id="navbarsExample09">
                     <ul class="navbar-nav ml-auto">
                         <!-- Ana Sayfa -->
-                        <li class="nav-item active"><a class="nav-link" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                        <li class="nav-item active"><a class="nav-link" asp-controller="Home" asp-action="Index">Ana
+                            Sayfa</a></li>
 
-                        <!-- Hakkımızda -->
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Hakkımızda</a></li>
+                            <!-- Hakkımızda -->
+                            <li class="nav-item"><a class="nav-link" asp-controller="About" asp-action="Index">Hakkımızda</a>
+                            </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">Portfolyo</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown02">
-                                <li><a class="dropdown-item" href="#">Portfolyo Masonry</a></li>
-                                <li><a class="dropdown-item" href="#">Portfolyo Lightbox</a></li>
-                                <li><a class="dropdown-item" href="#">Portfolyo 2 Sütun</a></li>
-                                <li><a class="dropdown-item" href="#">Portfolyo Detayı</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">Haberler</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown05">
-                                <li><a class="dropdown-item" href="#">Tüm Haberler</a></li>
-                                <li><a class="dropdown-item" href="#">Haber Detayı</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#">İletişim</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+                            <!-- Projelerimiz -->
+                            <li class="nav-item"><a class="nav-link" asp-controller="Project" asp-action="Index">Projelerimiz</a>
+                            </li>
 
-    <main role="main">
-        @RenderBody()
-    </main>
-
-    <!-- Footer start -->
-    <section class="footer">
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-6">
-                    <p class="mb-0 text-white">
-                        © @DateTime.Now.Year <strong>Aveny</strong> - Tüm hakları saklıdır. <br>
-                        <small class="text-white-50">
-                            Tasarım Altyapısı: <a target="_blank" href="https://themefisher.com" class="text-white-50">Themefisher</a> & <a target="_blank" href="https://themewagon.com" class="text-white-50">ThemeWagon</a>
-                        </small>
-                    </p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="widget footer-widget text-lg-right mt-5 mt-lg-0">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-facebook mr-3"></i></a></li>
-                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-twitter mr-3"></i></a></li>
-                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-github mr-3"></i></a></li>
-                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-pinterest mr-3"></i></a></li>
-                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-dribbble mr-3"></i></a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">Portfolyo</a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown02">
+                                    <li><a class="dropdown-item" href="#">Portfolyo Masonry</a></li>
+                                    <li><a class="dropdown-item" href="#">Portfolyo Lightbox</a></li>
+                                    <li><a class="dropdown-item" href="#">Portfolyo 2 Sütun</a></li>
+                                    <li><a class="dropdown-item" href="#">Portfolyo Detayı</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item"><a class="nav-link" href="#">İletişim</a></li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-                <!-- Footer End -->
+            </nav>
+        </header>
 
-                <!-- jQuery -->
-                <script src="~/user-interface/plugins/jQuery/jquery.min.js"></script>
+        <main role="main">
+            @RenderBody()
+        </main>
 
-                <!-- Bootstrap JS -->
-                <script src="~/user-interface/plugins/bootstrap/bootstrap.min.js"></script>
-                <script src="~/user-interface/plugins/aos/aos.js"></script>
-                <script src="~/user-interface/plugins/owl-carousel/owl.carousel.min.js"></script>
-                <script src="~/user-interface/plugins/shuffle/shuffle.min.js"></script>
-                <script src="~/user-interface/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-                <script src="~/user-interface/plugins/animated-text/animated-text.js"></script>
-                <script src="~/user-interface/plugins/counto/apear.js"></script>
-                <script src="~/user-interface/plugins/counto/counTo.js"></script>
+        <!-- Footer start -->
+        <section class="footer">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-lg-6">
+                        <p class="mb-0 text-white">
+                            © @DateTime.Now.Year <strong>NascCore</strong> - Tüm hakları saklıdır. <br>
+                            <small class="text-white-50">
+                                Tasarım Altyapısı: <a target="_blank" href="https://themefisher.com"
+                                                      class="text-white-50">Themefisher</a> & <a target="_blank" href="https://themewagon.com"
+                                                                           class="text-white-50">ThemeWagon</a>
+                            </small>
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="widget footer-widget text-lg-right mt-5 mt-lg-0">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item"><a href="#!" target="_blank"><i
+                                    class="ti-facebook mr-3"></i></a></li>
+                                    <li class="list-inline-item"><a href="#!" target="_blank"><i
+                                        class="ti-twitter mr-3"></i></a></li>
+                                        <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-github mr-3"></i></a>
+                                        </li>
+                                        <li class="list-inline-item"><a href="#!" target="_blank"><i
+                                            class="ti-pinterest mr-3"></i></a></li>
+                                            <li class="list-inline-item"><a href="#!" target="_blank"><i
+                                                class="ti-dribbble mr-3"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Footer End -->
 
-                <!-- Main Script -->
-                <script src="~/user-interface/js/aveny.js" asp-append-version="true"></script>
-                @await RenderSectionAsync("Scripts", required: false)
-            </body>
+                        <!-- jQuery -->
+                        <script src="~/user-interface/plugins/jQuery/jquery.min.js"></script>
 
-        </html>
+                        <!-- Bootstrap JS -->
+                        <script src="~/user-interface/plugins/bootstrap/bootstrap.min.js"></script>
+                        <script src="~/user-interface/plugins/aos/aos.js"></script>
+                        <script src="~/user-interface/plugins/owl-carousel/owl.carousel.min.js"></script>
+                        <script src="~/user-interface/plugins/shuffle/shuffle.min.js"></script>
+                        <script src="~/user-interface/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+                        <script src="~/user-interface/plugins/animated-text/animated-text.js"></script>
+                        <script src="~/user-interface/plugins/counto/apear.js"></script>
+                        <script src="~/user-interface/plugins/counto/counTo.js"></script>
+
+                        <!-- Main Script -->
+                        <script src="~/user-interface/js/nasccore.js" asp-append-version="true"></script>
+                        @await RenderSectionAsync("Scripts", required: false)
+                    </body>
+
+                </html>

@@ -199,6 +199,47 @@ header {
   width: 100%;
 }
 
+/* --- Header Top Bar (Minimal Style) --- */
+.header-top-bar {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eaeaea;
+  padding: 8px 0;
+  font-size: 13px;
+  font-family: "Work Sans", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.header-top-bar .top-contact-info a {
+  color: #666666;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-top-bar .top-contact-info a i {
+  color: #f44336;
+  font-size: 14px;
+}
+
+.header-top-bar .top-contact-info a:hover {
+  color: #f44336;
+}
+
+.header-top-bar .top-social-links a {
+  color: #777777;
+  margin-left: 14px;
+  font-size: 13px;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.header-top-bar .top-social-links a:hover {
+  color: #f44336;
+  transform: translateY(-2px);
+}
+
 .main-nav {
   background-color: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);

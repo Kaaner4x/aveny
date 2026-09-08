@@ -1,8 +1,8 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Aveny.Models;
+using NascCore.Models;
+using System.Diagnostics;
 
-namespace Aveny.Controllers;
+namespace NascCore.Controllers;
 
 public class HomeController : Controller
 {

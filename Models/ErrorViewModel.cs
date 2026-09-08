@@ -1,4 +1,4 @@
-namespace Aveny.Models;
+namespace NascCore.Models;
 
 public class ErrorViewModel
 {

@@ -1,5 +1,5 @@
-﻿/**
- * Aveny - Custom Application Scripts (aveny.js)
+/**
+ * NascCore - Custom Application Scripts (nasccore.js)
  * Clean, modular and error-free client side behaviors.
  */
 
