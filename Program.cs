@@ -26,6 +26,25 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Security Headers Middleware (Content Security Policy & XSS Protection)
+app.Use(async (context, next) =>
+{
+    // Content-Security-Policy: explicitly allow trusted sources, fonts, CDNs and disable unsafe eval
+    context.Response.Headers.Append("Content-Security-Policy",
+        "default-src 'self'; " +
+        "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; " +
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; " +
+        "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; " +
+        "img-src 'self' data: https:; " +
+        "connect-src 'self';");
+
+    context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
+    context.Response.Headers.Append("X-Frame-Options", "SAMEORIGIN");
+    context.Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
+
+    await next();
+});
+
 app.UseHttpsRedirection();
 app.UseRouting();
 

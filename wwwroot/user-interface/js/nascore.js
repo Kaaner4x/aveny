@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Nascore - Custom Application Scripts (Nascore.js)
  * Clean, modular and error-free client side behaviors.
  */
@@ -89,5 +89,35 @@
             }
         }
     });
+
+    // 7. Swiper Testimonials Slider
+    var $swiperContainer = $('.testimonials-swiper');
+    if ($swiperContainer.length && typeof Swiper !== 'undefined') {
+        new Swiper('.testimonials-swiper', {
+            loop: true,
+            speed: 700,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false
+            },
+            slidesPerView: 1,
+            spaceBetween: 24,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                clickable: true
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 24
+                }
+            }
+        });
+    }
 
 })(jQuery);

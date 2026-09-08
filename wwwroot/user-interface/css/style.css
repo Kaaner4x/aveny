@@ -14,13 +14,13 @@ VERSION:	1.0
 /*------------------------------------------------------------------
 [TABLE OF CONTENTS]
 -------------------------------------------------------------------*/
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Work+Sans:wght@400;600;700;800&subset=latin,latin-ext&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 html {
   overflow-x: hidden;
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-weight: 400;
@@ -34,8 +34,8 @@ p {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Work Sans", sans-serif;
-  color: #000;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #0a192f;
   font-weight: 600;
 }
 
@@ -81,7 +81,7 @@ h6, .h6 {
 }
 
 .btn {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   padding: 18px 38px;
   border: 2px solid transparent;
   text-transform: uppercase;
@@ -98,20 +98,20 @@ h6, .h6 {
 }
 
 .btn-main {
-  background: #f44336;
+  background: #007aff;
   color: #fff;
 }
 .btn-main:hover {
   color: #fff !important;
-  background: #000;
+  background: #0a192f;
 }
 
 .btn-black {
-  background: #000;
+  background: #0a192f;
   color: #fff;
 }
 .btn-black:hover {
-  background: #f44336;
+  background: #007aff;
   color: #fff;
 }
 
@@ -130,13 +130,13 @@ a {
   transition: all 0.25s ease;
 }
 a:hover {
-  color: #f44336;
+  color: #007aff;
   text-decoration: none;
   outline: none;
 }
 
 .bg-primary {
-  background: #f44336 !important;
+  background: #007aff !important;
 }
 
 .bg-secondary {
@@ -148,7 +148,7 @@ a:hover {
 }
 
 .text-color {
-  color: #f44336;
+  color: #007aff;
 }
 
 .page-title h1 {
@@ -163,7 +163,7 @@ a:hover {
   width: 40px;
   height: 2px;
   margin-left: -25px;
-  background: #f44336;
+  background: #007aff;
 }
 
 @media (max-width: 575px) {
@@ -205,7 +205,7 @@ header {
   border-bottom: 1px solid #eaeaea;
   padding: 8px 0;
   font-size: 13px;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -219,12 +219,12 @@ header {
 }
 
 .header-top-bar .top-contact-info a i {
-  color: #f44336;
+  color: #007aff;
   font-size: 14px;
 }
 
 .header-top-bar .top-contact-info a:hover {
-  color: #f44336;
+  color: #007aff;
 }
 
 .header-top-bar .top-social-links a {
@@ -236,7 +236,7 @@ header {
 }
 
 .header-top-bar .top-social-links a:hover {
-  color: #f44336;
+  color: #007aff;
   transform: translateY(-2px);
 }
 
@@ -248,6 +248,25 @@ header {
   transition: all 0.3s ease;
 }
 
+.brand-bukra-logo {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 0;
+  text-decoration: none !important;
+}
+
+.brand-bukra-logo .bukra-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 220px;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.brand-bukra-logo:hover .bukra-logo-img {
+  transform: scale(1.04);
+}
+
 .main-nav .header-top-socials a {
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -256,7 +275,7 @@ header {
 }
 
 .navbar-nav .nav-link {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   padding: 20px 15px !important;
   text-transform: uppercase;
   font-size: 14px;
@@ -265,10 +284,12 @@ header {
 }
 
 ul.dropdown-menu {
-  background: rgb(21, 21, 21);
-  border-radius: 0px;
+  background: #0a192f;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(10, 25, 47, 0.25);
   margin: 0px;
-  padding: 0px;
+  padding: 8px 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 ul.dropdown-menu > li > a, .navbar ul ul ul.dropdown-menu li .nav-link {
@@ -286,7 +307,7 @@ ul.dropdown-menu > li > a, .navbar ul ul ul.dropdown-menu li .nav-link {
   text-transform: uppercase;
 }
 ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hover {
-  color: #f44336;
+  color: #007aff;
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
@@ -411,14 +432,14 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   font-weight: 700;
 }
 .portfolio .btn-group .btn:hover {
-  color: #f44336;
+  color: #007aff;
 }
 .portfolio .btn-group:not(:first-child) > .btn, .portfolio .btn-group > .btn:not(:first-child) {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 .portfolio .btn.active {
-  color: #f44336;
+  color: #007aff;
 }
 
 .inner-box {
@@ -543,26 +564,286 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   position: relative;
 }
 
-.service-item i {
-  font-size: 35px;
-  float: left;
-  width: 65px;
-  height: 120px;
+.service-item {
+  display: flex;
+  align-items: flex-start;
 }
 
-.testimonial-content {
-  text-align: center;
+.service-item i {
+  font-size: 32px;
+  color: #007aff;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 18px;
+  margin-top: 2px;
+  float: none;
 }
-.testimonial-content {
-  padding: 25px;
+
+.service-item .service-content {
+  flex: 1;
+}
+
+.service-item .service-content h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0a192f;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.service-item .service-content p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+/* ==========================================================
+   Modern Testimonials Section (Swiper Cards Design)
+   ========================================================== */
+.testimonials-section {
+  position: relative;
+  background-color: #f8fafc;
+  overflow: hidden;
+}
+
+.testimonials-section .section-header {
+  margin-bottom: 45px;
+}
+
+.testimonials-section .section-header h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #0a192f;
+  letter-spacing: -0.5px;
+}
+
+.testimonials-section .section-header p {
+  color: #64748b;
+  font-size: 16px;
+  max-width: 600px;
+  margin: 8px auto 0 auto;
+}
+
+.testimonials-swiper {
+  padding-bottom: 60px !important;
   position: relative;
 }
-.testimonial-content i {
-  font-size: 60px;
+
+.testimonial-card-item {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 30px;
+  box-shadow: 0 10px 30px rgba(10, 25, 47, 0.05);
+  border: 1px solid #edf2f7;
+  transition: all 0.35s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 10px 4px;
 }
-.testimonial-content p {
-  margin-top: 30px;
-  margin-bottom: 25px;
+
+.testimonial-card-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(10, 25, 47, 0.1);
+  border-color: rgba(0, 122, 255, 0.25);
+}
+
+.testimonial-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.testimonial-card-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0f7ff;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.15);
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.testimonial-card-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0a192f;
+  margin-bottom: 3px;
+  line-height: 1.2;
+}
+
+.testimonial-card-info h4 {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.testimonial-card-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.testimonial-card-stars i {
+  color: #fbbf24;
+  font-size: 16px;
+  text-shadow: 0 0 6px rgba(251, 191, 36, 0.4);
+}
+
+.testimonial-card-body {
+  position: relative;
+  flex-grow: 1;
+}
+
+.testimonial-card-body p {
+  color: #334155;
+  font-size: 14.5px;
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 0;
+  position: relative;
+  padding: 0 10px;
+}
+
+.testimonial-card-body .quote-icon-left,
+.testimonial-card-body .quote-icon-right {
+  color: #007aff;
+  opacity: 0.35;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.testimonial-card-body .quote-icon-left {
+  margin-right: 6px;
+}
+
+.testimonial-card-body .quote-icon-right {
+  margin-left: 6px;
+}
+
+/* Swiper Pagination Custom Style */
+.testimonials-swiper .swiper-pagination {
+  bottom: 10px !important;
+}
+
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #cbd5e1;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  width: 28px;
+  border-radius: 10px;
+  background: #007aff !important;
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(0, 122, 255, 0.5);
+}
+
+.testimonial-stars:hover i.filled {
+  transform: scale(1.1);
+}
+
+/* Button to Trigger Review Modal */
+.btn-review-modal-trigger {
+  background: #ffffff;
+  color: #0a192f;
+  border: 2px solid #e2e8f0;
+  border-radius: 30px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(10, 25, 47, 0.05);
+  transition: all 0.3s ease;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.btn-review-modal-trigger:hover {
+  background: #007aff;
+  color: #ffffff;
+  border-color: #007aff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.25);
+}
+
+.btn-review-modal-trigger:hover i {
+  color: #ffffff !important;
+}
+
+/* Review Modal Styling */
+.review-modal-content {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 20px 40px rgba(10, 25, 47, 0.15);
+  padding: 10px;
+}
+
+.review-input {
+  border-radius: 8px !important;
+  border: 1px solid #cbd5e1 !important;
+  font-size: 14px !important;
+  padding: 10px 14px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-input:focus {
+  border-color: #007aff !important;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15) !important;
+}
+
+/* Interactive Star Rating Selector */
+.interactive-star-rating {
+  display: inline-flex;
+  gap: 10px;
+  padding: 8px 16px;
+  background: #f8fafc;
+  border-radius: 30px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+}
+
+.interactive-star-rating .star-item {
+  font-family: inherit !important;
+  font-style: normal;
+  font-size: 34px !important;
+  line-height: 1;
+  color: #cbd5e1;
+  transition: transform 0.15s ease, color 0.15s ease;
+  user-select: none;
+}
+
+.interactive-star-rating .star-item:before {
+  content: "★" !important;
+}
+
+.interactive-star-rating .star-item.active {
+  color: #fbbf24 !important;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
+
+.interactive-star-rating .star-item:hover {
+  transform: scale(1.25);
+}
+
+.rating-feedback-text {
+  display: block;
+  font-size: 13px;
+  color: #007aff;
+  margin-top: 6px;
 }
 
 .about-info h3 {
@@ -644,7 +925,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
 }
 .form-control:focus {
   box-shadow: none;
-  border-color: #f44336;
+  border-color: #007aff;
 }
 
 textarea.form-control {
@@ -667,7 +948,7 @@ textarea.form-control {
   width: 40px;
   height: 2px;
   margin-left: -25px;
-  background: #f44336;
+  background: #007aff;
 }
 
 .letter-spacing {
@@ -734,7 +1015,7 @@ textarea.form-control {
   flex-direction: column;
 }
 .post .post-meta {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -774,7 +1055,7 @@ textarea.form-control {
   transition: all 0.25s ease;
 }
 .post .post-content a:hover h4 {
-  color: #f44336;
+  color: #007aff;
 }
 
 .pagination {
@@ -790,11 +1071,11 @@ textarea.form-control {
   transition: 0.3s;
 }
 .pagination li a:hover {
-  background: #f44336;
+  background: #007aff;
   color: #fff;
 }
 .pagination li.active a {
-  background: #f44336;
+  background: #007aff;
   color: #fff;
 }
 
@@ -813,7 +1094,7 @@ textarea.form-control {
   bottom: 0px;
   width: 30px;
   height: 2px;
-  background: #000;
+  background: #007aff;
 }
 .sidebar-widget .follow a {
   margin-right: 10px;
@@ -858,7 +1139,7 @@ textarea.form-control {
   transition: color 0.25s ease;
 }
 .post-body a:hover h5 {
-  color: #f44336;
+  color: #007aff;
 }
 
 .single-post {
@@ -905,7 +1186,8 @@ textarea.form-control {
 }
 .footer {
   padding: 60px 0px;
-  background: #000;
+  background: #0a192f;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-widget a {
@@ -913,7 +1195,7 @@ textarea.form-control {
   text-transform: capitalize;
 }
 .footer-widget a:hover {
-  color: #f44336;
+  color: #007aff;
 }
 
 /* --- Hero (Banner) Enhancements --- */
@@ -969,7 +1251,7 @@ textarea.form-control {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #f44336;
+  background: #007aff;
   color: #fff;
   display: flex;
   align-items: center;
@@ -1000,10 +1282,10 @@ textarea.form-control {
 
 /* Hero CTA Buttons */
 .btn-hero-primary {
-  font-family: "Work Sans", sans-serif;
-  background: #f44336;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #007aff;
   color: #ffffff !important;
-  border: 2px solid #f44336;
+  border: 2px solid #007aff;
   padding: 14px 28px;
   font-size: 14px;
   font-weight: 700;
@@ -1011,24 +1293,24 @@ textarea.form-control {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 22px rgba(244, 67, 54, 0.32);
+  box-shadow: 0 8px 22px rgba(0, 122, 255, 0.35);
   display: inline-flex;
   align-items: center;
 }
 
 .btn-hero-primary:hover {
-  background: #000000;
-  border-color: #000000;
+  background: #0a192f;
+  border-color: #0a192f;
   color: #ffffff !important;
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 25px rgba(10, 25, 47, 0.3);
 }
 
 .btn-hero-secondary {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: transparent;
-  color: #151515 !important;
-  border: 2px solid #dedede;
+  color: #0a192f !important;
+  border: 2px solid #d0d7de;
   padding: 14px 28px;
   font-size: 14px;
   font-weight: 700;
@@ -1041,11 +1323,364 @@ textarea.form-control {
 }
 
 .btn-hero-secondary:hover {
-  background: #151515;
-  border-color: #151515;
+  background: #0a192f;
+  border-color: #0a192f;
   color: #ffffff !important;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(10, 25, 47, 0.2);
 }
 
-/*# sourceMappingURL=style.css.map */
+/* ==========================================================
+   About Page - Modern Skills & Aesthetic Image Card
+   ========================================================== */
+
+.skills-section {
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 1. Image Card with Glow & Depth */
+.about-image-card-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.about-glow-backdrop {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(0, 122, 255, 0.22) 0%, rgba(10, 25, 47, 0.08) 70%, transparent 100%);
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.about-image-container {
+  position: relative;
+  z-index: 2;
+  border-radius: 20px;
+  overflow: visible;
+}
+
+.about-main-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(10, 25, 47, 0.12), 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: block;
+}
+
+.about-image-container:hover .about-main-img {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(10, 25, 47, 0.18), 0 8px 20px rgba(0, 122, 255, 0.15);
+}
+
+/* 2. Floating Badges */
+.about-floating-badge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 18px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(10, 25, 47, 0.14), 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  z-index: 4;
+  animation: floatAboutBadge 4s ease-in-out infinite alternate;
+}
+
+.about-floating-badge.top-badge {
+  top: 25px;
+  left: -20px;
+}
+
+.about-floating-badge.bottom-badge {
+  bottom: 25px;
+  right: -20px;
+  animation-delay: 2s;
+}
+
+@keyframes floatAboutBadge {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.badge-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #ffffff;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.badge-icon-wrap.bg-navy {
+  background: linear-gradient(135deg, #0a192f, #1e3a5f);
+  box-shadow: 0 4px 12px rgba(10, 25, 47, 0.3);
+}
+
+.badge-icon-wrap.bg-blue {
+  background: linear-gradient(135deg, #007aff, #00c6ff);
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.35);
+}
+
+.badge-text-wrap strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0a192f;
+  line-height: 1.2;
+}
+
+.badge-text-wrap span {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* 3. Modern Progress Bars */
+.skills-subtitle {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #007aff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  background: rgba(0, 122, 255, 0.08);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.skills-title {
+  color: #0a192f;
+  font-size: 28px;
+  line-height: 1.35;
+}
+
+.modern-progress-wrapper {
+  padding: 20px 0;
+}
+
+.modern-progress-item {
+  margin-bottom: 28px;
+}
+
+.modern-progress-item:last-child {
+  margin-bottom: 0;
+}
+
+.progress-info-row {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.progress-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0a192f;
+  letter-spacing: -0.2px;
+}
+
+.progress-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: #007aff;
+  background: #f0f7ff;
+  border: 1px solid rgba(0, 122, 255, 0.18);
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.modern-progress-track {
+  width: 100%;
+  height: 12px;
+  background-color: #edf2f7;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  margin: 0;
+}
+
+.modern-progress-fill {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #0a192f 0%, #007aff 70%, #38bdf8 100%) !important;
+  box-shadow: 0 0 14px rgba(0, 122, 255, 0.4);
+  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* ==========================================================
+   Corporate About Sections (Stats, Mission/Vision, Process, CTA)
+   ========================================================== */
+
+/* 1. Stats Section */
+.bg-dark-navy {
+  background: #0a192f !important;
+}
+
+.stats-section {
+  position: relative;
+}
+
+.stat-counter-box {
+  padding: 30px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-counter-box:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 122, 255, 0.4);
+}
+
+.stat-counter-box .stat-icon {
+  font-size: 36px;
+  color: #007aff;
+  margin-bottom: 15px;
+}
+
+.stat-counter-box .stat-number {
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.stat-counter-box .stat-label {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+/* 2. Mission & Vision & Values Cards */
+.about-value-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 35px 28px;
+  box-shadow: 0 10px 30px rgba(10, 25, 47, 0.06);
+  border: 1px solid #edf2f7;
+  height: 100%;
+  transition: all 0.35s ease;
+}
+
+.about-value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(10, 25, 47, 0.12);
+  border-color: rgba(0, 122, 255, 0.3);
+}
+
+.about-value-card .value-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  background: rgba(0, 122, 255, 0.1);
+  color: #007aff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 22px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.about-value-card:hover .value-icon {
+  background: #007aff;
+  color: #ffffff;
+}
+
+.about-value-card h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0a192f;
+  margin-bottom: 12px;
+}
+
+.about-value-card p {
+  color: #64748b;
+  line-height: 1.65;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* 3. Process Steps */
+.process-step-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 22px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.process-step-box:hover {
+  transform: translateY(-5px);
+  border-color: #007aff;
+  box-shadow: 0 15px 30px rgba(0, 122, 255, 0.1);
+}
+
+.process-step-box .step-badge {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  color: #007aff;
+  background: #f0f7ff;
+  border: 1px solid rgba(0, 122, 255, 0.2);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.process-step-box h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0a192f;
+  margin-bottom: 10px;
+}
+
+.process-step-box p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* 4. About CTA Section */
+.about-cta-section {
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  position: relative;
+}
+
+.about-cta-section h2 {
+  font-size: 34px;
+}
+
+.about-cta-section .lead-text {
+  font-size: 16px;
+}
