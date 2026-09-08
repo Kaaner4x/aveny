@@ -1,8 +1,244 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Ana Sayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Banner Start -->
+<section class="section banner pb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h2 class="cd-headline clip is-full-width mb-4">
+                    Markanız İçin <br>
+                    <span class="cd-words-wrapper text-color">
+                        <b class="is-visible">Tasarım Çözümleri.</b>
+                        <b>Yaratıcı Fikirler.</b>
+                        <b>Dijital Deneyimler.</b>
+                        <b>Profesyonel İçerikler.</b>
+                    </span>
+                </h2>
+                <p class="lead-text mb-4">Modern web teknolojileri ve özgün tasarım anlayışıyla işletmenizin dijital dünyadaki varlığını güçlendiriyor, markanızı hedef kitlenizle en etkili şekilde buluşturuyoruz.</p>
+                <div class="banner-buttons d-flex flex-wrap align-items-center">
+                    <a href="#haberler" class="btn btn-hero-primary mr-3 mb-2">
+                        Projelerimizi İnceleyin <i class="ti-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#" class="btn btn-hero-secondary mb-2">
+                        İletişime Geçin
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mt-5 mt-lg-0 text-center">
+                <div class="hero-image-wrapper">
+                    <img src="~/user-interface/images/home-2.jpg" alt="Aveny Dijital Çözümler" class="img-fluid hero-img">
+                    <div class="hero-floating-badge">
+                        <div class="badge-icon">
+                            <i class="ti-check"></i>
+                        </div>
+                        <div class="badge-content text-left">
+                            <strong>%100 Memnuniyet</strong>
+                            <span>Özgün & Profesyonel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+
+    <!-- Haberler Başlık Start -->
+    <section id="haberler" class="page-title pt-4 pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h1 class="text-capitalize mb-0 text-lg">Haberler</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Haberler Başlık End -->
+
+    <!-- Haberler Listesi Start -->
+    <section class="section blog-post pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="post">
+                                <div class="image-content">
+                                    <a href="#">
+                                        <img src="~/user-interface/images/blog/minimal-1.jpg" alt="Haber Görseli" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span class="date text-sm"><i class="ti-calendar mr-1"></i>17 Haziran 2024</span>
+                                        <span class="meta-dot">•</span>
+                                        <span class="category text-sm">Tasarım</span>
+                                    </div>
+                                    <a href="#">
+                                        <h4>Yeni projeler ve sektörel gelişmeler hakkında önemli duyurular.</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="post">
+                                <div class="image-content">
+                                    <a href="#">
+                                        <img src="~/user-interface/images/blog/minimal-2.jpg" alt="Haber Görseli" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span class="date text-sm"><i class="ti-calendar mr-1"></i>15 Haziran 2024</span>
+                                        <span class="meta-dot">•</span>
+                                        <span class="category text-sm">Teknoloji</span>
+                                    </div>
+                                    <a href="#">
+                                        <h4>Modern web ve tasarım trendlerinde öne çıkan yenilikler.</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="post">
+                                <div class="image-content">
+                                    <a href="#">
+                                        <img src="~/user-interface/images/blog/minimal-3.jpg" alt="Haber Görseli" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span class="date text-sm"><i class="ti-calendar mr-1"></i>10 Haziran 2024</span>
+                                        <span class="meta-dot">•</span>
+                                        <span class="category text-sm">UX / UI</span>
+                                    </div>
+                                    <a href="#">
+                                        <h4>Kullanıcı deneyimi odaklı arayüz tasarımı çözümleri.</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="post">
+                                <div class="image-content">
+                                    <a href="#">
+                                        <img src="~/user-interface/images/blog/minimal-4.jpg" alt="Haber Görseli" class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span class="date text-sm"><i class="ti-calendar mr-1"></i>05 Haziran 2024</span>
+                                        <span class="meta-dot">•</span>
+                                        <span class="category text-sm">Yazılım</span>
+                                    </div>
+                                    <a href="#">
+                                        <h4>Geliştirme süreçlerinde verimliliği artıran yeni yaklaşımlar.</h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar-widget mt-5 mt-lg-0">
+                        <div class="widget mb-5 follow">
+                            <h4 class="mb-4 widget-title">Bizi Takip Edin</h4>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="ti-dribbble"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="widget mb-5">
+                            <h4 class="mb-4 widget-title">Popüler Haberler</h4>
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-flex mb-4 align-items-center">
+                                    <img src="~/user-interface/images/blog/s-1.jpg" alt="Haber" class="img-fluid mr-3 popular-post-img">
+                                    <div class="post-body">
+                                        <span class="text-muted d-block text-sm"><i class="ti-calendar mr-1"></i>18 Haziran 2024</span>
+                                        <a href="#">
+                                            <h5>Sektörde çığır açan yeni tasarım ilkeleri</h5>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="d-flex mb-4 align-items-center">
+                                    <img src="~/user-interface/images/blog/s-2.jpg" alt="Haber" class="img-fluid mr-3 popular-post-img">
+                                    <div class="post-body">
+                                        <span class="text-muted d-block text-sm"><i class="ti-calendar mr-1"></i>16 Haziran 2024</span>
+                                        <a href="#">
+                                            <h5>Dijital dönüşümde dikkat edilmesi gerekenler</h5>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="d-flex mb-4 align-items-center">
+                                    <img src="~/user-interface/images/blog/s-1.jpg" alt="Haber" class="img-fluid mr-3 popular-post-img">
+                                    <div class="post-body">
+                                        <span class="text-muted d-block text-sm"><i class="ti-calendar mr-1"></i>12 Haziran 2024</span>
+                                        <a href="#">
+                                            <h5>Etkili kullanıcı deneyimi için kritik ipuçları</h5>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="d-flex mb-4 align-items-center">
+                                    <img src="~/user-interface/images/blog/s-2.jpg" alt="Haber" class="img-fluid mr-3 popular-post-img">
+                                    <div class="post-body">
+                                        <span class="text-muted d-block text-sm"><i class="ti-calendar mr-1"></i>09 Haziran 2024</span>
+                                        <a href="#">
+                                            <h5>2026 web geliştirme trendleri ve yenilikler</h5>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <img src="~/user-interface/images/blog/s-1.jpg" alt="Haber" class="img-fluid mr-3 popular-post-img">
+                                    <div class="post-body">
+                                        <span class="text-muted d-block text-sm"><i class="ti-calendar mr-1"></i>04 Haziran 2024</span>
+                                        <a href="#">
+                                            <h5>Yapay zeka araçlarının kreatif süreçlere etkisi</h5>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pagination">
+                        <ul class="list-inline d-block mx-auto">
+                            <li class="list-inline-item">
+                                <a href="#">Önceki</a>
+                            </li>
+                            <li class="active list-inline-item">
+                                <a href="#"><span>1</span></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"><span>2</span></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"><span>3</span></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">Sonraki</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Haberler Listesi End -->

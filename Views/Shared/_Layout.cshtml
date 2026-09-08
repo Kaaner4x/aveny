@@ -1,50 +1,125 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="tr">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Aveny</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Aveny.styles.css" asp-append-version="true" />
+
+    <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Work+Sans:wght@400;500;600;700;800&subset=latin,latin-ext&display=swap" rel="stylesheet">
+
+    <!-- Plugins Needed for the Project -->
+    <link rel="stylesheet" href="~/user-interface/plugins/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/user-interface/plugins/themify/css/themify-icons.css" />
+    <link rel="stylesheet" href="~/user-interface/plugins/counto/animate.css" />
+    <link rel="stylesheet" href="~/user-interface/plugins/aos/aos.css" />
+    <link rel="stylesheet" href="~/user-interface/plugins/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/user-interface/plugins/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="~/user-interface/plugins/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="~/user-interface/plugins/animated-text/animated-text.css" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="~/user-interface/css/style.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Aveny</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <nav class="navbar navbar-expand-lg  main-nav " id="navbar">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/user-interface/images/logo.png" alt="Aveny Logo" class="img-fluid">
+                </a>
+
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                        data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="ti-align-justify"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+                <div class="collapse navbar-collapse" id="navbarsExample09">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Ana Sayfa -->
+                        <li class="nav-item active"><a class="nav-link" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+
+                        <!-- Hakkımızda -->
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Hakkımızda</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">Portfolyo</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown02">
+                                <li><a class="dropdown-item" href="#">Portfolyo Masonry</a></li>
+                                <li><a class="dropdown-item" href="#">Portfolyo Lightbox</a></li>
+                                <li><a class="dropdown-item" href="#">Portfolyo 2 Sütun</a></li>
+                                <li><a class="dropdown-item" href="#">Portfolyo Detayı</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">Haberler</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                                <li><a class="dropdown-item" href="#">Tüm Haberler</a></li>
+                                <li><a class="dropdown-item" href="#">Haber Detayı</a></li>
+                            </ul>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="#">İletişim</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <!-- Footer start -->
+    <section class="footer">
         <div class="container">
-            &copy; 2026 - Aveny - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row ">
+                <div class="col-lg-6">
+                    <p class="mb-0 text-white">
+                        © @DateTime.Now.Year <strong>Aveny</strong> - Tüm hakları saklıdır. <br>
+                        <small class="text-white-50">
+                            Tasarım Altyapısı: <a target="_blank" href="https://themefisher.com" class="text-white-50">Themefisher</a> & <a target="_blank" href="https://themewagon.com" class="text-white-50">ThemeWagon</a>
+                        </small>
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="widget footer-widget text-lg-right mt-5 mt-lg-0">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-facebook mr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-twitter mr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-github mr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-pinterest mr-3"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-dribbble mr-3"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+    </section>
+                <!-- Footer End -->
+
+                <!-- jQuery -->
+                <script src="~/user-interface/plugins/jQuery/jquery.min.js"></script>
+
+                <!-- Bootstrap JS -->
+                <script src="~/user-interface/plugins/bootstrap/bootstrap.min.js"></script>
+                <script src="~/user-interface/plugins/aos/aos.js"></script>
+                <script src="~/user-interface/plugins/owl-carousel/owl.carousel.min.js"></script>
+                <script src="~/user-interface/plugins/shuffle/shuffle.min.js"></script>
+                <script src="~/user-interface/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+                <script src="~/user-interface/plugins/animated-text/animated-text.js"></script>
+                <script src="~/user-interface/plugins/counto/apear.js"></script>
+                <script src="~/user-interface/plugins/counto/counTo.js"></script>
+
+                <!-- Main Script -->
+                <script src="~/user-interface/js/aveny.js" asp-append-version="true"></script>
+                @await RenderSectionAsync("Scripts", required: false)
+            </body>
+
+        </html>
