@@ -1,4 +1,4 @@
-namespace NascCore.Models;
+namespace Nascore.Models;
 
 public class ErrorViewModel
 {

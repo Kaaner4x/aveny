@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using NascCore.Models;
+using Nascore.Models;
 using System.Diagnostics;
 
-namespace NascCore.Controllers;
+namespace Nascore.Controllers;
 
 public class HomeController : Controller
 {

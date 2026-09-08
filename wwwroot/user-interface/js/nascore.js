@@ -1,5 +1,5 @@
-/**
- * NascCore - Custom Application Scripts (nasccore.js)
+﻿/**
+ * Nascore - Custom Application Scripts (Nascore.js)
  * Clean, modular and error-free client side behaviors.
  */
 
