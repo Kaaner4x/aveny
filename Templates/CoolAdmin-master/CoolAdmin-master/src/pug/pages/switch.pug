@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Toggle switches", "description": "Modern toggle switches and Bootstrap 5 form-check examples." }
+  - var activePage = 'switch.html'
+
+block content
+  include ../partials/content/switch.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

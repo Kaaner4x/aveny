@@ -1,0 +1,125 @@
+                        <div class="page-header invoice-actions">
+                            <div>
+                                <h1>Invoice INV-2026-05</h1>
+                                <p class="subtitle">Billing period &middot; May 1 – May 31, 2026</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="m-btn m-btn--ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> Print</button>
+                                <button type="button" class="m-btn m-btn--ghost" onclick="window.toast && window.toast.success('Invoice downloaded')"><i class="fa-solid fa-download"></i> Download PDF</button>
+                                <button type="button" class="m-btn m-btn--primary" onclick="window.toast && window.toast.success('Invoice sent')"><i class="fa-regular fa-paper-plane"></i> Send</button>
+                            </div>
+                        </div>
+
+                        <article class="invoice-doc">
+                            <header class="invoice-doc__head">
+                                <div class="invoice-doc__brand">
+                                    <span class="logo-mark" aria-hidden="true">C</span>
+                                    <span class="logo-text">CoolAdmin</span>
+                                </div>
+                                <div class="invoice-doc__title-wrap">
+                                    <h1>INVOICE</h1>
+                                    <p>#INV-2026-05 &middot; Issued May 1, 2026</p>
+                                </div>
+                            </header>
+
+                            <div class="invoice-doc__parties">
+                                <div class="invoice-doc__party">
+                                    <h6>From</h6>
+                                    <p>
+                                        <strong>CoolAdmin Inc.</strong>
+                                        420 Market Street, Suite 800<br>
+                                        San Francisco, CA 94102<br>
+                                        billing@cooladmin.com
+                                    </p>
+                                </div>
+                                <div class="invoice-doc__party">
+                                    <h6>Bill to</h6>
+                                    <p>
+                                        <strong>Acme Corp.</strong>
+                                        Attn: Diane Myers<br>
+                                        1200 Innovation Way<br>
+                                        Berlin, 10115, Germany<br>
+                                        billing@acme-corp.com
+                                    </p>
+                                </div>
+                                <div class="invoice-doc__party" style="text-align: right;">
+                                    <h6>Invoice details</h6>
+                                    <p>
+                                        <strong>Due May 15, 2026</strong>
+                                        Issued May 1, 2026<br>
+                                        Net 14<br>
+                                        ID: INV-2026-05
+                                    </p>
+                                </div>
+                            </div>
+
+                            <table class="invoice-doc__lines">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th class="num" style="width: 80px;">Qty</th>
+                                        <th class="num" style="width: 120px;">Rate</th>
+                                        <th class="num" style="width: 120px;">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong style="color: var(--m-text); font-weight: 500;">Pro plan</strong><br>
+                                            <span style="font-size: 12px; color: var(--m-text-muted);">10 user seats &middot; May 1 – May 31, 2026</span>
+                                        </td>
+                                        <td class="num">1</td>
+                                        <td class="num">$240.00</td>
+                                        <td class="num">$240.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong style="color: var(--m-text); font-weight: 500;">API credits</strong><br>
+                                            <span style="font-size: 12px; color: var(--m-text-muted);">Overage &mdash; 50,000 additional API calls</span>
+                                        </td>
+                                        <td class="num">50,000</td>
+                                        <td class="num">$0.0008</td>
+                                        <td class="num">$40.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong style="color: var(--m-text); font-weight: 500;">Storage</strong><br>
+                                            <span style="font-size: 12px; color: var(--m-text-muted);">Add-on &mdash; extra 100 GB</span>
+                                        </td>
+                                        <td class="num">1</td>
+                                        <td class="num">$15.00</td>
+                                        <td class="num">$15.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong style="color: var(--m-text); font-weight: 500;">Priority support</strong><br>
+                                            <span style="font-size: 12px; color: var(--m-text-muted);">Same-business-day response SLA</span>
+                                        </td>
+                                        <td class="num">1</td>
+                                        <td class="num">$50.00</td>
+                                        <td class="num">$50.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="invoice-doc__totals">
+                                <tr><td>Subtotal</td><td>$345.00</td></tr>
+                                <tr><td>Discount (10% annual)</td><td>−$34.50</td></tr>
+                                <tr><td>VAT (19% — Germany)</td><td>$59.00</td></tr>
+                                <tr class="invoice-doc__grand"><td>Total due</td><td>$369.50</td></tr>
+                            </table>
+
+                            <div class="invoice-doc__notes">
+                                <p style="margin: 0 0 8px; color: var(--m-text); font-weight: 600;">Payment instructions</p>
+                                <p style="margin: 0;">Bank transfer to <strong style="color: var(--m-text);">CoolAdmin Inc.</strong> · Wells Fargo · Account 0123 4567 8901 · Routing 121 000 248 · SWIFT WFBIUS6S. Reference INV-2026-05 in your transfer.</p>
+                                <p style="margin: 16px 0 0;">Thank you for your business. Questions? Reply to this email or contact <a href="mailto:billing@cooladmin.com" style="color: var(--m-accent);">billing@cooladmin.com</a>.</p>
+                            </div>
+                        </article>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

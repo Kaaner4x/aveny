@@ -1,0 +1,227 @@
+                        <!-- Page header -->
+                        <div class="page-header">
+                            <div>
+                                <h1>Marketing analytics</h1>
+                                <p class="subtitle">Traffic, conversions, and the channels driving them.</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="date-chip" aria-label="Date range: last 28 days">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    Last 28 days
+                                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="m-btn m-btn--ghost" id="dash-refresh-btn" aria-label="Refresh dashboard data">
+                                    <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+                                    Refresh
+                                </button>
+                                <button type="button" class="m-btn m-btn--ghost">
+                                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                                    Export
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- KPI strip -->
+                        <div class="row row-tight">
+                            <div class="col-sm-6 col-lg-3">
+                                <article class="stat-card">
+                                    <div class="stat-card__head">
+                                        <p class="stat-card__label">Visitors</p>
+                                        <span class="stat-card__icon stat-card__icon--c1"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="stat-card__value">84,290</p>
+                                    <p class="stat-card__delta stat-card__delta--up">
+                                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>18.2% <span class="stat-card__delta-period">vs prev 28d</span>
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <article class="stat-card">
+                                    <div class="stat-card__head">
+                                        <p class="stat-card__label">Sessions</p>
+                                        <span class="stat-card__icon stat-card__icon--c2"><i class="fa-solid fa-eye" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="stat-card__value">142,180</p>
+                                    <p class="stat-card__delta stat-card__delta--up">
+                                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>22.4% <span class="stat-card__delta-period">vs prev 28d</span>
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <article class="stat-card">
+                                    <div class="stat-card__head">
+                                        <p class="stat-card__label">Bounce rate</p>
+                                        <span class="stat-card__icon stat-card__icon--c3"><i class="fa-solid fa-arrow-trend-down" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="stat-card__value">38.4%</p>
+                                    <p class="stat-card__delta stat-card__delta--down">
+                                        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>2.1pp <span class="stat-card__delta-period">vs prev 28d</span>
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <article class="stat-card">
+                                    <div class="stat-card__head">
+                                        <p class="stat-card__label">Avg session</p>
+                                        <span class="stat-card__icon stat-card__icon--c4"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="stat-card__value">4m 12s</p>
+                                    <p class="stat-card__delta stat-card__delta--up">
+                                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>14s <span class="stat-card__delta-period">vs prev 28d</span>
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- Traffic trend + Sources donut -->
+                        <div class="row row-tight" style="margin-top: 16px;">
+                            <div class="col-lg-8">
+                                <section class="m-card" aria-labelledby="traffic-title">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title" id="traffic-title">Traffic over time</h2>
+                                            <p class="m-card__subtitle">Daily visitors vs. sessions, last 28 days.</p>
+                                        </div>
+                                    </header>
+                                    <div style="height: 280px; position: relative;">
+                                        <canvas id="traffic-trend"></canvas>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4">
+                                <section class="m-card" aria-labelledby="sources-donut-title">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title" id="sources-donut-title">Traffic sources</h2>
+                                            <p class="m-card__subtitle">Share of incoming traffic.</p>
+                                        </div>
+                                    </header>
+                                    <div class="donut-wrap">
+                                        <canvas id="traffic-sources"></canvas>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
+                        <!-- Top pages + Top referrers -->
+                        <div class="row row-tight" style="margin-top: 16px;">
+                            <div class="col-lg-6">
+                                <section class="m-card" aria-labelledby="pages-title">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title" id="pages-title">Top pages</h2>
+                                            <p class="m-card__subtitle">Most-visited URLs in the last 28 days.</p>
+                                        </div>
+                                        <a href="#" class="m-btn m-btn--ghost" style="height:30px; padding:0 10px; font-size:12.5px;">View all</a>
+                                    </header>
+                                    <ul class="rank-list">
+                                        <li>
+                                            <span class="rank-list__rank">1</span>
+                                            <span class="rank-list__title">/                          (homepage)</span>
+                                            <span class="rank-list__value">28,420</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 100%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">2</span>
+                                            <span class="rank-list__title">/pricing</span>
+                                            <span class="rank-list__value">14,860</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 52%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">3</span>
+                                            <span class="rank-list__title">/blog/q1-product-launch</span>
+                                            <span class="rank-list__value">11,240</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 40%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">4</span>
+                                            <span class="rank-list__title">/features</span>
+                                            <span class="rank-list__value">8,920</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 31%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">5</span>
+                                            <span class="rank-list__title">/docs</span>
+                                            <span class="rank-list__value">6,480</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 23%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">6</span>
+                                            <span class="rank-list__title">/about</span>
+                                            <span class="rank-list__value">4,860</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 17%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">7</span>
+                                            <span class="rank-list__title">/changelog</span>
+                                            <span class="rank-list__value">3,140</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 11%;"></span>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                            <div class="col-lg-6">
+                                <section class="m-card" aria-labelledby="referrers-title">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title" id="referrers-title">Top referrers</h2>
+                                            <p class="m-card__subtitle">External sites driving traffic.</p>
+                                        </div>
+                                        <a href="#" class="m-btn m-btn--ghost" style="height:30px; padding:0 10px; font-size:12.5px;">View all</a>
+                                    </header>
+                                    <ul class="rank-list">
+                                        <li>
+                                            <span class="rank-list__rank">1</span>
+                                            <span class="rank-list__title">google.com</span>
+                                            <span class="rank-list__value">22,140</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 100%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">2</span>
+                                            <span class="rank-list__title">producthunt.com</span>
+                                            <span class="rank-list__value">8,920</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 40%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">3</span>
+                                            <span class="rank-list__title">news.ycombinator.com</span>
+                                            <span class="rank-list__value">6,420</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 29%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">4</span>
+                                            <span class="rank-list__title">linkedin.com</span>
+                                            <span class="rank-list__value">4,820</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 22%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">5</span>
+                                            <span class="rank-list__title">x.com</span>
+                                            <span class="rank-list__value">3,580</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 16%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">6</span>
+                                            <span class="rank-list__title">github.com</span>
+                                            <span class="rank-list__value">2,940</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 13%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">7</span>
+                                            <span class="rank-list__title">reddit.com</span>
+                                            <span class="rank-list__value">1,820</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 8%;"></span>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

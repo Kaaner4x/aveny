@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Forms", "description": "Bootstrap 5 form components: inputs, selects, validation, and grouped controls." }
+  - var activePage = 'form.html'
+
+block content
+  include ../partials/content/form.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

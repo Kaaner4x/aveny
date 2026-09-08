@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Account & settings", "description": "Profile, security, notifications, billing, and API keys settings." }
+  - var activePage = 'profile.html'
+
+block content
+  include ../partials/content/profile.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

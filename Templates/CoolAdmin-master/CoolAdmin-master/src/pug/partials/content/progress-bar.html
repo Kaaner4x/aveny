@@ -1,0 +1,106 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Progress bars</h1>
+                                <p class="subtitle">Linear progress bars, labelled usage indicators, ranked lists with inline bars, and SVG circular rings.</p>
+                            </div>
+                        </div>
+
+                        <h5 class="section-eyebrow" style="margin-bottom: 8px;">DEFAULT PROGRESS BARS</h5>
+                        <section class="m-card">
+                            <header class="m-card__header"><div><h2 class="m-card__title">Bootstrap progress with brand colors</h2></div></header>
+                            <div style="display:flex;flex-direction:column;gap:12px;">
+                                <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:25%;">25%</div></div>
+                                <div class="progress" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-success" style="width:50%;">50%</div></div>
+                                <div class="progress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-warning" style="width:75%;">75%</div></div>
+                                <div class="progress" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-danger" style="width:92%;">92%</div></div>
+                            </div>
+                        </section>
+
+                        <h5 class="section-eyebrow" style="margin: 28px 0 8px;">LABELED PROGRESS</h5>
+                        <section class="m-card">
+                            <header class="m-card__header"><div><h2 class="m-card__title">Used in usage / quota displays</h2><p class="m-card__subtitle">Same pattern from the billing tab in profile.</p></div></header>
+                            <div class="au-progress" style="margin-bottom: 14px;">
+                                <span class="au-progress__title">API calls &middot; 412k of 500k</span>
+                                <div class="au-progress__bar"><div class="au-progress__inner" style="width:82%;"></div></div>
+                            </div>
+                            <div class="au-progress" style="margin-bottom: 14px;">
+                                <span class="au-progress__title">Storage &middot; 24 GB of 100 GB</span>
+                                <div class="au-progress__bar"><div class="au-progress__inner" style="width:24%;"></div></div>
+                            </div>
+                            <div class="au-progress" style="margin-bottom: 14px;">
+                                <span class="au-progress__title">Team seats &middot; 6 of 10</span>
+                                <div class="au-progress__bar"><div class="au-progress__inner" style="width:60%;"></div></div>
+                            </div>
+                            <div class="au-progress">
+                                <span class="au-progress__title">Bandwidth &middot; 950 GB of 1 TB</span>
+                                <div class="au-progress__bar"><div class="au-progress__inner" style="width:95%;"></div></div>
+                            </div>
+                        </section>
+
+                        <h5 class="section-eyebrow" style="margin: 28px 0 8px;">RANK LIST WITH BARS</h5>
+                        <section class="m-card">
+                            <header class="m-card__header"><div><h2 class="m-card__title">Top-N rankings</h2><p class="m-card__subtitle">Each row carries an inline progress bar showing relative scale.</p></div></header>
+                            <ul class="rank-list">
+                                <li>
+                                    <span class="rank-list__rank">1</span>
+                                    <span class="rank-list__title">Q1 product launch — paid</span>
+                                    <span class="rank-list__value">$74,310</span>
+                                    <span class="rank-list__bar" style="--rank-pct: 100%;"></span>
+                                </li>
+                                <li>
+                                    <span class="rank-list__rank">2</span>
+                                    <span class="rank-list__title">Black Friday early access</span>
+                                    <span class="rank-list__value">$58,920</span>
+                                    <span class="rank-list__bar" style="--rank-pct: 79%;"></span>
+                                </li>
+                                <li>
+                                    <span class="rank-list__rank">3</span>
+                                    <span class="rank-list__title">Spring sale — apparel</span>
+                                    <span class="rank-list__value">$42,165</span>
+                                    <span class="rank-list__bar" style="--rank-pct: 57%;"></span>
+                                </li>
+                                <li>
+                                    <span class="rank-list__rank">4</span>
+                                    <span class="rank-list__title">Reactivation email flow</span>
+                                    <span class="rank-list__value">$36,400</span>
+                                    <span class="rank-list__bar" style="--rank-pct: 49%;"></span>
+                                </li>
+                                <li>
+                                    <span class="rank-list__rank">5</span>
+                                    <span class="rank-list__title">Affiliate partner push</span>
+                                    <span class="rank-list__value">$24,850</span>
+                                    <span class="rank-list__bar" style="--rank-pct: 33%;"></span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <h5 class="section-eyebrow" style="margin: 28px 0 8px;">CIRCULAR PROGRESS</h5>
+                        <section class="m-card">
+                            <header class="m-card__header"><div><h2 class="m-card__title">SVG circular progress rings</h2><p class="m-card__subtitle">Pure CSS / SVG, no library required.</p></div></header>
+                            <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:center;">
+                                <div class="circular-progress" style="--pct:75; --color:var(--m-c1);">
+                                    <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" class="bg"/><circle cx="18" cy="18" r="15.9155" class="fg"/></svg>
+                                    <div class="circular-progress__label"><strong>75%</strong><span>Storage</span></div>
+                                </div>
+                                <div class="circular-progress" style="--pct:42; --color:var(--m-c2);">
+                                    <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" class="bg"/><circle cx="18" cy="18" r="15.9155" class="fg"/></svg>
+                                    <div class="circular-progress__label"><strong>42%</strong><span>Memory</span></div>
+                                </div>
+                                <div class="circular-progress" style="--pct:88; --color:var(--m-c3);">
+                                    <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" class="bg"/><circle cx="18" cy="18" r="15.9155" class="fg"/></svg>
+                                    <div class="circular-progress__label"><strong>88%</strong><span>CPU</span></div>
+                                </div>
+                                <div class="circular-progress" style="--pct:24; --color:var(--m-c4);">
+                                    <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" class="bg"/><circle cx="18" cy="18" r="15.9155" class="fg"/></svg>
+                                    <div class="circular-progress__label"><strong>24%</strong><span>Network</span></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

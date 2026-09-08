@@ -1,0 +1,79 @@
+/* ============================================================================
+   Mobile header — restore notification cluster
+   The grid layout above keeps things deterministic; we can safely show the
+   3 bells now, just need to make sure their dropdowns don't punch off the
+   left edge of narrow phones (legacy CSS positions them with a 320px width
+   anchored to a 38px bell).
+   ============================================================================ */
+
+@media (max-width: 991.98px) {
+    /* Show the bells again — overrides the earlier `display: none` rules */
+    body.app .header-wrap > .header-button .noti-wrap {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0 !important;
+    }
+
+    /* Compact bell sizing on mobile so 3 bells + avatar fit alongside the
+       hamburger comfortably even on a 360px phone */
+    body.app .header-wrap .noti__item {
+        width: 36px !important;
+        height: 36px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 8px !important;
+        flex-shrink: 0 !important;
+    }
+    body.app .header-wrap .noti__item > i {
+        font-size: 15px !important;
+    }
+    body.app .header-wrap .noti__item .quantity {
+        top: 6px !important;
+        right: 6px !important;
+    }
+
+    /* Account avatar — stays on the right after the bells */
+    body.app .header-wrap .header-button {
+        gap: 2px !important;
+    }
+
+    /* All 4 dropdown panels (messages / emails / notifications / account) —
+       on mobile, render them as a fixed sheet that sits below the header
+       at full width minus 12px gutters. This avoids the legacy
+       `position: absolute; right: 0; min-width: 320px` punching off the
+       left edge of narrow viewports. */
+    body.app .noti__item .mess-dropdown,
+    body.app .noti__item .email-dropdown,
+    body.app .noti__item .notifi-dropdown,
+    body.app .account-wrap .account-dropdown {
+        position: fixed !important;
+        top: 66px !important;        /* 60px header + 6px gap */
+        left: 12px !important;
+        right: 12px !important;
+        bottom: auto !important;
+        width: auto !important;
+        max-width: calc(100vw - 24px) !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        max-height: calc(100vh - 80px) !important;
+        overflow-y: auto !important;
+        z-index: 1100 !important;
+    }
+    /* Drop the little CSS triangle arrows entirely on mobile (they don't
+       point at anything sensible when the dropdown is full-width). */
+    body.app .mess-dropdown:before,
+    body.app .email-dropdown:before,
+    body.app .notifi-dropdown:before,
+    body.app .account-dropdown:after {
+        display: none !important;
+    }
+}
+
+/* Tiny phones — drop the messages bell to save space (keep emails + notifications) */
+@media (max-width: 419.98px) {
+    body.app .header-wrap .noti-wrap > .noti__item:first-child {
+        display: none !important;
+    }
+}
+
+

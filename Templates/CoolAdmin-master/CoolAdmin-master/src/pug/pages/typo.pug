@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Typography", "description": "Typography hierarchy, headings, body text, and utility classes." }
+  - var activePage = 'typo.html'
+
+block content
+  include ../partials/content/typo.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

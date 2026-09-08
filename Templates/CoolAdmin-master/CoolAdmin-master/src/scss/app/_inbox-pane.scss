@@ -1,0 +1,307 @@
+/* ============================================================================
+   Inbox — interactive split-pane email experience
+   Layout:
+     Desktop (>= 992px):  [list pane (5/12)] [reader pane (7/12)]
+     Mobile  (< 992px):   [list pane only — reader slides in as overlay]
+   ============================================================================ */
+
+body.app .inbox-split {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 16px;
+    align-items: start;
+}
+body.app .inbox-list-pane {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    overflow: hidden;
+    min-width: 0;
+}
+body.app .inbox-reader-pane {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 100px);
+    min-width: 0;
+}
+body.app .inbox-reader__empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 24px;
+    text-align: center;
+}
+body.app .inbox-reader__empty .empty-state__icon {
+    margin-bottom: 16px;
+}
+body.app .inbox-reader__header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--m-divider);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+body.app .inbox-reader__header > div:first-child { min-width: 0; flex: 1; }
+body.app .inbox-reader__subject {
+    font-family: var(--m-font);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--m-text);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+body.app .inbox-reader__labels {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+body.app .inbox-reader__actions {
+    display: inline-flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+body.app .inbox-reader__back {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border: 0;
+    background: transparent;
+    color: var(--m-text-muted);
+    border-radius: 6px;
+    font-family: var(--m-font);
+    font-size: 13px;
+    cursor: pointer;
+}
+body.app .inbox-reader__back:hover {
+    background: var(--m-surface-2);
+    color: var(--m-text);
+}
+body.app .inbox-reader__sender {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--m-divider);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+body.app .inbox-reader__sender-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+body.app .inbox-reader__sender-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+body.app .inbox-reader__sender-info { flex: 1; min-width: 0; }
+body.app .inbox-reader__sender-name {
+    margin: 0;
+    font-family: var(--m-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--m-text);
+}
+body.app .inbox-reader__sender-meta {
+    margin: 2px 0 0;
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+}
+body.app .inbox-reader__sender-meta strong {
+    color: var(--m-text);
+    font-weight: 500;
+}
+body.app .inbox-reader__date {
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    color: var(--m-text-faint);
+    flex-shrink: 0;
+}
+body.app .inbox-reader__body {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+    color: var(--m-text);
+    font-family: var(--m-font);
+    font-size: 14px;
+    line-height: 1.65;
+}
+body.app .inbox-reader__body p { margin: 0 0 14px; }
+body.app .inbox-reader__body p:last-child { margin-bottom: 0; }
+body.app .inbox-reader__body strong { color: var(--m-text); font-weight: 600; }
+body.app .inbox-reader__body a { color: var(--m-accent); text-decoration: none; }
+body.app .inbox-reader__body a:hover { text-decoration: underline; }
+body.app .inbox-reader__body ul,
+body.app .inbox-reader__body ol {
+    margin: 0 0 14px;
+    padding-left: 22px;
+}
+body.app .inbox-reader__body li { margin-bottom: 4px; }
+body.app .inbox-reader__body blockquote {
+    margin: 14px 0;
+    padding: 8px 16px;
+    border-left: 3px solid var(--m-divider);
+    color: var(--m-text-muted);
+    font-style: italic;
+}
+body.app .inbox-reader__attachments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 24px 0;
+    border-top: 1px solid var(--m-divider);
+}
+body.app .inbox-reader__attachment {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--m-surface-2);
+    border: 1px solid var(--m-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 120ms ease;
+    text-decoration: none;
+    color: inherit;
+    min-width: 0;
+}
+body.app .inbox-reader__attachment:hover { border-color: var(--m-accent); }
+body.app .inbox-reader__attachment-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+body.app .inbox-reader__attachment-info { min-width: 0; }
+body.app .inbox-reader__attachment-name {
+    font-family: var(--m-font);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--m-text);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+body.app .inbox-reader__attachment-size {
+    font-family: var(--m-font);
+    font-size: 11.5px;
+    color: var(--m-text-faint);
+    margin: 2px 0 0;
+}
+body.app .inbox-reader__quick-reply {
+    padding: 14px 24px 18px;
+    border-top: 1px solid var(--m-divider);
+    background: var(--m-surface-2);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-radius: 0 0 var(--m-radius) var(--m-radius);
+}
+body.app .inbox-reader__quick-reply input {
+    flex: 1;
+    height: 36px;
+    padding: 0 14px;
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: 999px;
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    color: var(--m-text);
+    outline: none;
+}
+body.app .inbox-reader__quick-reply input:focus {
+    border-color: var(--m-accent);
+    box-shadow: 0 0 0 3px rgba(var(--m-accent-rgb), 0.15);
+}
+body.app .inbox-reader__quick-reply button {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--m-accent);
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+body.app .inbox-reader__quick-reply button:hover { background: var(--m-accent-hover); }
+
+/* Active email row in the list */
+body.app .email-list .email-item.is-active {
+    background: var(--m-accent-soft);
+}
+body.app .email-list .email-item.is-active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--m-accent);
+}
+body.app .email-list .email-item.is-active.is-unread::before {
+    /* Keep the rail (unread also has a rail) */
+    top: 0;
+    bottom: 0;
+}
+
+/* List pane chrome — wrap the toolbar/list/pagination already inside an m-card-equivalent */
+body.app .inbox-list-pane .inbox-toolbar {
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .inbox-list-pane .email-list {
+    max-height: calc(100vh - 320px);
+    overflow-y: auto;
+}
+
+/* MOBILE — reader slides in as full-screen overlay */
+@media (max-width: 991.98px) {
+    body.app .inbox-split {
+        grid-template-columns: 1fr;
+    }
+    body.app .inbox-reader-pane {
+        position: fixed;
+        inset: 60px 0 0 0;
+        margin: 0;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        z-index: 800;
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+        max-height: none;
+        background: var(--m-bg);
+    }
+    body.app.inbox-reader-open .inbox-reader-pane {
+        transform: translateX(0);
+    }
+    body.app.inbox-reader-open .inbox-reader__back {
+        display: inline-flex;
+    }
+    /* When reader is open on mobile, prevent body scroll */
+    body.app.inbox-reader-open {
+        overflow: hidden;
+    }
+}
+

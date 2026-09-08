@@ -1,0 +1,255 @@
+                        <!-- Page header -->
+                        <div class="page-header">
+                            <div>
+                                <h1>Sales pipeline</h1>
+                                <p class="subtitle">Active deals across stages, top performers, and where the pipeline is coming from.</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="date-chip" aria-label="Date range: this quarter">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    This quarter
+                                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="m-btn m-btn--ghost" id="dash-refresh-btn" aria-label="Refresh dashboard data">
+                                    <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+                                    Refresh
+                                </button>
+                                <button type="button" class="m-btn m-btn--primary">
+                                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                    New deal
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- KPI strip -->
+                        <div class="row row-tight">
+                            <div class="col-sm-6 col-lg-3">
+                                <article class="stat-card">
+                                    <div class="stat-card__head">
+                                        <p class="stat-card__label">Active deals</p>
+                                        <span class="stat-card__icon stat-card__icon--c1"><i class="fa-solid fa-handshake" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="stat-card__value">127</p>
+                                    <p class="stat-card__delta stat-card__delta--up">
+                                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>12 <span class="stat-card__delta-period">vs last quarter</span>
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <article class="stat-card">
+                                    <div class="stat-card__head">
+                                        <p class="stat-card__label">Pipeline value</p>
+                                        <span class="stat-card__icon stat-card__icon--c2"><i class="fa-solid fa-dollar-sign" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="stat-card__value">$1.24M</p>
+                                    <p class="stat-card__delta stat-card__delta--up">
+                                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>8.5% <span class="stat-card__delta-period">vs last quarter</span>
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <article class="stat-card">
+                                    <div class="stat-card__head">
+                                        <p class="stat-card__label">Won this month</p>
+                                        <span class="stat-card__icon stat-card__icon--c3"><i class="fa-solid fa-trophy" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="stat-card__value">24</p>
+                                    <p class="stat-card__delta stat-card__delta--up">
+                                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>4 <span class="stat-card__delta-period">vs last month</span>
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <article class="stat-card">
+                                    <div class="stat-card__head">
+                                        <p class="stat-card__label">Win rate</p>
+                                        <span class="stat-card__icon stat-card__icon--c4"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="stat-card__value">32%</p>
+                                    <p class="stat-card__delta stat-card__delta--up">
+                                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>2pp <span class="stat-card__delta-period">vs last quarter</span>
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- Funnel + Top reps -->
+                        <div class="row row-tight" style="margin-top: 16px;">
+                            <div class="col-lg-8">
+                                <section class="m-card" aria-labelledby="funnel-title">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title" id="funnel-title">Pipeline by stage</h2>
+                                            <p class="m-card__subtitle">Active deal volume from lead to close.</p>
+                                        </div>
+                                    </header>
+                                    <div style="height: 280px; position: relative;">
+                                        <canvas id="pipeline-funnel"></canvas>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4">
+                                <section class="m-card" aria-labelledby="reps-title">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title" id="reps-title">Top sales reps</h2>
+                                            <p class="m-card__subtitle">Closed-won revenue this quarter.</p>
+                                        </div>
+                                    </header>
+                                    <ul class="rank-list">
+                                        <li>
+                                            <span class="rank-list__rank">1</span>
+                                            <span class="rank-list__title">Cynthia Harvey</span>
+                                            <span class="rank-list__value">$184k</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 100%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">2</span>
+                                            <span class="rank-list__title">John Doe</span>
+                                            <span class="rank-list__value">$142k</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 77%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">3</span>
+                                            <span class="rank-list__title">Diane Myers</span>
+                                            <span class="rank-list__value">$118k</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 64%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">4</span>
+                                            <span class="rank-list__title">Michelle Moreno</span>
+                                            <span class="rank-list__value">$96k</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 52%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">5</span>
+                                            <span class="rank-list__title">Robert Taylor</span>
+                                            <span class="rank-list__value">$74k</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 40%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">6</span>
+                                            <span class="rank-list__title">Emma Carter</span>
+                                            <span class="rank-list__value">$58k</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 32%;"></span>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+
+                        <!-- Recent deals + Deal sources -->
+                        <div class="row row-tight" style="margin-top: 16px;">
+                            <div class="col-lg-8">
+                                <section class="m-card" aria-labelledby="deals-title">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title" id="deals-title">Recent deals</h2>
+                                            <p class="m-card__subtitle">Updated within the past 7 days.</p>
+                                        </div>
+                                        <a href="#" class="m-btn m-btn--ghost" style="height:30px; padding:0 10px; font-size:12.5px;">View all</a>
+                                    </header>
+                                    <div class="table-responsive">
+                                        <table class="m-table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Company</th>
+                                                    <th scope="col">Stage</th>
+                                                    <th scope="col">Owner</th>
+                                                    <th scope="col" class="num">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="row-product"><span class="row-product__icon"><i class="fa-solid fa-building"></i></span>Acme Corp</span></td>
+                                                    <td><span class="status--process">Negotiation</span></td>
+                                                    <td>Cynthia Harvey</td>
+                                                    <td class="num">$48,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="row-product"><span class="row-product__icon" style="background:#e0f3f1;color:#11998e;"><i class="fa-solid fa-cube"></i></span>Globex Industries</span></td>
+                                                    <td><span class="status--approved">Proposal</span></td>
+                                                    <td>John Doe</td>
+                                                    <td class="num">$32,500</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="row-product"><span class="row-product__icon" style="background:#fff1e6;color:#f97316;"><i class="fa-solid fa-rocket"></i></span>Initech</span></td>
+                                                    <td><span class="status--process">Negotiation</span></td>
+                                                    <td>Diane Myers</td>
+                                                    <td class="num">$76,200</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="row-product"><span class="row-product__icon" style="background:#fce7f3;color:#ec4899;"><i class="fa-solid fa-gem"></i></span>Umbrella Co</span></td>
+                                                    <td><span class="badge bg-success">Closed won</span></td>
+                                                    <td>Michelle Moreno</td>
+                                                    <td class="num">$24,800</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="row-product"><span class="row-product__icon"><i class="fa-solid fa-briefcase"></i></span>Hooli Inc</span></td>
+                                                    <td><span class="status--approved">Qualified</span></td>
+                                                    <td>Robert Taylor</td>
+                                                    <td class="num">$15,600</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="row-product"><span class="row-product__icon" style="background:#e0f3f1;color:#11998e;"><i class="fa-solid fa-puzzle-piece"></i></span>Pied Piper</span></td>
+                                                    <td><span class="badge bg-danger">Lost</span></td>
+                                                    <td>Emma Carter</td>
+                                                    <td class="num">$18,400</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4">
+                                <section class="m-card" aria-labelledby="sources-title">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title" id="sources-title">Deal sources</h2>
+                                            <p class="m-card__subtitle">Where new pipeline came from.</p>
+                                        </div>
+                                    </header>
+                                    <ul class="rank-list">
+                                        <li>
+                                            <span class="rank-list__rank">1</span>
+                                            <span class="rank-list__title">Inbound — website</span>
+                                            <span class="rank-list__value">42%</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 100%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">2</span>
+                                            <span class="rank-list__title">Outbound — SDR</span>
+                                            <span class="rank-list__value">24%</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 57%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">3</span>
+                                            <span class="rank-list__title">Referral</span>
+                                            <span class="rank-list__value">16%</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 38%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">4</span>
+                                            <span class="rank-list__title">Partner</span>
+                                            <span class="rank-list__value">10%</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 24%;"></span>
+                                        </li>
+                                        <li>
+                                            <span class="rank-list__rank">5</span>
+                                            <span class="rank-list__title">Event / conference</span>
+                                            <span class="rank-list__value">8%</span>
+                                            <span class="rank-list__bar" style="--rank-pct: 19%;"></span>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

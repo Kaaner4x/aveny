@@ -1,0 +1,479 @@
+/* ============================================================================
+   Modernization of vintage component classes
+   These rules tame legacy class names so existing markup looks modern even
+   without rewriting every page. Used by table.html, form.html, inbox.html, etc.
+   ============================================================================ */
+
+/* Vintage section titles (`.title-1`, `.title-2`, `.title-3`, `.title-5` etc.)
+   — replace UPPERCASE+letterspace with sentence-case Inter weight 600. */
+body.app .title-1,
+body.app .title-2,
+body.app .title-3,
+body.app .title-4,
+body.app .title-5 {
+    font-family: var(--m-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--m-text);
+    letter-spacing: -0.005em;
+    text-transform: none;
+    margin: 0 0 12px;
+}
+body.app .title-1 { font-size: 22px; letter-spacing: -0.01em; }
+body.app .title-2 { font-size: 17px; }
+body.app .title-3 i,
+body.app .title-5 i {
+    color: var(--m-accent);
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* Saturated blue card — replace with neutral m-card surface. */
+body.app .au-card {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    padding: 20px;
+}
+body.app .au-card-inner {
+    padding: 0;
+}
+body.app .au-card--bg-blue {
+    background: var(--m-surface);          /* override the loud gradient */
+    color: var(--m-text);
+}
+body.app .au-card--bg-blue .table-top-countries tbody td,
+body.app .au-card--bg-blue .table-top-countries tbody tr {
+    color: var(--m-text);
+    border-color: var(--m-divider);
+}
+
+/* Earning table (the main first table on table.html) */
+body.app .table-earning thead th {
+    font-family: var(--m-font);
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--m-text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 12px;
+    background: transparent;
+    border-bottom: 1px solid var(--m-border);
+    text-align: left;
+}
+body.app .table-earning tbody td {
+    font-size: 13.5px;
+    color: var(--m-text);
+    padding: 12px;
+    background: transparent;
+    border-bottom: 1px solid var(--m-divider);
+    border-color: var(--m-divider);
+}
+body.app .table-earning tbody tr:hover td {
+    background: var(--m-surface-2);
+    color: var(--m-text);
+}
+
+/* Top countries / top campaigns lists.
+   The legacy CSS hard-codes `color: #fff !important` on
+   `.table-top-countries tbody td` (designed for the saturated blue card),
+   so we need `!important` here to defeat it on the new white surface. */
+body.app .table-top-countries,
+body.app .table-top-campaign {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+body.app .table-top-countries tbody td,
+body.app .table-top-campaign.table td {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    padding: 10px 0 !important;
+    color: var(--m-text) !important;
+    border-bottom: 1px solid var(--m-divider) !important;
+    border-top: 0 !important;
+    background: transparent !important;
+    white-space: normal;
+}
+body.app .table-top-countries tbody tr td:last-child,
+body.app .table-top-campaign.table tr td:last-child {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--m-text) !important;
+    font-weight: 500;
+}
+body.app .table-top-countries tbody tr td:first-child,
+body.app .table-top-campaign.table tr td:first-child {
+    color: var(--m-text) !important;
+    font-weight: 500;
+}
+body.app .table-top-countries tbody tr:last-child td,
+body.app .table-top-campaign.table tr:last-child td {
+    border-bottom: 0 !important;
+}
+/* Row hover for both lists. */
+body.app .table-top-countries tbody tr,
+body.app .table-top-campaign.table tbody tr {
+    transition: background 120ms ease;
+}
+body.app .table-top-countries tbody tr:hover td,
+body.app .table-top-campaign.table tbody tr:hover td {
+    background: var(--m-surface-2) !important;
+}
+/* Top campaigns — accent the value column in brand blue for hierarchy. */
+body.app .table-top-campaign.table tr td:last-child {
+    color: var(--m-accent) !important;
+}
+
+/* User data + Top campaign wrappers — drop the standalone block treatment;
+   they'll be wrapped in `.m-card` containers in updated markup. */
+body.app .user-data,
+body.app .top-campaign {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+body.app .user-data .filters {
+    margin: 0 0 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+body.app .user-data__footer {
+    padding: 16px 0 0;
+    text-align: center;
+    border-top: 0;
+}
+body.app .au-btn-load {
+    background: transparent;
+    color: var(--m-accent);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius-sm);
+    height: 36px;
+    padding: 0 18px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 120ms ease, border-color 120ms ease;
+}
+body.app .au-btn-load:hover {
+    background: var(--m-accent-soft);
+    border-color: var(--m-accent);
+}
+
+/* Toolbar buttons in the data table section */
+body.app .table-data__tool {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 16px;
+}
+body.app .table-data__tool-left,
+body.app .table-data__tool-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+body.app .au-btn-filter {
+    height: 36px;
+    padding: 0 14px;
+    background: var(--m-surface);
+    color: var(--m-text);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 120ms ease;
+}
+body.app .au-btn-filter:hover {
+    background: var(--m-surface-2);
+}
+body.app .au-btn-filter i {
+    color: var(--m-text-muted);
+    margin-right: 0;
+    font-size: 12px;
+}
+body.app .au-btn--green {
+    background: var(--m-accent) !important;
+    color: #fff !important;
+    border: 0 !important;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: var(--m-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: background 120ms ease;
+}
+body.app .au-btn--green:hover {
+    background: var(--m-accent-hover) !important;
+}
+body.app .au-btn--small { height: 32px; padding: 0 12px; font-size: 12.5px; }
+body.app .select-wrapper select.form-select {
+    height: 36px;
+    padding: 0 32px 0 12px;
+    font-size: 13px;
+    border-radius: var(--m-radius-sm);
+    border-color: var(--m-border);
+    color: var(--m-text);
+    background-color: var(--m-surface);
+}
+body.app .select-wrapper select.form-select:focus {
+    border-color: var(--m-accent);
+    box-shadow: 0 0 0 3px rgba(var(--m-accent-rgb), 0.15);
+}
+
+/* Role badges */
+body.app .role {
+    display: inline-flex;
+    align-items: center;
+    height: 22px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 1;
+}
+body.app .role.admin  { background: var(--m-accent-soft); color: var(--m-accent); }
+body.app .role.user   { background: var(--m-c2-soft); color: var(--m-c2); }
+body.app .role.member { background: var(--m-c3-soft); color: var(--m-c3); }
+
+/* Status pills (.status--process / --denied / --approved) */
+body.app .status--process,
+body.app .status--approved,
+body.app .status--denied,
+body.app td.process,
+body.app td.approved,
+body.app td.denied {
+    display: inline-flex;
+    align-items: center;
+    height: 22px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1;
+}
+body.app .status--process,
+body.app td.process {
+    background: var(--m-success-soft);
+    color: var(--m-success);
+}
+body.app .status--approved,
+body.app td.approved {
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+}
+body.app .status--denied,
+body.app td.denied {
+    background: var(--m-danger-soft);
+    color: var(--m-danger);
+}
+
+/* Table-data2 — drop the floating "tr-shadow" rows for a clean modern table. */
+body.app .table-data2 {
+    border-collapse: collapse;
+    width: 100%;
+}
+body.app .table-data2.table thead th {
+    background: transparent;
+    color: var(--m-text-faint);
+    font-family: var(--m-font);
+    font-size: 11.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--m-border);
+    border-top: 0;
+    text-align: left;
+}
+body.app .table-data2.table tbody tr,
+body.app .table-data2.table tr.tr-shadow {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0;
+}
+body.app .table-data2.table tbody td {
+    padding: 12px;
+    background: transparent;
+    border-bottom: 1px solid var(--m-divider);
+    border-top: 0;
+    font-size: 13.5px;
+    color: var(--m-text);
+    border-radius: 0 !important;
+}
+body.app .table-data2.table tr.spacer {
+    display: none;                         /* the visual spacer between rows */
+}
+body.app .table-data2.table tbody tr:hover td {
+    background: var(--m-surface-2);
+}
+body.app .block-email {
+    color: var(--m-accent);
+    font-size: 13px;
+    text-decoration: none;
+}
+
+/* Action buttons inside table rows */
+body.app .table-data-feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+body.app .table-data-feature .item {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    border-radius: var(--m-radius-sm);
+    color: var(--m-text-faint);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 120ms ease, color 120ms ease;
+}
+body.app .table-data-feature .item:hover {
+    background: var(--m-surface-2);
+    color: var(--m-text);
+}
+body.app .table-data-feature .item i { font-size: 12px; }
+
+/* Table-data3 — bottom sales table */
+body.app .table-data3 thead th {
+    background: var(--m-surface-2);
+    color: var(--m-text-faint);
+    font-family: var(--m-font);
+    font-size: 11.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--m-border);
+    border-top: 1px solid var(--m-border);
+}
+body.app .table-data3 thead tr th:first-child { border-top-left-radius: var(--m-radius); border-bottom-left-radius: 0; border-left: 1px solid var(--m-border); }
+body.app .table-data3 thead tr th:last-child  { border-top-right-radius: var(--m-radius); border-bottom-right-radius: 0; border-right: 1px solid var(--m-border); }
+body.app .table-data3 tbody td {
+    padding: 12px 16px;
+    background: transparent;
+    border-bottom: 1px solid var(--m-divider);
+    border-top: 0;
+    font-size: 13.5px;
+    color: var(--m-text);
+}
+body.app .table-data3 tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Custom checkboxes (.au-checkbox) */
+body.app .au-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    position: relative;
+}
+body.app .au-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+body.app .au-checkmark {
+    position: absolute;
+    inset: 0;
+    background: var(--m-surface);
+    border: 1.5px solid var(--m-border);
+    border-radius: 4px;
+    transition: background 120ms ease, border-color 120ms ease;
+}
+body.app .au-checkbox:hover .au-checkmark {
+    border-color: var(--m-accent);
+}
+body.app .au-checkbox input:checked ~ .au-checkmark {
+    background: var(--m-accent);
+    border-color: var(--m-accent);
+}
+body.app .au-checkbox input:checked ~ .au-checkmark::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: center;
+}
+
+/* "More" 3-dots in tables */
+body.app .more {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--m-radius-sm);
+    color: var(--m-text-faint);
+    cursor: pointer;
+    transition: background 120ms ease, color 120ms ease;
+}
+body.app .more:hover {
+    background: var(--m-surface-2);
+    color: var(--m-text);
+}
+
+/* Inline labels next to user names in the user-data table */
+body.app .table-data__info h6 {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--m-text);
+    text-transform: capitalize;
+}
+body.app .table-data__info span a {
+    color: var(--m-accent);
+    font-size: 12.5px;
+    text-decoration: none;
+}
+body.app .table-data__info span a:hover { text-decoration: underline; }
+
+/* `table--no-card` wrapper used for raw responsive tables */
+body.app .table--no-card {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    overflow: hidden;
+}
+
+/* Bootstrap 5 .badge color overrides for cleaner palette in tables */
+body.app .badge.bg-success { background-color: var(--m-success-soft) !important; color: var(--m-success) !important; font-weight: 500; }
+body.app .badge.bg-warning { background-color: var(--m-warning-soft) !important; color: var(--m-warning) !important; font-weight: 500; }
+body.app .badge.bg-danger  { background-color: var(--m-danger-soft)  !important; color: var(--m-danger)  !important; font-weight: 500; }
+body.app .badge.bg-info    { background-color: var(--m-c1-soft)      !important; color: var(--m-c1)      !important; font-weight: 500; }
+body.app .badge.bg-primary { background-color: var(--m-accent-soft)  !important; color: var(--m-accent)  !important; font-weight: 500; }
+
+

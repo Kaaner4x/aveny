@@ -1,0 +1,98 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Alerts</h1>
+                                <p class="subtitle">Notice cards, dismissible inline alerts, toast notifications, and accent-rail attention surfaces.</p>
+                            </div>
+                        </div>
+
+                        <h5 class="section-eyebrow" style="margin-bottom: 8px;">NOTICE CARDS</h5>
+                        <div class="row row-tight">
+                            <div class="col-md-6">
+                                <section class="m-card notice-card notice-card--info">
+                                    <span class="notice-card__icon"><i class="fa-solid fa-circle-info"></i></span>
+                                    <div class="notice-card__body">
+                                        <h3 class="notice-card__title">New version deployed</h3>
+                                        <p class="notice-card__text">Version 3.1.0 is now live with improved analytics and a redesigned billing flow.</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-6">
+                                <section class="m-card notice-card notice-card--success">
+                                    <span class="notice-card__icon"><i class="fa-solid fa-circle-check"></i></span>
+                                    <div class="notice-card__body">
+                                        <h3 class="notice-card__title">Backup completed</h3>
+                                        <p class="notice-card__text">Your weekly backup finished in 2m 14s. 4.2 GB of data was archived.</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-6">
+                                <section class="m-card notice-card notice-card--warning">
+                                    <span class="notice-card__icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                                    <div class="notice-card__body">
+                                        <h3 class="notice-card__title">Storage almost full</h3>
+                                        <p class="notice-card__text">You&rsquo;re using 82% of your 100 GB plan. Consider upgrading.</p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-md-6">
+                                <section class="m-card notice-card notice-card--danger">
+                                    <span class="notice-card__icon"><i class="fa-solid fa-circle-xmark"></i></span>
+                                    <div class="notice-card__body">
+                                        <h3 class="notice-card__title">Payment failed</h3>
+                                        <p class="notice-card__text">Your card ending in 4242 was declined. Please update your billing details.</p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
+                        <h5 class="section-eyebrow" style="margin: 28px 0 8px;">BOOTSTRAP DISMISSIBLE ALERTS</h5>
+                        <section class="m-card">
+                            <header class="m-card__header"><div><h2 class="m-card__title">Inline dismissible alerts</h2><p class="m-card__subtitle">Bootstrap 5 <code style="background:var(--m-surface-2);padding:1px 6px;border-radius:4px;font-size:12px;">.alert</code> components — click the × to dismiss.</p></div></header>
+                            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                <i class="fa-solid fa-circle-info" style="margin-right:8px;"></i>
+                                <strong>Heads up</strong> — this is an informational alert with default Bootstrap styling.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="fa-solid fa-circle-check" style="margin-right:8px;"></i>
+                                <strong>Success!</strong> Your changes have been saved.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <i class="fa-solid fa-triangle-exclamation" style="margin-right:8px;"></i>
+                                <strong>Warning</strong> — please double-check your input before submitting.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-bottom: 0;">
+                                <i class="fa-solid fa-circle-xmark" style="margin-right:8px;"></i>
+                                <strong>Error</strong> — couldn&rsquo;t connect to the server. Please try again later.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </section>
+
+                        <h5 class="section-eyebrow" style="margin: 28px 0 8px;">TOAST NOTIFICATIONS</h5>
+                        <section class="m-card">
+                            <header class="m-card__header"><div><h2 class="m-card__title">Trigger a toast</h2><p class="m-card__subtitle">Click any button to fire a toast — the API is <code style="background:var(--m-surface-2);padding:1px 6px;border-radius:4px;font-size:12px;">window.toast.success(message)</code> et al.</p></div></header>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button type="button" class="m-btn m-btn--primary" onclick="window.toast.info('Tap is queued for sync')"><i class="fa-solid fa-circle-info"></i> Info toast</button>
+                                <button type="button" class="m-btn m-btn--primary" onclick="window.toast.success('Saved — backup completed')" style="background: var(--m-success); border-color: var(--m-success);"><i class="fa-solid fa-circle-check"></i> Success toast</button>
+                                <button type="button" class="m-btn m-btn--primary" onclick="window.toast.warning('Storage at 82% — upgrade soon')" style="background: var(--m-warning); border-color: var(--m-warning);"><i class="fa-solid fa-triangle-exclamation"></i> Warning toast</button>
+                                <button type="button" class="m-btn m-btn--primary" onclick="window.toast.error('Failed to fetch — check connection')" style="background: var(--m-danger); border-color: var(--m-danger);"><i class="fa-solid fa-circle-xmark"></i> Error toast</button>
+                            </div>
+                        </section>
+
+                        <h5 class="section-eyebrow" style="margin: 28px 0 8px;">ACCENT-RAIL CARDS</h5>
+                        <div class="row row-tight">
+                            <div class="col-md-3"><section class="m-card accent-card"><h3 class="m-card__title" style="margin-bottom:6px;">Brand</h3><p style="margin:0;font-size:13px;color:var(--m-text-muted);">Calls attention without going loud.</p></section></div>
+                            <div class="col-md-3"><section class="m-card accent-card accent-card--success"><h3 class="m-card__title" style="margin-bottom:6px;">Success</h3><p style="margin:0;font-size:13px;color:var(--m-text-muted);">For positive states.</p></section></div>
+                            <div class="col-md-3"><section class="m-card accent-card accent-card--warning"><h3 class="m-card__title" style="margin-bottom:6px;">Warning</h3><p style="margin:0;font-size:13px;color:var(--m-text-muted);">For "heads up" states.</p></section></div>
+                            <div class="col-md-3"><section class="m-card accent-card accent-card--danger"><h3 class="m-card__title" style="margin-bottom:6px;">Danger</h3><p style="margin:0;font-size:13px;color:var(--m-text-muted);">For failures.</p></section></div>
+                        </div>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

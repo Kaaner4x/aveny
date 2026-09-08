@@ -1,0 +1,56 @@
+<script>
+    (function () {
+        const TOTAL_STEPS = 4;
+        let current = 1;
+        const steps = document.querySelectorAll('.wizard__step');
+        const panes = document.querySelectorAll('.wizard__pane');
+        const prev = document.getElementById('w-prev');
+        const next = document.getElementById('w-next');
+        if (!steps.length) return;
+
+        function show(step) {
+            current = step;
+            steps.forEach((el) => {
+                const n = parseInt(el.dataset.step, 10);
+                el.classList.toggle('is-active', n === step);
+                el.classList.toggle('is-complete', n < step);
+                el.querySelector('.wizard__circle').textContent = n < step ? '✓' : n;
+            });
+            panes.forEach((p) => {
+                p.style.display = parseInt(p.dataset.pane, 10) === step ? 'block' : 'none';
+            });
+            prev.disabled = step === 1;
+            prev.style.visibility = step === 1 ? 'hidden' : '';
+            if (step === TOTAL_STEPS) next.style.display = 'none';
+            else next.style.display = 'inline-flex';
+            if (step === TOTAL_STEPS - 1) next.innerHTML = 'Finish <i class="fa-solid fa-check"></i>';
+            else next.innerHTML = 'Continue <i class="fa-solid fa-arrow-right"></i>';
+        }
+
+        next.addEventListener('click', () => {
+            if (current < TOTAL_STEPS) {
+                show(current + 1);
+                if (current === TOTAL_STEPS && window.toast) {
+                    window.toast.success('Workspace created');
+                }
+            }
+        });
+        prev.addEventListener('click', () => {
+            if (current > 1) show(current - 1);
+        });
+
+        // Plan selection visual feedback
+        document.querySelectorAll('input[name="plan"]').forEach((r) => {
+            r.addEventListener('change', () => {
+                document.querySelectorAll('input[name="plan"]').forEach((rr) => {
+                    const card = rr.nextElementSibling;
+                    card.style.borderColor = '';
+                    card.style.boxShadow = '';
+                });
+                const card = r.nextElementSibling;
+                card.style.borderColor = 'var(--m-accent)';
+                card.style.boxShadow = '0 0 0 3px rgba(var(--m-accent-rgb),0.10)';
+            });
+        });
+    })();
+    </script>

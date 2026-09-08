@@ -1,0 +1,82 @@
+<script>
+    (function () {
+        const board = document.getElementById('kanban-board');
+        if (!board) return;
+        let draggedCard = null;
+
+        function refreshCount(col) {
+            const count = col.querySelectorAll('.kanban-card').length;
+            const badge = col.querySelector('.kanban-col__count');
+            if (badge) badge.textContent = count;
+        }
+
+        board.querySelectorAll('.kanban-card').forEach(setupCard);
+        board.querySelectorAll('.kanban-col__list').forEach(setupColumn);
+        board.querySelectorAll('.kanban-col__add button').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const col = btn.closest('.kanban-col');
+                const list = col.querySelector('.kanban-col__list');
+                const title = prompt('Card title:');
+                if (!title) return;
+                const card = document.createElement('article');
+                card.className = 'kanban-card';
+                card.draggable = true;
+                card.innerHTML = '<div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--feature">Feature</span></div><p class="kanban-card__title"></p><div class="kanban-card__footer"><span class="kanban-card__meta"><i class="fa-regular fa-calendar"></i>Today</span></div>';
+                card.querySelector('.kanban-card__title').textContent = title;
+                list.appendChild(card);
+                setupCard(card);
+                refreshCount(col);
+                if (window.toast) window.toast.success('Card added');
+            });
+        });
+
+        const newBtn = document.getElementById('kanban-new-btn');
+        if (newBtn) {
+            newBtn.addEventListener('click', () => {
+                const firstCol = board.querySelector('.kanban-col[data-status="backlog"] .kanban-col__add button');
+                if (firstCol) firstCol.click();
+            });
+        }
+
+        function setupCard(card) {
+            card.addEventListener('dragstart', () => {
+                draggedCard = card;
+                card.classList.add('is-dragging');
+            });
+            card.addEventListener('dragend', () => {
+                card.classList.remove('is-dragging');
+                draggedCard = null;
+                board.querySelectorAll('.kanban-col__list').forEach((l) => l.classList.remove('is-drop-target'));
+            });
+        }
+
+        function setupColumn(list) {
+            list.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                list.classList.add('is-drop-target');
+                const after = nextCardAfter(list, e.clientY);
+                if (!draggedCard) return;
+                if (after == null) list.appendChild(draggedCard);
+                else list.insertBefore(draggedCard, after);
+            });
+            list.addEventListener('dragleave', (e) => {
+                if (!list.contains(e.relatedTarget)) list.classList.remove('is-drop-target');
+            });
+            list.addEventListener('drop', () => {
+                list.classList.remove('is-drop-target');
+                board.querySelectorAll('.kanban-col').forEach(refreshCount);
+                if (window.toast) window.toast.info('Card moved');
+            });
+        }
+
+        function nextCardAfter(list, y) {
+            const cards = [...list.querySelectorAll('.kanban-card:not(.is-dragging)')];
+            return cards.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) return { offset, element: child };
+                return closest;
+            }, { offset: -Infinity, element: null }).element;
+        }
+    })();
+    </script>

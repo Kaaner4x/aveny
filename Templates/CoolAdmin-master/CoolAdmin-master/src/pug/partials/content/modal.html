@@ -1,0 +1,125 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Modals</h1>
+                                <p class="subtitle">Basic, confirmation, form, large, scrollable, and image-preview dialogs — restyled with the modern design.</p>
+                            </div>
+                        </div>
+
+                        <h5 class="section-eyebrow" style="margin-bottom: 8px;">DIALOG TYPES</h5>
+                        <section class="m-card">
+                            <header class="m-card__header"><div><h2 class="m-card__title">Modal patterns</h2><p class="m-card__subtitle">Click any trigger to open a Bootstrap 5 modal restyled with the modern design.</p></div></header>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button type="button" class="m-btn m-btn--primary" data-bs-toggle="modal" data-bs-target="#modal-basic">Basic dialog</button>
+                                <button type="button" class="m-btn m-btn--ghost" data-bs-toggle="modal" data-bs-target="#modal-confirm">Confirm delete</button>
+                                <button type="button" class="m-btn m-btn--ghost" data-bs-toggle="modal" data-bs-target="#modal-form">Form modal</button>
+                                <button type="button" class="m-btn m-btn--ghost" data-bs-toggle="modal" data-bs-target="#modal-large">Large modal</button>
+                                <button type="button" class="m-btn m-btn--ghost" data-bs-toggle="modal" data-bs-target="#modal-scroll">Scrollable</button>
+                                <button type="button" class="m-btn m-btn--ghost" data-bs-toggle="modal" data-bs-target="#modal-image">Image preview</button>
+                            </div>
+                        </section>
+
+                        <!-- Modals -->
+                        <div class="modal fade" id="modal-basic" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header"><h5 class="modal-title">Welcome to CoolAdmin</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                    <div class="modal-body"><p style="margin:0;">A clean, modern admin dashboard template built with Bootstrap 5, Inter, and a brand-blue accent palette.</p></div>
+                                    <div class="modal-footer"><button type="button" class="m-btn m-btn--ghost" data-bs-dismiss="modal">Close</button><button type="button" class="m-btn m-btn--primary">Got it</button></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modal-confirm" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-body" style="text-align:center;padding:32px 24px;">
+                                        <div style="width:56px;height:56px;border-radius:50%;background:var(--m-danger-soft);color:var(--m-danger);display:inline-flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                        <h5 style="margin:0 0 6px;font-size:16px;font-weight:600;color:var(--m-text);">Delete this item?</h5>
+                                        <p style="margin:0 0 20px;font-size:13.5px;color:var(--m-text-muted);">This action can&rsquo;t be undone.</p>
+                                        <div style="display:flex;gap:8px;">
+                                            <button type="button" class="m-btn m-btn--ghost" data-bs-dismiss="modal" style="flex:1;justify-content:center;">Cancel</button>
+                                            <button type="button" class="m-btn" data-bs-dismiss="modal" onclick="window.toast && window.toast.success('Item deleted')" style="flex:1;justify-content:center;background:var(--m-danger);color:#fff;border-color:var(--m-danger);">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modal-form" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header"><h5 class="modal-title">Invite teammate</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                                    <form onsubmit="event.preventDefault(); bootstrap.Modal.getInstance(document.getElementById('modal-form')).hide(); window.toast && window.toast.success('Invitation sent');">
+                                        <div class="modal-body">
+                                            <div class="form-group"><label>Email address</label><input type="email" class="form-control" placeholder="teammate@example.com" required></div>
+                                            <div class="form-group"><label>Role</label><select class="form-select"><option>Member</option><option>Admin</option><option>Owner</option></select></div>
+                                            <div class="form-group" style="margin:0;"><label>Message (optional)</label><textarea class="form-control" placeholder="Welcome! Looking forward to working with you."></textarea></div>
+                                        </div>
+                                        <div class="modal-footer"><button type="button" class="m-btn m-btn--ghost" data-bs-dismiss="modal">Cancel</button><button type="submit" class="m-btn m-btn--primary">Send invite</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modal-large" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header"><h5 class="modal-title">Detailed report</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                                    <div class="modal-body">
+                                        <p>Larger modal for richer content. Useful for previews, detailed forms, side-by-side info, etc.</p>
+                                        <div class="row row-tight">
+                                            <div class="col-md-4"><div class="stat-card" style="margin-bottom:0;"><div class="stat-card__head"><p class="stat-card__label">Revenue</p><span class="stat-card__icon stat-card__icon--c1"><i class="fa-solid fa-dollar-sign"></i></span></div><p class="stat-card__value">$48,217</p></div></div>
+                                            <div class="col-md-4"><div class="stat-card" style="margin-bottom:0;"><div class="stat-card__head"><p class="stat-card__label">Orders</p><span class="stat-card__icon stat-card__icon--c2"><i class="fa-solid fa-cart-shopping"></i></span></div><p class="stat-card__value">1,284</p></div></div>
+                                            <div class="col-md-4"><div class="stat-card" style="margin-bottom:0;"><div class="stat-card__head"><p class="stat-card__label">Users</p><span class="stat-card__icon stat-card__icon--c3"><i class="fa-solid fa-users"></i></span></div><p class="stat-card__value">8,492</p></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer"><button type="button" class="m-btn m-btn--ghost" data-bs-dismiss="modal">Close</button></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modal-scroll" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header"><h5 class="modal-title">Terms &amp; conditions</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                                    <div class="modal-body">
+                                        <p>Section 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 5. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 6. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 7. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 8. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 9. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <p>Section 10. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                    <div class="modal-footer"><button type="button" class="m-btn m-btn--ghost" data-bs-dismiss="modal">Decline</button><button type="button" class="m-btn m-btn--primary" data-bs-dismiss="modal">Accept</button></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modal-image" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-body" style="padding:0;text-align:center;background:#0f172a;">
+                                        <img src="images/bg-title-01.jpg" alt="" style="max-width:100%;border-radius:14px 14px 0 0;display:block;">
+                                    </div>
+                                    <div class="modal-footer" style="justify-content:space-between;">
+                                        <span style="color:var(--m-text-muted);font-size:13px;">Brand image &middot; 1920×1080</span>
+                                        <div style="display:flex;gap:8px;">
+                                            <button type="button" class="m-btn m-btn--ghost" onclick="window.toast && window.toast.success('Downloaded')"><i class="fa-solid fa-download"></i> Download</button>
+                                            <button type="button" class="m-btn m-btn--primary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

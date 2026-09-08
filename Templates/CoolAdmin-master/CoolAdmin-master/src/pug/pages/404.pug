@@ -1,0 +1,8 @@
+extends ../layouts/_error
+
+block variables
+  - var pageMeta = { "title": "Page not found", "description": "Page not found.", "noindex": true }
+  - var bodyClass = 'app error-page'
+
+block content
+  include ../partials/content/404.html

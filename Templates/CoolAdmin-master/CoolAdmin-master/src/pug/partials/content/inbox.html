@@ -1,0 +1,97 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Inbox</h1>
+                                <p class="subtitle">Click any email to open it. Reply, archive, or star directly from the reader.</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="m-btn m-btn--ghost" id="inbox-refresh-btn"><i class="fa-solid fa-arrows-rotate"></i> Refresh</button>
+                                <button type="button" class="m-btn m-btn--primary" id="inbox-compose-btn"><i class="fa-regular fa-pen-to-square"></i> Compose</button>
+                            </div>
+                        </div>
+
+                        <!-- Stats strip -->
+                        <div class="inbox-stats">
+                            <div class="inbox-stat">
+                                <span class="inbox-stat__icon" style="background: var(--m-accent-soft); color: var(--m-accent);"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span>
+                                <div class="inbox-stat__body">
+                                    <p class="inbox-stat__label">Unread</p>
+                                    <p class="inbox-stat__value" id="stat-unread">5</p>
+                                </div>
+                            </div>
+                            <div class="inbox-stat">
+                                <span class="inbox-stat__icon" style="background: var(--m-warning-soft); color: var(--m-warning);"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
+                                <div class="inbox-stat__body">
+                                    <p class="inbox-stat__label">Starred</p>
+                                    <p class="inbox-stat__value" id="stat-starred">3</p>
+                                </div>
+                            </div>
+                            <div class="inbox-stat">
+                                <span class="inbox-stat__icon" style="background: var(--m-c3-soft); color: var(--m-c3);"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+                                <div class="inbox-stat__body">
+                                    <p class="inbox-stat__label">Snoozed</p>
+                                    <p class="inbox-stat__value">3</p>
+                                </div>
+                            </div>
+                            <div class="inbox-stat">
+                                <span class="inbox-stat__icon" style="background: var(--m-c2-soft); color: var(--m-c2);"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></span>
+                                <div class="inbox-stat__body">
+                                    <p class="inbox-stat__label">Sent today</p>
+                                    <p class="inbox-stat__value">24</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Folder tabs -->
+                        <nav class="inbox-tabs" aria-label="Inbox folders" style="margin-bottom: 16px;">
+                            <a href="#" class="inbox-tab is-active"><i class="fa-regular fa-envelope"></i> Inbox <span class="inbox-tab__count" id="tab-count-inbox">12</span></a>
+                            <a href="#" class="inbox-tab"><i class="fa-solid fa-star"></i> Starred <span class="inbox-tab__count">3</span></a>
+                            <a href="#" class="inbox-tab"><i class="fa-regular fa-clock"></i> Snoozed <span class="inbox-tab__count">3</span></a>
+                            <a href="#" class="inbox-tab"><i class="fa-solid fa-paper-plane"></i> Sent</a>
+                            <a href="#" class="inbox-tab"><i class="fa-regular fa-file-lines"></i> Drafts <span class="inbox-tab__count">2</span></a>
+                            <a href="#" class="inbox-tab"><i class="fa-solid fa-shield"></i> Spam</a>
+                            <a href="#" class="inbox-tab"><i class="fa-regular fa-trash-can"></i> Trash</a>
+                        </nav>
+
+                        <!-- Split pane: list + reader -->
+                        <div class="inbox-split">
+                            <!-- LIST PANE -->
+                            <section class="inbox-list-pane">
+                                <div class="inbox-toolbar">
+                                    <div class="inbox-toolbar__left">
+                                        <button type="button" class="icon-btn" aria-label="Refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                        <button type="button" class="icon-btn" aria-label="Mark all read" id="mark-all-read-btn" title="Mark all as read"><i class="fa-solid fa-check-double"></i></button>
+                                        <span class="inbox-toolbar__count" id="inbox-count">12 messages</span>
+                                    </div>
+                                    <div class="inbox-toolbar__right">
+                                        <button type="button" class="icon-btn" aria-label="Filter"><i class="fa-solid fa-filter"></i></button>
+                                        <button type="button" class="icon-btn" aria-label="Sort"><i class="fa-solid fa-arrow-up-wide-short"></i></button>
+                                    </div>
+                                </div>
+                                <ul class="email-list" id="email-list" role="list"></ul>
+                                <div class="inbox-pagination">
+                                    <span id="pagination-info">Showing 1–12 of 48</span>
+                                    <div class="inbox-pagination__nav">
+                                        <button type="button" class="icon-btn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                                        <button type="button" class="icon-btn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- READER PANE -->
+                            <section class="inbox-reader-pane" id="inbox-reader" aria-label="Email reader">
+                                <div class="inbox-reader__empty" id="reader-empty">
+                                    <span class="empty-state__icon"><i class="fa-regular fa-envelope-open" aria-hidden="true"></i></span>
+                                    <h3 class="empty-state__title">Select an email to read</h3>
+                                    <p class="empty-state__text">Pick a message from the list on the left to see its full contents.</p>
+                                </div>
+                                <div id="reader-content" style="display: none; flex-direction: column; flex: 1; min-height: 0;"></div>
+                            </section>
+                        </div>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

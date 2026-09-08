@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Cards", "description": "Bootstrap 5 card layouts: image, header, footer, and grid card variations." }
+  - var activePage = 'card.html'
+
+block content
+  include ../partials/content/card.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

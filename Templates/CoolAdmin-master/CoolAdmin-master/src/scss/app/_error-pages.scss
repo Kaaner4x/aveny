@@ -1,0 +1,79 @@
+/* ============================================================================
+   Error / status pages (404, 500, maintenance)
+   ============================================================================ */
+body.app.error-page {
+    background: linear-gradient(135deg, #eaf0fc 0%, #f4f6fa 50%, #fce7f3 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+}
+body.app .error-card {
+    width: 100%;
+    max-width: 540px;
+    background: #ffffff;
+    border: 1px solid var(--m-border);
+    border-radius: 16px;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.08);
+    padding: 40px 36px;
+    text-align: center;
+}
+body.app .error-card__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 24px;
+}
+body.app .error-card__code {
+    font-family: var(--m-font);
+    font-size: 96px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    background: linear-gradient(135deg, #4272d7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 12px;
+}
+body.app .error-card__icon {
+    font-size: 56px;
+    color: var(--m-accent);
+    margin-bottom: 16px;
+}
+body.app .error-card__title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--m-text);
+    margin: 0 0 8px;
+}
+body.app .error-card__text {
+    font-size: 14px;
+    color: var(--m-text-muted);
+    margin: 0 0 24px;
+    line-height: 1.5;
+}
+body.app .error-card__actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+body.app .error-card__hint {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--m-divider);
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+}
+body.app .error-card__hint a {
+    color: var(--m-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+body.app .error-card__hint a:hover { text-decoration: underline; }
+
+

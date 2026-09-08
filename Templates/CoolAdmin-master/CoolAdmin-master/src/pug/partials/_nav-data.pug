@@ -1,0 +1,87 @@
+//- Single source of truth for sidebar + mobile nav.
+//- Edit this file to add, rename, or reorder navigation items.
+//-
+//- Each item has:
+//-   icon:     Font Awesome 7 class (e.g. 'fa-solid fa-table')
+//-   label:    Display text
+//-   href:     URL (omit on items that only have children)
+//-   children: [{ label, href }] for collapsible sub-menus
+
+-
+  var navItems = [
+    {
+      icon: 'fa-solid fa-tachometer-alt',
+      label: 'Dashboard',
+      children: [
+        { label: 'Dashboard 1', href: 'index.html' },
+        { label: 'Dashboard 2', href: 'index2.html' },
+        { label: 'Dashboard 3', href: 'index3.html' },
+        { label: 'Dashboard 4', href: 'index4.html' }
+      ]
+    },
+    {
+      icon: 'fa-solid fa-chart-bar',
+      label: 'Charts',
+      href: 'chart.html'
+    },
+    {
+      icon: 'fa-solid fa-table',
+      label: 'Tables',
+      children: [
+        { label: 'Tables',     href: 'table.html' },
+        { label: 'Data table', href: 'data-table.html' }
+      ]
+    },
+    {
+      icon: 'fa-regular fa-square-check',
+      label: 'Forms',
+      children: [
+        { label: 'Forms',        href: 'form.html' },
+        { label: 'Setup wizard', href: 'wizard.html' }
+      ]
+    },
+    { icon: 'fa-solid fa-calendar-alt',    label: 'Calendar',      href: 'calendar.html' },
+    { icon: 'fa-solid fa-map-marker-alt',  label: 'Maps',          href: 'map.html' },
+    { icon: 'fa-solid fa-inbox',           label: 'Inbox',         href: 'inbox.html' },
+    { icon: 'fa-solid fa-columns',         label: 'Kanban',        href: 'kanban.html' },
+    { icon: 'fa-regular fa-bell',          label: 'Notifications', href: 'notifications.html' },
+    { icon: 'fa-regular fa-file-lines',    label: 'Documentation', href: 'docs.html' },
+    {
+      icon: 'fa-solid fa-user-gear',
+      label: 'Account',
+      children: [
+        { label: 'Profile & settings', href: 'profile.html' },
+        { label: 'Pricing',            href: 'pricing.html' },
+        { label: 'Invoice',            href: 'invoice.html' }
+      ]
+    },
+    {
+      icon: 'fa-solid fa-copy',
+      label: 'Pages',
+      children: [
+        { label: 'Login',             href: 'login.html' },
+        { label: 'Register',          href: 'register.html' },
+        { label: 'Forgot password',   href: 'forget-pass.html' },
+        { label: '404 not found',     href: '404.html' },
+        { label: '500 server error',  href: '500.html' },
+        { label: 'Maintenance',       href: 'maintenance.html' }
+      ]
+    },
+    {
+      icon: 'fa-solid fa-desktop',
+      label: 'UI Elements',
+      children: [
+        { label: 'Buttons',       href: 'button.html' },
+        { label: 'Badges',        href: 'badge.html' },
+        { label: 'Tabs',          href: 'tab.html' },
+        { label: 'Cards',         href: 'card.html' },
+        { label: 'Alerts',        href: 'alert.html' },
+        { label: 'Progress bars', href: 'progress-bar.html' },
+        { label: 'Modals',        href: 'modal.html' },
+        { label: 'Switches',      href: 'switch.html' },
+        { label: 'Grid system',   href: 'grid.html' },
+        { label: 'Font Awesome',  href: 'fontawesome.html' },
+        { label: 'Typography',    href: 'typo.html' }
+      ]
+    }
+  ];

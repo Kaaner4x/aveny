@@ -1,0 +1,314 @@
+/* ============================================================================
+   Inbox — folder tabs, toolbar, email list, pagination
+   ============================================================================ */
+
+/* Folder tabs (Inbox / Starred / Snoozed / Sent / Drafts / Trash) */
+body.app .inbox-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px;
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+body.app .inbox-tabs::-webkit-scrollbar { display: none; }
+body.app .inbox-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: var(--m-radius-sm);
+    font-family: var(--m-font);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--m-text-muted);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 120ms ease, color 120ms ease;
+}
+body.app .inbox-tab:hover {
+    background: var(--m-surface-2);
+    color: var(--m-text);
+}
+body.app .inbox-tab.is-active {
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+}
+body.app .inbox-tab i { font-size: 12px; }
+body.app .inbox-tab__count {
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    padding: 0 7px;
+    margin-left: 4px;
+    border-radius: 999px;
+    background: var(--m-divider);
+    color: var(--m-text-muted);
+    font-size: 11px;
+    font-weight: 600;
+}
+body.app .inbox-tab.is-active .inbox-tab__count {
+    background: var(--m-accent);
+    color: #fff;
+}
+
+/* Toolbar (bulk actions row) */
+body.app .inbox-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .inbox-toolbar__left,
+body.app .inbox-toolbar__right {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+body.app .icon-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    border-radius: var(--m-radius-sm);
+    color: var(--m-text-muted);
+    cursor: pointer;
+    transition: background 120ms ease, color 120ms ease;
+}
+body.app .icon-btn:hover {
+    background: var(--m-surface-2);
+    color: var(--m-text);
+}
+body.app .icon-btn i { font-size: 13px; }
+body.app .inbox-toolbar__count {
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    color: var(--m-text-faint);
+    margin: 0 8px;
+}
+
+/* Email list */
+body.app .email-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body.app .email-item {
+    display: grid;
+    grid-template-columns: 24px 24px 36px 1fr auto;
+    column-gap: 12px;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--m-divider);
+    cursor: pointer;
+    transition: background 120ms ease;
+    position: relative;
+}
+body.app .email-item:last-child { border-bottom: 0; }
+body.app .email-item:hover {
+    background: var(--m-surface-2);
+}
+/* Unread state — left border + soft tint + bolder text */
+body.app .email-item.is-unread {
+    background: var(--m-accent-soft);
+}
+body.app .email-item.is-unread::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 3px;
+    background: var(--m-accent);
+    border-radius: 0 2px 2px 0;
+}
+body.app .email-item.is-unread:hover {
+    background: rgba(var(--m-accent-rgb), 0.10);
+}
+body.app .email-item.is-unread .email-item__sender,
+body.app .email-item.is-unread .email-item__subject {
+    font-weight: 600;
+    color: var(--m-text);
+}
+
+body.app .email-item__check input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--m-accent);
+    margin: 0;
+}
+body.app .email-item__star {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: var(--m-text-faint);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 120ms ease;
+}
+body.app .email-item__star:hover { color: var(--m-warning); }
+body.app .email-item__star i { font-size: 14px; }
+body.app .email-item__star.is-starred { color: var(--m-warning); }
+body.app .email-item__star.is-starred:hover { color: #d97706; }
+
+body.app .email-item__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+body.app .email-item__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+body.app .email-item__body {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+body.app .email-item__sender {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+body.app .email-item__label {
+    display: inline-flex;
+    align-items: center;
+    height: 16px;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+body.app .email-item__label--work    { background: var(--m-c1-soft); color: var(--m-c1); }
+body.app .email-item__label--personal { background: var(--m-c2-soft); color: var(--m-c2); }
+body.app .email-item__label--social  { background: var(--m-c3-soft); color: var(--m-c3); }
+body.app .email-item__label--promo   { background: var(--m-c4-soft); color: var(--m-c4); }
+body.app .email-item__label--alert   { background: var(--m-danger-soft); color: var(--m-danger); }
+
+body.app .email-item__subject {
+    font-family: var(--m-font);
+    font-size: 13px;
+    color: var(--m-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+body.app .email-item__preview {
+    color: var(--m-text-muted);
+    font-weight: 400;
+    margin-left: 6px;
+}
+
+body.app .email-item__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--m-font);
+    font-size: 11.5px;
+    color: var(--m-text-faint);
+    flex-shrink: 0;
+}
+body.app .email-item__meta i { font-size: 12px; }
+
+/* Bottom pagination */
+body.app .inbox-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-top: 1px solid var(--m-divider);
+    background: var(--m-surface-2);
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+}
+body.app .inbox-pagination__nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Stats strip above the inbox card */
+body.app .inbox-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+body.app .inbox-stat {
+    flex: 1 1 180px;
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+body.app .inbox-stat__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+body.app .inbox-stat__body { min-width: 0; }
+body.app .inbox-stat__label {
+    font-size: 12px;
+    color: var(--m-text-muted);
+    font-weight: 500;
+    margin: 0;
+}
+body.app .inbox-stat__value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--m-text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+/* Smaller email-list grid on narrower viewports */
+@media (max-width: 768px) {
+    body.app .email-item {
+        grid-template-columns: 24px 36px 1fr auto;
+    }
+    body.app .email-item__check { display: none; }
+}
+
+

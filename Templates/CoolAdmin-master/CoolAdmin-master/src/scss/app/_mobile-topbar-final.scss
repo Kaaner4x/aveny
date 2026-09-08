@@ -1,0 +1,163 @@
+/* ============================================================================
+   FINAL — mobile topbar lockdown (defeats every earlier media query)
+   This block sits at the end of the file and uses `!important` on all
+   layout-critical properties so the cascade can't undo it. Earlier
+   fragmented mobile rules are still present but are superseded here.
+   ============================================================================ */
+
+@media (max-width: 991.98px) {
+
+    /* ---- The outer header bar ---- */
+    body.app .header-desktop {
+        display: flex !important;
+        align-items: center !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 60px !important;
+        background: #ffffff !important;
+        border-bottom: 1px solid var(--m-border) !important;
+        box-shadow: none !important;
+        z-index: 1000 !important;
+        padding: 0 !important;
+    }
+    body.app .header-desktop > .section__content,
+    body.app .header-desktop .section__content--p30 {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+    }
+    body.app .header-desktop .container-fluid {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* ---- Inner row: hamburger LEFT, avatar RIGHT ---- */
+    body.app .header-wrap {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: 60px !important;
+        padding: 0 12px !important;
+        margin: 0 !important;
+        gap: 0 !important;
+    }
+
+    /* ---- Hamburger ---- */
+    body.app .header-wrap .sidebar-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 auto !important;
+        width: 40px !important;
+        height: 40px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        border-radius: 8px !important;
+        color: var(--m-text-muted) !important;
+        cursor: pointer !important;
+    }
+    body.app .header-wrap .sidebar-toggle:hover {
+        background: var(--m-surface-2) !important;
+        color: var(--m-text) !important;
+    }
+
+    /* ---- Hide search field entirely on mobile ---- */
+    body.app .header-wrap .form-header {
+        display: none !important;
+    }
+
+    /* ---- Right-side action group ---- */
+    body.app .header-wrap .header-button {
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        margin-left: auto !important;
+        gap: 0 !important;
+    }
+
+    /* ---- Hide notification bells on mobile (they live inside the sidebar
+            drawer if needed). Their dropdowns punch off-screen anyway. ---- */
+    body.app .header-wrap .header-button .noti-wrap {
+        display: none !important;
+    }
+
+    /* ---- Account chip — avatar only, no name, no chevron ---- */
+    body.app .header-wrap .account-wrap {
+        position: relative !important;
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+    body.app .header-wrap .account-item {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 40px !important;
+        height: 40px !important;
+        padding: 4px !important;
+        margin: 0 !important;
+        gap: 0 !important;
+        background: transparent !important;
+        border-radius: 999px !important;
+        cursor: pointer !important;
+    }
+    body.app .header-wrap .account-item:hover {
+        background: var(--m-surface-2) !important;
+    }
+    body.app .header-wrap .account-item .image {
+        width: 32px !important;
+        height: 32px !important;
+        flex: 0 0 32px !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+    }
+    body.app .header-wrap .account-item .image > img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+    body.app .header-wrap .account-item > .content,
+    body.app .header-wrap .account-item > .content > a {
+        display: none !important;
+    }
+
+    /* ---- Account dropdown — anchor to viewport edge so it never overflows ---- */
+    body.app .account-dropdown {
+        position: absolute !important;
+        top: calc(100% + 6px) !important;
+        right: 0 !important;
+        left: auto !important;
+        bottom: auto !important;
+        width: min(320px, calc(100vw - 24px)) !important;
+        max-width: calc(100vw - 24px) !important;
+        margin: 0 !important;
+    }
+
+    /* ---- Pad main content for the 60px fixed header ---- */
+    body.app .main-content {
+        padding-top: 60px !important;
+    }
+    body.app .menu-sidebar__content {
+        height: calc(100vh - 60px) !important;
+    }
+
+    /* ---- Always-suppress the legacy mobile header / mobile-nav ---- */
+    body.app .header-mobile,
+    body.app .navbar-mobile {
+        display: none !important;
+    }
+}
+
+

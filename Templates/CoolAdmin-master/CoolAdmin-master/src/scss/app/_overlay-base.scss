@@ -1,0 +1,770 @@
+/* Scope every rule below under .app so legacy pages aren't affected. */
+
+body.app,
+body.app .page-wrapper,
+body.app .page-container {
+    background: var(--m-bg);
+}
+
+/* ----------------------------------------------------------------------------
+   Sidebar — calmer dark navy, refined typography, accessible contrast
+   The legacy markup uses `navbar__list` (BEM, double underscore) and
+   `navbar__sub-list`. We re-skin the sidebar entirely; legacy `color`/
+   `font-size`/`padding` rules from theme.css are explicitly overridden.
+   ---------------------------------------------------------------------------- */
+body.app .menu-sidebar {
+    background: var(--m-sidebar);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    width: 260px;
+}
+body.app .page-container {
+    padding-left: 260px;
+}
+
+/* Logo strip — make the logo readable on the dark navy. */
+body.app .menu-sidebar .logo {
+    background: var(--m-sidebar);
+    border-right: 0;                /* override legacy `1px solid #e5e5e5` */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: none;
+    padding: 0 20px;
+    height: 64px;
+}
+body.app .menu-sidebar .logo a {
+    display: inline-flex;
+    align-items: center;
+}
+body.app .menu-sidebar .logo img {
+    height: 26px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.25));
+}
+
+/* Scroll container — match topbar height and remove the legacy 75px math. */
+body.app .menu-sidebar__content {
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.12) transparent;
+}
+body.app .menu-sidebar__content::-webkit-scrollbar { width: 6px; }
+body.app .menu-sidebar__content::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.10);
+    border-radius: 3px;
+}
+
+/* Nav structure — overrides legacy theme.css rules ('navbar-sidebar' wraps,
+   '.navbar__list' is the top-level list, '.navbar__sub-list' is nested). */
+body.app .navbar-sidebar {
+    padding: 12px 12px 24px;
+}
+body.app .navbar-sidebar .navbar__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+body.app .navbar-sidebar .navbar__list li {
+    list-style: none;
+}
+
+/* Top-level link — readable contrast (~7:1) at 14px regular. */
+body.app .navbar-sidebar .navbar__list > li > a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 12px;
+    margin: 2px 0;
+    color: #cbd5e1;                 /* slate-300 — ~7.4:1 on #0f172a */
+    border-radius: var(--m-radius-sm);
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0;
+    transition: background-color 120ms ease, color 120ms ease;
+    position: relative;
+}
+body.app .navbar-sidebar .navbar__list > li > a > i {
+    width: 18px;
+    font-size: 15px;
+    color: #94a3b8;                 /* slate-400 */
+    text-align: center;
+    margin-right: 0;                 /* override legacy 19px */
+    flex-shrink: 0;
+    transition: color 120ms ease;
+}
+body.app .navbar-sidebar .navbar__list > li > a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+body.app .navbar-sidebar .navbar__list > li > a:hover > i {
+    color: #e2e8f0;
+}
+
+/* Active item — brand-blue pill background + accent rail on the left. */
+body.app .navbar-sidebar .navbar__list > li.active > a {
+    background: rgba(var(--m-accent-rgb), 0.20);
+    color: #ffffff;
+    font-weight: 600;
+}
+body.app .navbar-sidebar .navbar__list > li.active > a > i {
+    color: #93b4ec;                 /* light wash of the brand blue */
+}
+body.app .navbar-sidebar .navbar__list > li.active > a::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    background: var(--m-accent);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Disclosure caret on `has-sub` items. */
+body.app .navbar-sidebar .navbar__list > li.has-sub > a.js-arrow {
+    padding-right: 32px;
+}
+body.app .navbar-sidebar .navbar__list > li.has-sub > a.js-arrow::after {
+    content: '\f078';               /* fa-chevron-down */
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.40);
+    transition: transform 200ms ease, color 120ms ease;
+}
+body.app .navbar-sidebar .navbar__list > li.has-sub > a.js-arrow.open::after {
+    transform: translateY(-50%) rotate(180deg);
+    color: #cbd5e1;
+}
+
+/* Sub-list — properly nested with an indent guide rail, no awkward 34px
+   indent. Text is large enough to read but visually subordinated. */
+body.app .navbar-sidebar .navbar__list .navbar__sub-list {
+    list-style: none;
+    padding: 4px 0 6px 30px;        /* override legacy 34px */
+    margin: 0 0 4px;
+    position: relative;
+}
+body.app .navbar-sidebar .navbar__list .navbar__sub-list::before {
+    /* Vertical guide rail, aligned to where the parent icon sits. */
+    content: '';
+    position: absolute;
+    left: 23px;
+    top: 4px;
+    bottom: 6px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.08);
+}
+body.app .navbar-sidebar .navbar__list .navbar__sub-list li {
+    list-style: none;
+    margin: 0;
+}
+body.app .navbar-sidebar .navbar__list .navbar__sub-list li a {
+    display: block;
+    padding: 6px 12px;              /* override legacy 11.5px 0 */
+    font-size: 13px;
+    color: #94a3b8;                 /* slate-400 */
+    border-radius: var(--m-radius-sm);
+    text-decoration: none;
+    margin: 1px 0;
+    transition: background-color 120ms ease, color 120ms ease;
+    position: relative;
+}
+body.app .navbar-sidebar .navbar__list .navbar__sub-list li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+body.app .navbar-sidebar .navbar__list .navbar__sub-list li.active > a,
+body.app .navbar-sidebar .navbar__list .navbar__sub-list li > a.active {
+    background: rgba(var(--m-accent-rgb), 0.14);
+    color: #ffffff;
+}
+
+/* Optional section heading between groups (markup opt-in). */
+body.app .navbar-sidebar .nav-group-label {
+    padding: 14px 12px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ----------------------------------------------------------------------------
+   Topbar — flat white, slim, single border
+   ---------------------------------------------------------------------------- */
+body.app .header-desktop {
+    background: var(--m-surface);
+    box-shadow: none;
+    border-bottom: 1px solid var(--m-border);
+}
+body.app .header-desktop .section__content {
+    padding: 0 24px;
+}
+body.app .header-wrap {
+    height: 64px;
+    align-items: center;
+}
+body.app .form-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 380px;
+    max-width: 100%;
+    height: 38px;
+    border-radius: var(--m-radius-sm);
+    background: var(--m-surface-2);
+    border: 1px solid var(--m-border);
+    overflow: hidden;
+    transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+body.app .form-header:focus-within {
+    background: var(--m-surface);
+    border-color: var(--m-accent);
+    box-shadow: 0 0 0 3px rgba(var(--m-accent-rgb), 0.15);
+}
+body.app .form-header__icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--m-text-faint);
+    font-size: 12px;
+    pointer-events: none;
+}
+body.app .form-header .au-input {
+    background: transparent;
+    border: 0;
+    width: 100%;
+    height: 36px;
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    color: var(--m-text);
+    padding: 0 56px 0 36px;
+    outline: none;
+}
+body.app .form-header .au-input::placeholder {
+    color: var(--m-text-faint);
+}
+body.app .form-header__hint {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: 4px;
+    color: var(--m-text-faint);
+    font-family: var(--m-font);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 6px;
+    line-height: 1;
+    pointer-events: none;
+}
+body.app .form-header:focus-within .form-header__hint {
+    opacity: 0;
+    transition: opacity 120ms ease;
+}
+/* Hide the legacy submit button if it still exists in older markup. */
+body.app .form-header .au-btn--submit { display: none; }
+body.app .header-button {
+    gap: 4px;
+}
+body.app .noti__item {
+    margin-right: 4px;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--m-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 120ms ease;
+}
+body.app .noti__item:hover {
+    background: var(--m-surface-2);
+}
+body.app .noti__item i {
+    font-size: 16px;
+    color: var(--m-text-muted);
+}
+body.app .noti__item:hover i {
+    color: var(--m-text);
+}
+body.app .noti__item .quantity {
+    background: var(--m-danger);
+    width: 8px;
+    height: 8px;
+    min-width: 0;
+    padding: 0;
+    border-radius: 50%;
+    text-indent: -9999px;
+    overflow: hidden;
+    top: 8px;
+    right: 8px;
+}
+body.app .account-item {
+    margin-left: 8px;
+    padding: 4px 12px 4px 4px;
+    border-radius: 999px;
+    transition: background 120ms ease;
+}
+body.app .account-item:hover {
+    background: var(--m-surface-2);
+}
+body.app .account-item .image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+body.app .account-item > .content > a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+}
+body.app .account-item > .content > a:after {
+    color: var(--m-text-faint);
+    font-size: 10px;
+}
+body.app .account-dropdown,
+body.app .mess-dropdown,
+body.app .email-dropdown,
+body.app .notifi-dropdown {
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-lg);
+}
+
+/* ----------------------------------------------------------------------------
+   Page header (title + actions row)
+   ---------------------------------------------------------------------------- */
+body.app .page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+body.app .page-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--m-text);
+    margin: 0;
+}
+body.app .page-header .subtitle {
+    color: var(--m-text-muted);
+    font-size: 13.5px;
+    margin: 4px 0 0;
+}
+body.app .page-header__actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* ----------------------------------------------------------------------------
+   Modern button
+   ---------------------------------------------------------------------------- */
+body.app .m-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: var(--m-radius-sm);
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background 120ms ease, border-color 120ms ease, transform 80ms ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+body.app .m-btn:active { transform: translateY(0.5px); }
+body.app .m-btn--primary {
+    background: var(--m-accent);
+    color: #fff;
+    border-color: var(--m-accent);
+}
+body.app .m-btn--primary:hover { background: #4338ca; border-color: #4338ca; color: #fff; }
+body.app .m-btn--ghost {
+    background: var(--m-surface);
+    color: var(--m-text);
+    border-color: var(--m-border);
+}
+body.app .m-btn--ghost:hover { background: var(--m-surface-2); }
+body.app .m-btn i { font-size: 12px; }
+
+/* ----------------------------------------------------------------------------
+   Modern card
+   ---------------------------------------------------------------------------- */
+body.app .m-card {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    padding: 20px;
+}
+body.app .m-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: -4px 0 16px;
+    gap: 12px;
+}
+body.app .m-card__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--m-text);
+    margin: 0;
+    letter-spacing: -0.005em;
+}
+body.app .m-card__subtitle {
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+    margin: 2px 0 0;
+}
+
+/* ----------------------------------------------------------------------------
+   Stat card (KPI tile)
+   ---------------------------------------------------------------------------- */
+body.app .stat-card {
+    position: relative;
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    padding: 18px 20px 0;
+    overflow: hidden;
+    transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+body.app .stat-card:hover {
+    border-color: #d6dae0;
+    box-shadow: var(--m-shadow-sm);
+}
+body.app .stat-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+body.app .stat-card__label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--m-text-muted);
+    margin: 0;
+}
+body.app .stat-card__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--m-radius-sm);
+    background: var(--m-c1-soft);
+    color: var(--m-c1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+/* Per-tile palette echoing the original gradient tile family
+   (c1 blue / c2 teal / c3 orange / c4 pink). */
+body.app .stat-card__icon--c1 { background: var(--m-c1-soft); color: var(--m-c1); }
+body.app .stat-card__icon--c2 { background: var(--m-c2-soft); color: var(--m-c2); }
+body.app .stat-card__icon--c3 { background: var(--m-c3-soft); color: var(--m-c3); }
+body.app .stat-card__icon--c4 { background: var(--m-c4-soft); color: var(--m-c4); }
+/* Backwards-compat aliases (kept in case other pages opt in later). */
+body.app .stat-card__icon--success { background: var(--m-success-soft); color: var(--m-success); }
+body.app .stat-card__icon--warning { background: var(--m-warning-soft); color: var(--m-warning); }
+body.app .stat-card__icon--danger  { background: var(--m-danger-soft);  color: var(--m-danger);  }
+body.app .stat-card__value {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--m-text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+}
+body.app .stat-card__delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+body.app .stat-card__delta--up   { color: var(--m-success); }
+body.app .stat-card__delta--down { color: var(--m-danger); }
+body.app .stat-card__delta i { font-size: 10px; }
+body.app .stat-card__delta-period {
+    color: var(--m-text-faint);
+    font-weight: 400;
+    margin-left: 4px;
+}
+body.app .stat-card__sparkline {
+    margin: 10px -20px 0;
+    height: 56px;
+    position: relative;
+}
+body.app .stat-card__sparkline canvas {
+    display: block;
+    width: 100% !important;
+    height: 56px !important;
+}
+
+/* ----------------------------------------------------------------------------
+   Section title (used above content blocks where the inner card has its own header)
+   ---------------------------------------------------------------------------- */
+body.app .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--m-text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 6px;
+}
+
+/* ----------------------------------------------------------------------------
+   Date range chip
+   ---------------------------------------------------------------------------- */
+body.app .date-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 12px;
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius-sm);
+    font-size: 13px;
+    color: var(--m-text);
+    cursor: pointer;
+}
+body.app .date-chip i { color: var(--m-text-faint); font-size: 12px; }
+body.app .date-chip:hover { background: var(--m-surface-2); }
+
+/* ----------------------------------------------------------------------------
+   Activity feed
+   ---------------------------------------------------------------------------- */
+body.app .activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body.app .activity-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--m-divider);
+    align-items: flex-start;
+}
+body.app .activity-item:last-child { border-bottom: 0; }
+body.app .activity-item__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+    background: var(--m-accent-soft);
+}
+body.app .activity-item__body { flex: 1; min-width: 0; }
+body.app .activity-item__text {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--m-text);
+    line-height: 1.45;
+}
+body.app .activity-item__text b {
+    font-weight: 600;
+}
+body.app .activity-item__time {
+    font-size: 12px;
+    color: var(--m-text-faint);
+    margin-top: 2px;
+    display: block;
+}
+
+/* ----------------------------------------------------------------------------
+   Tasks list
+   ---------------------------------------------------------------------------- */
+body.app .task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body.app .task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .task-item:last-child { border-bottom: 0; }
+body.app .task-item input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--m-border);
+    border-radius: 5px;
+    background: var(--m-surface);
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 120ms ease, background 120ms ease;
+}
+body.app .task-item input[type="checkbox"]:hover { border-color: var(--m-accent); }
+body.app .task-item input[type="checkbox"]:checked {
+    background: var(--m-accent);
+    border-color: var(--m-accent);
+}
+body.app .task-item input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: center;
+}
+body.app .task-item__title {
+    flex: 1;
+    font-size: 13.5px;
+    color: var(--m-text);
+    margin: 0;
+    line-height: 1.4;
+}
+body.app .task-item input[type="checkbox"]:checked + .task-item__title {
+    color: var(--m-text-faint);
+    text-decoration: line-through;
+}
+body.app .task-item__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--m-text-faint);
+    flex-shrink: 0;
+}
+body.app .priority-chip {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+}
+body.app .priority-chip--high   { background: var(--m-danger-soft);  color: var(--m-danger); }
+body.app .priority-chip--medium { background: var(--m-warning-soft); color: var(--m-warning); }
+body.app .priority-chip--low    { background: var(--m-success-soft); color: var(--m-success); }
+
+/* ----------------------------------------------------------------------------
+   Top products table
+   ---------------------------------------------------------------------------- */
+body.app .m-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+body.app .m-table th,
+body.app .m-table td {
+    padding: 10px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .m-table tbody tr:last-child td { border-bottom: 0; }
+body.app .m-table th {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--m-text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-bottom: 8px;
+}
+body.app .m-table td.num {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    color: var(--m-text);
+}
+body.app .m-table .row-product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--m-text);
+    font-weight: 500;
+}
+body.app .m-table .row-product__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+    font-size: 12px;
+    flex-shrink: 0;
+}
+body.app .trend-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+body.app .trend-mini--up   { color: var(--m-success); }
+body.app .trend-mini--down { color: var(--m-danger); }
+
+/* ----------------------------------------------------------------------------
+   Footer (legacy CoolAdmin footer needs softening)
+   ---------------------------------------------------------------------------- */
+body.app .copyright p {
+    color: var(--m-text-faint);
+    font-size: 12.5px;
+    margin: 0;
+}
+body.app .copyright a {
+    color: var(--m-text-muted);
+}
+
+/* ----------------------------------------------------------------------------
+   Layout container — replace the rigid 116px top padding inherited from
+   `theme.css`'s `.main-content` rule with breathing room appropriate for the
+   slim 64px topbar.
+   ---------------------------------------------------------------------------- */
+body.app .main-content {
+    padding-top: 64px;
+}
+body.app .main-content > .section__content--p30 {
+    padding: 28px 28px 60px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 991px) {
+    body.app .main-content {
+        padding-top: 0;
+    }
+    body.app .main-content > .section__content--p30 {
+        padding: 16px 16px 40px;
+    }
+}
+
+/* Spacing utility used by the new dashboard layout */
+body.app .stack-y > * + * { margin-top: 16px; }
+body.app .stack-y-lg > * + * { margin-top: 24px; }
+body.app .row-tight { row-gap: 16px; }
+
+

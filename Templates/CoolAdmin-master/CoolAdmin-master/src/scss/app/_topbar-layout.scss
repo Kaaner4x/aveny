@@ -1,0 +1,138 @@
+/* ============================================================================
+   Topbar layout — gap fixes (sidebar-flush header, tighter icon row, circle avatar)
+   ============================================================================ */
+
+/* Pin the fixed header to the actual sidebar edge (overriding the legacy
+   `left: 300px` baked for the old 260→300 sidebar). */
+body.app .header-desktop {
+    left: 260px;
+    right: 0;
+    background: var(--m-surface);
+    height: 64px;
+    transition: left 200ms ease;
+    box-shadow: none;
+    border-bottom: 1px solid var(--m-border);
+}
+@media (min-width: 992px) {
+    body.app.sidebar-collapsed .header-desktop {
+        left: 72px;
+    }
+}
+@media (max-width: 991.98px) {
+    body.app .header-desktop {
+        left: 0;
+    }
+}
+
+/* Header content fills its container — no gutter on the left so it sits flush
+   against the sidebar. The legacy `.section__content--p30` injects 30px on
+   the inside, plus Bootstrap's `.container-fluid` adds 12px. Reset both;
+   `.header-wrap` itself owns the inner padding. */
+body.app .header-desktop .section__content,
+body.app .header-desktop .section__content--p30 {
+    padding: 0;
+    overflow: visible;
+}
+body.app .header-desktop .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+}
+body.app .header-wrap {
+    padding: 0 16px 0 12px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Push the action cluster all the way to the right; let the search expand. */
+body.app .header-wrap .form-header {
+    margin-left: 4px;
+    flex: 0 1 380px;
+}
+body.app .header-button {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+body.app .noti-wrap {
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+/* Override the legacy `.noti-wrap .noti__item:last-child { margin-right: 50px }`
+   that creates the awkward gap before the avatar. */
+body.app .noti-wrap .noti__item,
+body.app .noti-wrap .noti__item:last-child {
+    margin-right: 0;
+}
+
+/* Avatar must be a perfect circle — clamp BOTH dimensions and constrain
+   the inner <img> with object-fit. Legacy rules use `flex: 0 0 45px` and a
+   bare `width: 100%` on the img, which produces an oval. */
+body.app .account-item {
+    margin-left: 6px;
+    padding: 4px 12px 4px 4px;
+    border-radius: 999px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+body.app .account-item .image {
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: none;
+    aspect-ratio: 1 / 1;
+}
+body.app .account-item .image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+/* Notification bell sizing tightened up — 36px icons inside 38px hover box. */
+body.app .noti__item {
+    margin: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--m-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+body.app .noti__item i {
+    font-size: 16px;
+    color: var(--m-text-muted);
+    vertical-align: middle;
+}
+body.app .noti__item:hover {
+    background: var(--m-surface-2);
+}
+body.app .noti__item:hover i {
+    color: var(--m-text);
+}
+
+/* Compact spacing on tablets-narrow */
+@media (max-width: 768px) {
+    body.app .header-wrap {
+        gap: 6px;
+        padding: 0 10px 0 4px;
+    }
+    body.app .form-header {
+        flex: 1 1 auto;
+    }
+    body.app .form-header__hint {
+        display: none;
+    }
+}
+
+

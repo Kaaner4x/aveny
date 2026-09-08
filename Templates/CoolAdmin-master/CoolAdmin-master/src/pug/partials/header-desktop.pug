@@ -1,0 +1,126 @@
+//- Desktop topbar — sidebar toggle, search, message/email/notification
+//- dropdowns, and account menu. Sample demo content inside dropdowns
+//- is intentionally hard-coded (these are template placeholders).
+
+header.header-desktop
+  .section__content.section__content--p30
+    .container-fluid
+      .header-wrap
+        button.sidebar-toggle.js-sidebar-toggle(type='button' aria-label='Toggle navigation' aria-expanded='false' aria-controls='main-sidebar')
+          i.fa-solid.fa-bars(aria-hidden='true')
+        form.form-header(role='search' onsubmit='return false')
+          i.fa-solid.fa-magnifying-glass.form-header__icon(aria-hidden='true')
+          input.au-input.au-input--xl(type='search' name='search' placeholder='Search anything…' aria-label='Search')
+          kbd.form-header__hint(aria-hidden='true') ⌘K
+        .header-button
+          .noti-wrap
+            //- Messages dropdown
+            .noti__item.js-item-menu(role='button' tabindex='0' aria-haspopup='true' aria-label='Messages')
+              i.fa-solid.fa-comment-dots
+              span.quantity 1
+              .mess-dropdown.js-dropdown
+                .mess__title
+                  p You have 2 news message
+                .mess__item
+                  .image.img-cir.img-40
+                    img(src='images/icon/avatar-06.jpg' alt='Michelle Moreno')
+                  .content
+                    h6 Michelle Moreno
+                    p Have sent a photo
+                    span.time 3 min ago
+                .mess__item
+                  .image.img-cir.img-40
+                    img(src='images/icon/avatar-04.jpg' alt='Diane Myers')
+                  .content
+                    h6 Diane Myers
+                    p You are now connected on message
+                    span.time Yesterday
+                .mess__footer
+                  a(href='#') View all messages
+            //- Emails dropdown
+            .noti__item.js-item-menu(role='button' tabindex='0' aria-haspopup='true' aria-label='Emails')
+              i.fa-solid.fa-envelope
+              span.quantity 1
+              .email-dropdown.js-dropdown
+                .email__title
+                  p You have 3 New Emails
+                .email__item
+                  .image.img-cir.img-40
+                    img(src='images/icon/avatar-06.jpg' alt='Cynthia Harvey')
+                  .content
+                    p Meeting about new dashboard...
+                    span Cynthia Harvey, 3 min ago
+                .email__item
+                  .image.img-cir.img-40
+                    img(src='images/icon/avatar-05.jpg' alt='Cynthia Harvey')
+                  .content
+                    p Meeting about new dashboard...
+                    span Cynthia Harvey, Yesterday
+                .email__item
+                  .image.img-cir.img-40
+                    img(src='images/icon/avatar-04.jpg' alt='Cynthia Harvey')
+                  .content
+                    p Meeting about new dashboard...
+                    span Cynthia Harvey, January 15, 2025
+                .email__footer
+                  a(href='#') See all emails
+            //- Notifications dropdown
+            .noti__item.js-item-menu(role='button' tabindex='0' aria-haspopup='true' aria-label='Notifications')
+              i.fa-solid.fa-bell
+              span.quantity 3
+              .notifi-dropdown.js-dropdown
+                .notifi__title
+                  p You have 3 Notifications
+                .notifi__item
+                  .bg-c1.img-cir.img-40
+                    i.fa-solid.fa-envelope-open
+                  .content
+                    p You got a email notification
+                    span.date January 15, 2025 14:30
+                .notifi__item
+                  .bg-c2.img-cir.img-40
+                    i.fa-solid.fa-id-card
+                  .content
+                    p Your account has been blocked
+                    span.date January 15, 2025 14:30
+                .notifi__item
+                  .bg-c3.img-cir.img-40
+                    i.fa-solid.fa-file-lines
+                  .content
+                    p You got a new file
+                    span.date January 15, 2025 14:30
+                .notifi__footer
+                  a(href='#') All notifications
+          //- Account menu
+          .account-wrap
+            .account-item.clearfix.js-item-menu(role='button' tabindex='0' aria-haspopup='true' aria-label='Account menu')
+              .image
+                img(src='images/icon/avatar-01.jpg' alt='John Doe')
+              .content
+                a.js-acc-btn(href='#') john doe
+              .account-dropdown.js-dropdown
+                .info.clearfix
+                  .image
+                    a(href='#')
+                      img(src='images/icon/avatar-01.jpg' alt='John Doe')
+                  .content
+                    h5.name
+                      a(href='#') john doe
+                    span.email johndoe@example.com
+                .account-dropdown__body
+                  .account-dropdown__item
+                    a(href='#')
+                      i.fa-solid.fa-user
+                      | Account
+                  .account-dropdown__item
+                    a(href='#')
+                      i.fa-solid.fa-gear
+                      | Setting
+                  .account-dropdown__item
+                    a(href='#')
+                      i.fa-solid.fa-sack-dollar
+                      | Billing
+                .account-dropdown__footer
+                  a(href='#')
+                    i.fa-solid.fa-power-off
+                    | Logout

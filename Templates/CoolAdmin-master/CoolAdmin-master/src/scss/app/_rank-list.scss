@@ -1,0 +1,98 @@
+/* ============================================================================
+   Ranked top-N list (used for "Top campaigns")
+   ============================================================================ */
+body.app .rank-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+body.app .rank-list > li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 14px;
+    row-gap: 6px;
+    align-items: center;
+}
+body.app .rank-list__rank {
+    grid-row: span 2;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--m-surface-2);
+    color: var(--m-text-muted);
+    font-family: var(--m-font);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-variant-numeric: tabular-nums;
+}
+/* Highlight the top three with progressively brighter accent treatment. */
+body.app .rank-list > li:nth-child(1) .rank-list__rank {
+    background: var(--m-accent);
+    color: #fff;
+}
+body.app .rank-list > li:nth-child(2) .rank-list__rank {
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+}
+body.app .rank-list > li:nth-child(3) .rank-list__rank {
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+}
+body.app .rank-list__title {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    grid-column: 2;
+    align-self: end;
+    line-height: 1.3;
+}
+body.app .rank-list__value {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--m-text);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    align-self: end;
+    line-height: 1.3;
+    grid-column: 3;
+    grid-row: 1;
+}
+body.app .rank-list__bar {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    display: block;
+    height: 4px;
+    background: var(--m-divider);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+}
+body.app .rank-list__bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--rank-pct, 0%);
+    background: linear-gradient(90deg, var(--m-accent) 0%, #6c95e6 100%);
+    border-radius: inherit;
+    transition: width 360ms ease;
+}
+/* Top item gets a slightly stronger accent on the bar. */
+body.app .rank-list > li:nth-child(1) .rank-list__bar::after {
+    background: linear-gradient(90deg, var(--m-accent) 0%, #4272d7 100%);
+}
+
+

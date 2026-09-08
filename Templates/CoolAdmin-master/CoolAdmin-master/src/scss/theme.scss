@@ -1,0 +1,27 @@
+// CoolAdmin — legacy stylesheet (compiled to css/theme.css).
+// Organized loosely along ITCSS: settings/generic → elements → objects →
+// components → utilities. Order below matches the original document order so
+// the cascade is preserved.
+
+@use 'variables';
+@use 'generic';
+@use 'elements';
+@use 'objects';
+
+@use 'components/buttons';
+@use 'components/form';
+@use 'components/header';
+@use 'components/sidebar';
+@use 'components/overview';
+@use 'components/cards';
+@use 'components/charts';
+@use 'components/tables';
+@use 'components/footer';
+@use 'components/breadcrumb';
+@use 'components/statistic';
+@use 'components/progress';
+@use 'components/alert';
+@use 'components/switch';
+
+@use 'utilities';
+@use 'modern-additions';

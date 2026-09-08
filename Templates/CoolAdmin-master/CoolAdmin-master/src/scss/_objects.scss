@@ -1,0 +1,191 @@
+/*-----------------------------------------------------*/
+/*                   OBJECTS                           */
+/*-----------------------------------------------------*/
+/* ----- Section----- */
+section {
+    position: relative;
+}
+
+.section__content {
+    position: relative;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.section__content--w1830 {
+    max-width: 1830px;
+}
+
+.section__content--p30 {
+    padding: 0 30px;
+}
+
+@media (max-width: 991px) {
+    .section__content--p30 {
+        padding: 0;
+    }
+}
+
+.section__content--p35 {
+    padding: 0 35px;
+}
+
+/* ----- Page Wrapper----- */
+/*Override Grid Bootstrap*/
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/*Page Objects*/
+.page-wrapper {
+    overflow: hidden;
+    background: #e5e5e5;
+    padding-bottom: 8vh;
+}
+
+@media (max-width: 991px) {
+    .page-wrapper {
+    overflow: auto;
+    background: #e5e5e5;
+    padding-bottom: 12vh;
+}
+}
+.page-container {
+    background: #e5e5e5;
+    padding-left: 300px;
+}
+
+@media (max-width: 991px) {
+    .page-container {
+        position: relative;
+        top: 88px;
+        padding-left: 0;
+    }
+}
+
+.page-container2 {
+    background: #f2f2f2;
+    padding-left: 300px;
+}
+
+@media (max-width: 991px) {
+    .page-container2 {
+        position: relative;
+        padding-left: 0;
+    }
+}
+
+.page-container3 {
+    background: #f7f7f7;
+}
+
+.main-content {
+    padding-top: 116px;
+    min-height: 100vh;
+}
+
+@media (max-width: 991px) {
+    .main-content {
+        padding-top: 50px;
+	padding-bottom: 100px;
+    }
+}
+
+.page-content--bgf7 {
+    background: #f7f7f7;
+}
+
+.page-content--bge5 {
+    background: #e5e5e5;
+    height: 100vh;
+}
+
+.login-wrap {
+    max-width: 540px;
+    padding-top: 8vh;
+    margin: 0 auto;
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-checkbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-checkbox label input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.login-checkbox > label > a {
+    color: #ff2e44;
+}
+
+@media (max-width: 991px) {
+    .login-checkbox {
+        flex-direction: column;
+    }
+}
+
+.login-form .form-group label {
+    display: block;
+}
+
+.login-content {
+    background: #fff;
+    padding: 30px 30px 20px;
+    border-radius: 2px;
+}
+
+.social-login-content {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 20px 0px;
+}
+
+.register-link {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register-link > p > a {
+    color: #ff2e44;
+}
+
+.fontawesome-list-wrap {
+    background: #fff;
+    border: 1px solid #C9CDD7;
+    padding: 20px;
+    border-radius: 2px;
+}
+
+.fontawesome-list__title {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #C9CDD7;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.fa-hover a {
+    color: #666;
+    font-size: 15px;
+}
+
+.fa-hover a i {
+    margin-right: 10px;
+}
+
+.fa-hover a:hover {
+    color: #333;
+}
+
+.main-content--pb30 {
+    padding-bottom: 30px;
+}
+

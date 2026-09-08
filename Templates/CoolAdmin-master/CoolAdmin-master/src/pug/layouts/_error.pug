@@ -1,0 +1,19 @@
+//- Error / status page layout (404, 500, maintenance).
+//- Single centered card, no sidebar, no topbar, no skip link.
+
+include ../partials/_head
+
+block variables
+  - var pageMeta = pageMeta || { title: 'Page', description: '' }
+  - var bodyClass = bodyClass || 'app error-page'
+
+doctype html
+html(lang='en')
+  head
+    +head(pageMeta)
+    block extra_head
+  body(class=bodyClass)
+    main.error-card(role='main')
+      block content
+    include ../partials/footer-scripts
+    block extra_scripts

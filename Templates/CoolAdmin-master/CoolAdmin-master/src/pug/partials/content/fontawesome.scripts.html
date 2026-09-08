@@ -1,0 +1,40 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add click event to all icon showcases for copying
+        document.querySelectorAll('.icon-showcase').forEach(function(showcase) {
+            showcase.addEventListener('click', function() {
+                const iconElement = this.querySelector('i');
+                const iconCode = `<i class="${iconElement.className.replace('fs-2', '').replace(/text-\w+/, '').trim()}"></i>`;
+                
+                // Create temporary textarea to copy to clipboard
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = iconCode;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextarea);
+                
+                // Show feedback
+                const originalContent = this.innerHTML;
+                this.innerHTML = '<div class="text-center p-3"><i class="fa-solid fa-check text-success fs-2 mb-2"></i><small class="text-success">Copied!</small></div>';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalContent;
+                }, 1000);
+            });
+            
+            // Add hover effect
+            showcase.style.cursor = 'pointer';
+            showcase.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f8f9fa';
+                this.style.transform = 'translateY(-2px)';
+                this.style.transition = 'all 0.2s ease';
+            });
+            
+            showcase.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '';
+                this.style.transform = '';
+            });
+        });
+    });
+    </script>

@@ -1,0 +1,19 @@
+<script>
+    (function () {
+        const buttons = document.querySelectorAll('.pricing-toggle button');
+        const amounts = document.querySelectorAll('.pricing-amt');
+        if (!buttons.length) return;
+        buttons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                buttons.forEach((b) => { b.classList.remove('is-active'); b.setAttribute('aria-selected', 'false'); });
+                btn.classList.add('is-active');
+                btn.setAttribute('aria-selected', 'true');
+                const period = btn.dataset.period;
+                amounts.forEach((el) => {
+                    const v = el.dataset[period];
+                    if (v != null) el.textContent = '$' + v;
+                });
+            });
+        });
+    })();
+    </script>

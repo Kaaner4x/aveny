@@ -1,0 +1,119 @@
+/* ============================================================================
+   Mobile topbar — clean rebuild
+   At < 992px the header gets a deliberately minimal layout:
+     [ ☰ Hamburger ]                                          [ avatar ]
+
+   Search, notification bells, and the account-name pill are dropped.
+   Reasoning:
+     - Search-from-anywhere isn't a phone pattern (no keyboard handy by default)
+     - Notification bells turn the header into a flea market on narrow widths
+       and the dropdowns punch off-screen (legacy CSS positions them with
+       `right: 0; min-width: 305px` which on a 360px viewport extends past
+       the left edge)
+     - Avatar + nav drawer is the standard modern dashboard pattern
+   The existing dropdowns still work via the account-wrap on mobile — no
+   functionality is lost, just visual noise.
+   ============================================================================ */
+
+@media (max-width: 991.98px) {
+    /* Header — keep it simple: hamburger left, avatar right, nothing in between */
+    body.app .header-desktop {
+        height: 60px;
+    }
+    body.app .main-content {
+        padding-top: 60px;
+    }
+    body.app .menu-sidebar__content {
+        height: calc(100vh - 60px);
+    }
+    body.app .header-wrap {
+        height: 60px;
+        padding: 0 12px;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    /* Hamburger — slightly larger tap target */
+    body.app .sidebar-toggle {
+        width: 40px;
+        height: 40px;
+        margin-right: 0;
+        flex-shrink: 0;
+    }
+
+    /* Search — gone */
+    body.app .form-header {
+        display: none !important;
+    }
+
+    /* The action group is just the avatar on mobile */
+    body.app .header-button {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin-left: 0;
+    }
+
+    /* Notification bells — gone on mobile (still accessible inside the
+       account dropdown / sidebar) */
+    body.app .header-button .noti-wrap {
+        display: none !important;
+    }
+
+    /* Account chip — avatar only, no name, no chevron */
+    body.app .account-wrap {
+        position: relative;
+    }
+    body.app .account-item {
+        height: 40px;
+        padding: 4px;
+        gap: 0;
+        margin: 0;
+        background: transparent;
+    }
+    body.app .account-item:hover {
+        background: var(--m-surface-2);
+    }
+    body.app .account-item .image {
+        width: 32px !important;
+        height: 32px !important;
+        flex: 0 0 32px;
+        margin: 0;
+    }
+    body.app .account-item > .content {
+        display: none;
+    }
+
+    /* Account dropdown — anchor it to the viewport edge so it never
+       punches off-screen on narrow phones. The dropdown is `position: absolute`
+       relative to `.account-wrap`; we make `.account-wrap` align to the
+       header's right edge so the dropdown sits flush right and shrinks to
+       fit any phone width. */
+    body.app .account-dropdown {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        left: auto;
+        width: min(320px, calc(100vw - 24px));
+        max-width: calc(100vw - 24px);
+        margin-top: 0;
+    }
+}
+
+/* Small phones — keep the same minimal pattern but tighten paddings */
+@media (max-width: 575.98px) {
+    body.app .header-wrap {
+        padding: 0 8px;
+    }
+    body.app .sidebar-toggle {
+        width: 38px;
+        height: 38px;
+    }
+    body.app .account-item .image {
+        width: 30px !important;
+        height: 30px !important;
+        flex: 0 0 30px;
+    }
+}
+
+

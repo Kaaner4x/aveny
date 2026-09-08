@@ -1,0 +1,72 @@
+/* ============================================================================
+   CoolAdmin — 2026 modern overlay
+   Loaded AFTER css/theme.css. Establishes a fresh design system on top of the
+   legacy stylesheet. Scoped via `body.app` so other pages remain
+   unaffected until they opt in.
+   ============================================================================ */
+
+body.app {
+    /* Surfaces */
+    --m-bg:           #f4f6fa;
+    --m-surface:      #ffffff;
+    --m-surface-2:    #f8fafc;
+    --m-sidebar:      #1c2333;
+    --m-sidebar-soft: #28304a;
+
+    /* Borders + dividers */
+    --m-border:       #e4e7ec;
+    --m-border-soft:  #eef0f3;
+    --m-divider:      #f1f3f5;
+
+    /* Text */
+    --m-text:         #1f2937;
+    --m-text-muted:   #475569;
+    --m-text-faint:   #94a3b8;
+    --m-text-on-dark: #f1f5f9;
+
+    /* Brand + status — anchored to the original CoolAdmin blue (#4272d7)
+       with an additional set of accent hues borrowed from the original
+       gradient tiles for the KPI strip. */
+    --m-accent:        #4272d7;
+    --m-accent-rgb:    66, 114, 215;
+    --m-accent-hover:  #355cb8;
+    --m-accent-soft:   #eaf0fc;
+
+    /* Inspired-by-original KPI accents */
+    --m-c1:            #4272d7;  /* blue (revenue) */
+    --m-c1-soft:       #eaf0fc;
+    --m-c2:            #11998e;  /* teal (orders) */
+    --m-c2-soft:       #e0f3f1;
+    --m-c3:            #f97316;  /* warm orange (users) */
+    --m-c3-soft:       #fff1e6;
+    --m-c4:            #ec4899;  /* magenta-pink (conversion) */
+    --m-c4-soft:       #fce7f3;
+
+    --m-success:       #10b981;
+    --m-success-soft:  #ecfdf5;
+    --m-warning:       #f59e0b;
+    --m-warning-soft:  #fffbeb;
+    --m-danger:        #ef4444;
+    --m-danger-soft:   #fef2f2;
+
+    /* Effects */
+    --m-shadow-xs:    0 1px 2px rgba(15, 23, 42, 0.04);
+    --m-shadow-sm:    0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+    --m-shadow-md:    0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+    --m-shadow-lg:    0 12px 32px rgba(15, 23, 42, 0.10);
+
+    --m-radius-sm:    6px;
+    --m-radius:       10px;
+    --m-radius-lg:    14px;
+
+    --m-font:         "Inter", "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Layout overrides */
+    background: var(--m-bg);
+    color: var(--m-text);
+    font-family: var(--m-font);
+    font-feature-settings: "cv11", "ss01", "ss03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+

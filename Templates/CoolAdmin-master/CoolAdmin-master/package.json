@@ -1,0 +1,59 @@
+{
+  "name": "cooladmin",
+  "version": "3.4.0",
+  "description": "CoolAdmin — Bootstrap 5.3 admin dashboard template. 35 pages, vanilla JavaScript, no jQuery. Chart.js, FullCalendar 7, Leaflet, dark-mode tokens, command palette, and an optional Pug + SCSS + Vite source pipeline.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Colorlib (https://colorlib.com)",
+  "homepage": "https://cooladmin.colorlib.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puikinsh/CoolAdmin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/puikinsh/CoolAdmin/issues"
+  },
+  "keywords": [
+    "admin",
+    "dashboard",
+    "admin-dashboard",
+    "admin-template",
+    "bootstrap",
+    "bootstrap5",
+    "html5",
+    "template",
+    "vanilla-js",
+    "chartjs",
+    "fullcalendar",
+    "responsive",
+    "colorlib"
+  ],
+  "files": [
+    "*.html",
+    "css/",
+    "js/",
+    "vendor/",
+    "fonts/",
+    "images/",
+    "media/",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "dev": "concurrently -n pug,sass,vite -c blue,magenta,green \"npm:dev:pug\" \"npm:dev:sass\" \"npm:dev:vite\"",
+    "dev:pug": "node scripts/build-pug.js --watch",
+    "dev:sass": "sass --watch src/scss/theme.scss:css/theme.css src/scss/app.scss:css/app.css --no-source-map --style=expanded",
+    "dev:vite": "vite",
+    "build": "npm run build:pug && npm run build:sass",
+    "build:pug": "node scripts/build-pug.js",
+    "build:sass": "sass src/scss/theme.scss:css/theme.css src/scss/app.scss:css/app.css --no-source-map --style=expanded"
+  },
+  "devDependencies": {
+    "chokidar": "^5.0.0",
+    "concurrently": "^10.0.4",
+    "pug": "^3.0.4",
+    "sass": "^1.102.0",
+    "vite": "^8.2.0"
+  }
+}

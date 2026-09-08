@@ -1,0 +1,51 @@
+/* ----- Alert ----- */
+.au-alert {
+    border: 1px solid #fff;
+    background: #fff;
+    border-left: 3px solid #fff;
+    border-radius: 0;
+    margin: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 0;
+    padding: 15px 30px;
+}
+
+.au-alert.alert-dismissible .close {
+    font-size: 16px;
+    color: black;
+    opacity: 0.2;
+    padding: 0 23px;
+    top: 0;
+    bottom: 0;
+}
+
+.au-alert > i {
+    font-size: 30px;
+    color: #00ad5f;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.au-alert .content {
+    font-size: 16px;
+    color: #808080;
+}
+
+.au-alert-success {
+    background: #e5f6eb;
+    border-color: #d9f1e3;
+    border-left-color: #00ad5f;
+}
+
+.au-alert--70per {
+    width: 70.5%;
+    margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+    .au-alert--70per {
+        width: 95%;
+    }
+}
+

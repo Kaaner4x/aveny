@@ -1,0 +1,307 @@
+/* ============================================================================
+   Hamburger button + responsive sidebar (collapse on desktop, drawer on mobile)
+   ============================================================================ */
+
+/* Hamburger button — sits at the left of the topbar. */
+body.app .sidebar-toggle {
+    width: 38px;
+    height: 38px;
+    border: 0;
+    background: transparent;
+    border-radius: var(--m-radius-sm);
+    margin-right: 12px;
+    color: var(--m-text-muted);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 120ms ease;
+    flex-shrink: 0;
+}
+body.app .sidebar-toggle:hover { background: var(--m-surface-2); color: var(--m-text); }
+body.app .sidebar-toggle__bars {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: background-color 120ms ease;
+}
+body.app .sidebar-toggle__bars::before,
+body.app .sidebar-toggle__bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 200ms ease;
+}
+body.app .sidebar-toggle__bars::before { top: -6px; }
+body.app .sidebar-toggle__bars::after  { top:  6px; }
+
+/* Close (X) button inside the sidebar header — only visible on mobile. */
+body.app .sidebar-close {
+    display: none;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.65);
+    margin-left: auto;
+    cursor: pointer;
+    border-radius: var(--m-radius-sm);
+    align-items: center;
+    justify-content: center;
+}
+body.app .sidebar-close:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
+/* Always-on responsive sidebar (overrides legacy `d-none d-lg-block` on
+   `.menu-sidebar`). On mobile the sidebar lives off-screen and slides in
+   when `body.sidebar-open` is set. */
+body.app .menu-sidebar {
+    display: block !important;
+    transition: transform 220ms ease, width 200ms ease;
+}
+
+/* ----------------------------------------------------------------------------
+   Logo: square brand mark + wordmark
+   ---------------------------------------------------------------------------- */
+body.app .menu-sidebar .logo .logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    line-height: 1;
+}
+body.app .menu-sidebar .logo .logo-mark {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #4272d7 0%, #3155b3 100%);
+    box-shadow: 0 4px 12px rgba(66, 114, 215, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: var(--m-font);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+}
+body.app .menu-sidebar .logo .logo-text {
+    font-family: var(--m-font);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #fff;
+    white-space: nowrap;
+}
+
+/* DESKTOP: collapsed-to-icons rail */
+@media (min-width: 992px) {
+    body.app.sidebar-collapsed .menu-sidebar {
+        width: 72px;
+    }
+    body.app.sidebar-collapsed .page-container {
+        padding-left: 72px;
+    }
+
+    /* Logo strip — hide wordmark, centre the square mark. */
+    body.app.sidebar-collapsed .menu-sidebar .logo {
+        padding: 0;
+        justify-content: center;
+    }
+    body.app.sidebar-collapsed .menu-sidebar .logo .logo-link {
+        gap: 0;
+        max-width: 36px;
+    }
+    body.app.sidebar-collapsed .menu-sidebar .logo .logo-text {
+        display: none;
+    }
+
+    /* Container: drop the legacy 35px navbar-sidebar padding. Items below
+       handle their own horizontal breathing so each button can span the
+       full rail width with consistent gutters. */
+    body.app.sidebar-collapsed .navbar-sidebar {
+        padding: 14px 0 24px !important;
+    }
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list {
+        padding: 0;
+        margin: 0;
+    }
+
+    /* List item: holds the horizontal padding so the inner <a> spans 100%. */
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li {
+        position: relative;
+        margin: 0;
+        padding: 0 12px;
+    }
+
+    /* Each link is a full-width 44px-tall icon button. `!important` defeats
+       legacy `.navbar-sidebar .navbar__list li a { display: block; padding: 15px 0; ... }`
+       which otherwise leaks through and breaks centering. */
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li > a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        width: 100% !important;
+        height: 44px !important;
+        margin: 2px 0 !important;
+        padding: 0 !important;
+        font-size: 0 !important;     /* collapses the raw text node */
+        line-height: 1 !important;
+        color: #b8c4d6;
+        background: transparent;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: background-color 120ms ease, color 120ms ease;
+        box-sizing: border-box;
+    }
+    /* Force every icon to a fixed 24px square with text-align: center so the
+       glyph sits in the same x-position regardless of FA glyph width
+       (`fa-bell` is narrower than `fa-tachometer-alt`, etc.). */
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li > a > i {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 24px !important;
+        height: 24px !important;
+        margin: 0 !important;
+        font-size: 18px !important;
+        line-height: 1 !important;
+        text-align: center;
+        color: inherit;
+        flex-shrink: 0;
+        transition: color 120ms ease;
+    }
+
+    /* Disclosure caret has no purpose in collapsed mode. */
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li.has-sub > a.js-arrow::after {
+        display: none !important;
+    }
+
+    /* Hover — subtle; clearly distinct from the filled active state. */
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li:not(.active) > a:hover,
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li:not(.active) > a:focus-visible {
+        background: rgba(255, 255, 255, 0.07);
+        color: #ffffff;
+    }
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li:not(.active) > a:hover > i,
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li:not(.active) > a:focus-visible > i {
+        color: #ffffff;
+    }
+
+    /* Active — flat brand-blue pill, no glow shadow. */
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li.active > a {
+        background: var(--m-accent);
+        color: #ffffff;
+        box-shadow: none;
+    }
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li.active > a > i {
+        color: #ffffff;
+    }
+    /* Suppress the legacy off-screen `::before` rail used in expanded mode. */
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list > li.active > a::before {
+        display: none;
+    }
+
+    /* Sub-lists fully hidden in collapsed mode (no fly-out menus yet). */
+    body.app.sidebar-collapsed .navbar-sidebar .navbar__list .navbar__sub-list {
+        display: none !important;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   Floating sidebar tooltip (rendered into <body> by JS so it escapes the
+   sidebar's `overflow-y: auto` scroll container).
+   ---------------------------------------------------------------------------- */
+.sidebar-tooltip {
+    position: fixed;
+    background: #0f172a;
+    color: #fff;
+    font-family: var(--m-font, system-ui);
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.30);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-4px);
+    transition: opacity 120ms ease, transform 120ms ease;
+}
+.sidebar-tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* MOBILE / TABLET: drawer behavior */
+@media (max-width: 991.98px) {
+    body.app .menu-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        max-width: 86vw;
+        z-index: 1050;
+        transform: translateX(-100%);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+    }
+    body.app.sidebar-open .menu-sidebar {
+        transform: translateX(0);
+    }
+    body.app .page-container {
+        padding-left: 0;
+    }
+    /* Surface the close button on mobile only */
+    body.app .sidebar-close { display: inline-flex; }
+
+    /* The legacy mobile header is redundant now that the unified sidebar
+       handles mobile via the topbar hamburger. Hide it; the desktop header
+       stays visible at all breakpoints in app theme. */
+    body.app .header-mobile,
+    body.app .navbar-mobile {
+        display: none !important;
+    }
+    body.app .header-desktop {
+        display: block !important;
+    }
+    body.app .main-content {
+        padding-top: 64px;
+    }
+}
+
+/* Backdrop (created by JS when the mobile sidebar opens). */
+body.app .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: 1040;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+}
+body.app.sidebar-open .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+}
+body.app.sidebar-open {
+    overflow: hidden;
+}
+

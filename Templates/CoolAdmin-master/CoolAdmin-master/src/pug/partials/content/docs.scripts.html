@@ -1,0 +1,50 @@
+<script>
+    (function () {
+        // Scrollspy: highlight the active TOC link based on scroll position
+        const tocLinks = document.querySelectorAll('.docs-toc a');
+        const sections = [...document.querySelectorAll('.docs-section')];
+        if (!sections.length) return;
+
+        function setActive(id) {
+            tocLinks.forEach((a) => {
+                a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+            });
+        }
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) setActive(e.target.id);
+            });
+        }, { rootMargin: '-30% 0px -55% 0px' });
+        sections.forEach((s) => obs.observe(s));
+
+        // Copy-to-clipboard buttons on every <pre>
+        document.querySelectorAll('.docs-copy-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const code = btn.parentElement.querySelector('code');
+                if (!code) return;
+                navigator.clipboard.writeText(code.textContent).then(() => {
+                    const orig = btn.textContent;
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => { btn.textContent = orig; }, 1500);
+                });
+            });
+        });
+        // Also auto-add copy buttons to pre blocks that don't have one
+        document.querySelectorAll('.docs-content pre').forEach((pre) => {
+            if (pre.querySelector('.docs-copy-btn')) return;
+            const btn = document.createElement('button');
+            btn.className = 'docs-copy-btn';
+            btn.type = 'button';
+            btn.textContent = 'Copy';
+            btn.addEventListener('click', () => {
+                const code = pre.querySelector('code');
+                if (!code) return;
+                navigator.clipboard.writeText(code.textContent).then(() => {
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+                });
+            });
+            pre.appendChild(btn);
+        });
+    })();
+    </script>

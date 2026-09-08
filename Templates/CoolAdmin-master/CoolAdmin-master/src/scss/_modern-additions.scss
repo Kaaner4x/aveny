@@ -1,0 +1,188 @@
+/* ========================================================================
+   Modern lightbox  (driven by js/modern-plugins.js)
+   ======================================================================== */
+.modern-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+}
+.lightbox-backdrop {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    cursor: default;
+}
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    display: block;
+    border-radius: 4px;
+}
+.lightbox-close {
+    position: absolute;
+    top: -42px;
+    right: 0;
+    background: none;
+    border: 0;
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.lightbox-close:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+body.lightbox-open {
+    overflow: hidden;
+}
+
+/* ========================================================================
+   Modern progress bars  (driven by js/modern-plugins.js)
+   ======================================================================== */
+.au-progress__inner {
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+    transition: width 0.3s ease-in-out;
+}
+.au-progress:nth-child(2) .au-progress__inner {
+    background: linear-gradient(90deg, #28a745 0%, #1e7e34 100%);
+}
+.au-progress:nth-child(3) .au-progress__inner {
+    background: linear-gradient(90deg, #17a2b8 0%, #138496 100%);
+}
+.au-progress:nth-child(4) .au-progress__inner {
+    background: linear-gradient(90deg, #ffc107 0%, #e0a800 100%);
+}
+
+/* ========================================================================
+   Skip-to-main-content link  (revealed on focus only)
+   ======================================================================== */
+.skip-link:focus,
+.skip-link:focus-visible {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 10000;
+    padding: 8px 16px;
+    background: #4272d7;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================================================
+   Visible focus styles (a11y) — modern :focus-visible only
+   ======================================================================== */
+:focus-visible {
+    outline: 2px solid #4272d7;
+    outline-offset: 2px;
+}
+.btn:focus-visible,
+.au-btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible {
+    outline: 2px solid #4272d7;
+    outline-offset: 1px;
+}
+
+/* Topbar dropdown triggers are <div role="button"> — give them keyboard cues */
+.noti__item.js-item-menu:focus-visible,
+.account-item.js-item-menu:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+
+/* ========================================================================
+   Topbar account block — responsiveness fixes
+   ======================================================================== */
+
+/* Replace `float: left` with flexbox: predictable alignment at every width. */
+.account-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+.account-item .image {
+    float: none;
+    flex: 0 0 45px;
+}
+.account-item > .content {
+    margin-left: 0;
+    padding: 0;
+    min-width: 0;            /* lets the username truncate instead of forcing width */
+}
+.account-item > .content > a {
+    display: inline-block;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/* The dropdown is anchored to the right edge of `.account-wrap`. On narrow
+   viewports it would otherwise punch off the left side of the screen. */
+.account-dropdown {
+    max-width: calc(100vw - 24px);
+    width: 305px;
+    min-width: 0;
+}
+
+/* Below 992px the header stacks vertically and `.header-button` spans the
+   full row, so the account block lives near the right edge. Pin the dropdown
+   to the viewport-right instead of the small `.account-wrap` anchor so it
+   never clips. */
+@media (max-width: 991px) {
+    .account-wrap {
+        position: static;        /* let the dropdown anchor to a wider parent */
+    }
+    .account-dropdown {
+        right: 12px;
+        top: auto;
+        margin-top: 8px;
+    }
+    .account-dropdown:after {
+        right: 18px;             /* keep the arrow over the avatar */
+    }
+}
+
+/* Tablet-landscape (992–1199px): only the avatar shows, but the dropdown
+   should still anchor to the avatar, not the missing username column. */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .account-dropdown {
+        right: 0;
+    }
+}
+
+/* Very narrow phones (< 360px): the dropdown's 305px min-width would force
+   horizontal scroll. Allow it to shrink. */
+@media (max-width: 360px) {
+    .account-dropdown {
+        width: calc(100vw - 24px);
+    }
+    .account-dropdown .info {
+        padding: 18px;
+    }
+    .account-dropdown .info .image {
+        height: 50px;
+        width: 50px;
+    }
+    .account-dropdown .info .content {
+        margin-left: 50px;
+    }
+}

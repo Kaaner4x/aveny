@@ -1,0 +1,9 @@
+extends ../layouts/_auth
+
+block variables
+  - var pageMeta = { "title": "Forgot password", "description": "Password recovery page with clean form layout.", "noindex": true }
+  - var bodyClass = 'app auth-page'
+  - var skipLinkText = 'Skip to recovery form'
+
+block content
+  include ../partials/content/forget-pass.html

@@ -1,0 +1,39 @@
+//- Desktop sidebar nav. Driven by navItems in _nav-data.pug.
+//- The `activePage` locals variable (set in each page) determines which
+//- item is highlighted as current.
+
+include _nav-data
+
+-
+  function isItemActive(item) {
+    if (item.href && item.href === activePage) return true;
+    if (item.children && item.children.some(function(c) { return c.href === activePage; })) return true;
+    return false;
+  }
+
+aside.menu-sidebar#main-sidebar
+  .logo
+    a.logo-link(href='index.html' aria-label='CoolAdmin home')
+      span.logo-mark(aria-hidden='true') C
+      span.logo-text CoolAdmin
+    button.sidebar-close.js-sidebar-toggle(type='button' aria-label='Close navigation')
+      i.fa-solid.fa-xmark(aria-hidden='true')
+  .menu-sidebar__content.js-scrollbar1
+    nav.navbar-sidebar
+      ul.list-unstyled.navbar__list
+        each item in navItems
+          - var active = isItemActive(item)
+          if item.children
+            li(class=(active ? 'active has-sub' : 'has-sub'))
+              a.js-arrow(class=(active ? 'open' : '') href='#')
+                i(class=item.icon)
+                = item.label
+              ul.list-unstyled.navbar__sub-list.js-sub-list(style=(active ? 'display: block;' : ''))
+                each child in item.children
+                  li(class=(child.href === activePage ? 'active' : ''))
+                    a(href=child.href)= child.label
+          else
+            li(class=(active ? 'active' : ''))
+              a(href=item.href)
+                i(class=item.icon)
+                = item.label

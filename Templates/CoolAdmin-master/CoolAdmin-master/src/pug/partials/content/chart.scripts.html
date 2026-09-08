@@ -1,0 +1,168 @@
+<script>
+    (function() {
+        const PALETTE = ['#4272d7', '#11998e', '#f97316', '#ec4899', '#8b5cf6'];
+        const SOFT_PALETTE = ['rgba(66, 114, 215, 0.85)', 'rgba(17, 153, 142, 0.85)', 'rgba(249, 115, 22, 0.85)', 'rgba(236, 72, 153, 0.85)', 'rgba(139, 92, 246, 0.85)'];
+        const tip = (typeof modernTooltip !== 'undefined') ? modernTooltip : {
+            backgroundColor: '#0f172a', titleColor: '#f1f5f9', bodyColor: '#e2e8f0',
+            borderWidth: 0, cornerRadius: 6, padding: 10,
+        };
+        const fontFam = (typeof INTER !== 'undefined') ? INTER : '"Inter", system-ui, sans-serif';
+        const tickStyle = { font: { family: fontFam, size: 11 }, color: '#94a3b8' };
+        const gridStyle = { color: '#eef0f3', drawBorder: false };
+        const legendStyle = {
+            display: true, position: 'top', align: 'end',
+            labels: { usePointStyle: true, pointStyle: 'circle', boxWidth: 6, boxHeight: 6, padding: 14, font: { family: fontFam, size: 12 }, color: '#475569' }
+        };
+        function gradient(ctx, h, c1, c2) {
+            const c = ctx.getContext('2d');
+            const g = c.createLinearGradient(0, 0, 0, h);
+            g.addColorStop(0, c1); g.addColorStop(1, c2);
+            return g;
+        }
+
+        // 1. Yearly sales (line, gradient fill)
+        const salesCtx = document.getElementById('sales-chart');
+        if (salesCtx) {
+            new Chart(salesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+                    datasets: [{
+                        label: 'Sales',
+                        data: [12, 19, 15, 25, 22, 30, 28, 35, 30, 40, 35, 45],
+                        borderColor: PALETTE[0],
+                        backgroundColor: gradient(salesCtx, 280, 'rgba(66, 114, 215, 0.20)', 'rgba(66, 114, 215, 0)'),
+                        borderWidth: 2, fill: true, tension: 0.35,
+                        pointRadius: 0, pointHoverRadius: 5,
+                        pointHoverBackgroundColor: PALETTE[0], pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2,
+                    }],
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    interaction: { intersect: false, mode: 'index' },
+                    plugins: { legend: legendStyle, tooltip: tip },
+                    scales: { y: { beginAtZero: true, grid: gridStyle, border: { display: false }, ticks: tickStyle }, x: { grid: { display: false }, border: { display: false }, ticks: tickStyle } }
+                }
+            });
+        }
+
+        // 2. Team commits (doughnut)
+        const teamCtx = document.getElementById('team-chart');
+        if (teamCtx) {
+            new Chart(teamCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Frontend','Backend','DevOps','Design','QA'],
+                    datasets: [{ data: [35, 25, 15, 15, 10], backgroundColor: PALETTE, borderWidth: 2, hoverBorderColor: '#fff' }],
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false, cutout: '65%',
+                    animation: { animateScale: true, animateRotate: true },
+                    plugins: { legend: { display: true, position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', padding: 12, font: { family: fontFam, size: 12 }, color: '#475569' } }, tooltip: tip },
+                }
+            });
+        }
+
+        // 3. Bar chart
+        const barCtx = document.getElementById('barChart');
+        if (barCtx) {
+            new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Q1','Q2','Q3','Q4'],
+                    datasets: [{ label: 'Revenue', data: [65, 59, 80, 81], backgroundColor: PALETTE, borderRadius: 6, borderSkipped: false, barPercentage: 0.6, categoryPercentage: 0.7 }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: tip },
+                    scales: { y: { beginAtZero: true, grid: gridStyle, border: { display: false }, ticks: tickStyle }, x: { grid: { display: false }, border: { display: false }, ticks: { ...tickStyle, font: { family: fontFam, size: 12, weight: '500' }, color: '#475569' } } }
+                }
+            });
+        }
+
+        // 4. Radar
+        const radarCtx = document.getElementById('radarChart');
+        if (radarCtx) {
+            new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Performance','Scalability','Security','Usability','Reliability','Maintainability'],
+                    datasets: [
+                        { label: 'Current', data: [80, 70, 85, 75, 90, 65], backgroundColor: 'rgba(66, 114, 215, 0.15)', borderColor: PALETTE[0], borderWidth: 2, pointBackgroundColor: PALETTE[0], pointBorderColor: '#fff', pointBorderWidth: 1.5 },
+                        { label: 'Target',  data: [90, 85, 95, 90, 95, 85], backgroundColor: 'rgba(17, 153, 142, 0.15)', borderColor: PALETTE[1], borderWidth: 2, pointBackgroundColor: PALETTE[1], pointBorderColor: '#fff', pointBorderWidth: 1.5 },
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: legendStyle, tooltip: tip },
+                    scales: { r: { beginAtZero: true, max: 100, grid: { color: '#eef0f3' }, angleLines: { color: '#eef0f3' }, pointLabels: { font: { family: fontFam, size: 11 }, color: '#475569' }, ticks: { display: false } } }
+                }
+            });
+        }
+
+        // 5. Line chart (multi-series)
+        const lineCtx = document.getElementById('lineChart');
+        if (lineCtx) {
+            new Chart(lineCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1','Week 2','Week 3','Week 4','Week 5','Week 6'],
+                    datasets: [
+                        { label: 'Website visits', data: [1200, 1900, 1500, 2500, 2200, 3000], borderColor: PALETTE[0], backgroundColor: gradient(lineCtx, 280, 'rgba(66, 114, 215, 0.20)', 'rgba(66, 114, 215, 0)'), borderWidth: 2, fill: true, tension: 0.35, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: PALETTE[0], pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2 },
+                        { label: 'App downloads', data: [800, 1400, 1100, 1800, 1600, 2200], borderColor: PALETTE[1], backgroundColor: gradient(lineCtx, 280, 'rgba(17, 153, 142, 0.18)', 'rgba(17, 153, 142, 0)'), borderWidth: 2, fill: true, tension: 0.35, pointRadius: 0, pointHoverRadius: 5, pointHoverBackgroundColor: PALETTE[1], pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2 },
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    interaction: { intersect: false, mode: 'index' },
+                    plugins: { legend: legendStyle, tooltip: tip },
+                    scales: { y: { beginAtZero: true, grid: gridStyle, border: { display: false }, ticks: tickStyle }, x: { grid: { display: false }, border: { display: false }, ticks: tickStyle } }
+                }
+            });
+        }
+
+        // 6. Doughnut
+        const doughnutCtx = document.getElementById('doughutChart');
+        if (doughnutCtx) {
+            new Chart(doughnutCtx, {
+                type: 'doughnut',
+                data: { labels: ['Mobile','Desktop','Tablet'], datasets: [{ data: [55, 35, 10], backgroundColor: [PALETTE[0], PALETTE[1], PALETTE[2]], borderWidth: 2, hoverBorderColor: '#fff' }] },
+                options: { responsive: true, maintainAspectRatio: false, cutout: '65%', animation: { animateScale: true, animateRotate: true }, plugins: { legend: { display: true, position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', padding: 12, font: { family: fontFam, size: 12 }, color: '#475569' } }, tooltip: tip } }
+            });
+        }
+
+        // 7. Pie
+        const pieCtx = document.getElementById('pieChart');
+        if (pieCtx) {
+            new Chart(pieCtx, {
+                type: 'pie',
+                data: { labels: ['Chrome','Firefox','Safari','Edge','Others'], datasets: [{ data: [45, 25, 15, 10, 5], backgroundColor: PALETTE, borderWidth: 2, hoverBorderColor: '#fff' }] },
+                options: { responsive: true, maintainAspectRatio: false, animation: { animateScale: true, animateRotate: true }, plugins: { legend: { display: true, position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', padding: 12, font: { family: fontFam, size: 12 }, color: '#475569' } }, tooltip: tip } }
+            });
+        }
+
+        // 8. Polar
+        const polarCtx = document.getElementById('polarChart');
+        if (polarCtx) {
+            new Chart(polarCtx, {
+                type: 'polarArea',
+                data: { labels: ['Product A','Product B','Product C','Product D','Product E'], datasets: [{ data: [30, 45, 25, 35, 40], backgroundColor: SOFT_PALETTE, borderColor: PALETTE, borderWidth: 1.5 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: true, position: 'bottom', labels: { usePointStyle: true, pointStyle: 'circle', padding: 12, font: { family: fontFam, size: 12 }, color: '#475569' } }, tooltip: tip }, scales: { r: { beginAtZero: true, grid: { color: '#eef0f3' }, angleLines: { color: '#eef0f3' }, ticks: { display: false } } } }
+            });
+        }
+
+        // 9. Horizontal bar (skills)
+        const singleBarCtx = document.getElementById('singelBarChart');
+        if (singleBarCtx) {
+            new Chart(singleBarCtx, {
+                type: 'bar',
+                data: { labels: ['HTML','CSS','JavaScript','React','Vue','Angular'], datasets: [{ label: 'Proficiency', data: [95, 90, 85, 80, 70, 75], backgroundColor: PALETTE[0], borderRadius: 6, borderSkipped: false, barPercentage: 0.7, categoryPercentage: 0.8 }] },
+                options: {
+                    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: { ...tip, callbacks: { label: (it) => it.formattedValue + '%' } } },
+                    scales: { x: { beginAtZero: true, max: 100, grid: gridStyle, border: { display: false }, ticks: { ...tickStyle, callback: (v) => v + '%' } }, y: { grid: { display: false }, border: { display: false }, ticks: { ...tickStyle, font: { family: fontFam, size: 12, weight: '500' }, color: '#475569' } } }
+                }
+            });
+        }
+    })();
+    </script>

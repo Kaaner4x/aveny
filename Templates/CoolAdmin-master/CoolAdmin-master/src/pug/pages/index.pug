@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { title: 'Dashboard', description: 'Modern Bootstrap 5 admin dashboard with Chart.js widgets, responsive tables, and clean typography.' }
+  - var activePage = 'index.html'
+
+block content
+  include ../partials/content/index.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

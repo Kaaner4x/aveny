@@ -1,0 +1,129 @@
+/* ============================================================
+   Component-page extras
+   - .btn-spinner: tiny in-button spinner for loading states
+   - .circular-progress: SVG progress ring with center label
+   - .skeleton-* helpers: dashboard loading skeletons
+   ============================================================ */
+body.app .btn-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    vertical-align: -2px;
+    margin-right: 6px;
+    animation: m-spin 0.7s linear infinite;
+}
+@keyframes m-spin {
+    to { transform: rotate(360deg); }
+}
+
+body.app .circular-progress {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    display: inline-block;
+}
+body.app .circular-progress svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+body.app .circular-progress circle {
+    fill: none;
+    stroke-width: 2.6;
+}
+body.app .circular-progress circle.bg {
+    stroke: var(--m-surface-2);
+}
+body.app .circular-progress circle.fg {
+    stroke: var(--color, var(--m-c1));
+    stroke-linecap: round;
+    stroke-dasharray: 100, 100;
+    stroke-dashoffset: calc(100 - var(--pct, 0));
+    transition: stroke-dashoffset 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+body.app .circular-progress__label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.1;
+}
+body.app .circular-progress__label strong {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--m-text);
+    letter-spacing: -0.01em;
+}
+body.app .circular-progress__label span {
+    font-size: 11px;
+    color: var(--m-text-muted);
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Dashboard loading skeletons --------------------------------- */
+body.app .skeleton-stat-card {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius-lg);
+    padding: 18px 20px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+body.app .skeleton-line {
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--m-surface-2) 0%, var(--m-border) 50%, var(--m-surface-2) 100%);
+    background-size: 200% 100%;
+    animation: m-shimmer 1.4s linear infinite;
+}
+body.app .skeleton-line--sm { height: 8px; width: 40%; }
+body.app .skeleton-line--md { height: 14px; width: 70%; }
+body.app .skeleton-line--lg { height: 22px; width: 55%; }
+body.app .skeleton-block {
+    border-radius: var(--m-radius-lg);
+    background: linear-gradient(90deg, var(--m-surface-2) 0%, var(--m-border) 50%, var(--m-surface-2) 100%);
+    background-size: 200% 100%;
+    animation: m-shimmer 1.4s linear infinite;
+}
+body.app .skeleton-circle {
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--m-surface-2) 0%, var(--m-border) 50%, var(--m-surface-2) 100%);
+    background-size: 200% 100%;
+    animation: m-shimmer 1.4s linear infinite;
+}
+@keyframes m-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Component-showcase typography helpers ----------------------- */
+body.app .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+body.app .demo-tile {
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius-md);
+    padding: 14px 16px;
+    background: var(--m-surface);
+}
+body.app .demo-tile + .demo-tile { margin: 0; }
+body.app .demo-label {
+    font-size: 11px;
+    color: var(--m-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+}
+

@@ -1,0 +1,22 @@
+//- Auth layout — centered single-column for login / register / forgot-password.
+//- No sidebar, no topbar, no Chart.js.
+
+include ../partials/_head
+
+block variables
+  - var pageMeta = pageMeta || { title: 'Page', description: '' }
+  - var bodyClass = bodyClass || 'app auth-page'
+  - var skipLinkText = skipLinkText || 'Skip to sign-in form'
+
+doctype html
+html(lang='en')
+  head
+    +head(pageMeta)
+    block extra_head
+  body(class=bodyClass)
+    a.visually-hidden-focusable.skip-link(href='#auth-form')= skipLinkText
+    main#auth-form.login-wrap
+      .login-content
+        block content
+    include ../partials/footer-scripts
+    block extra_scripts

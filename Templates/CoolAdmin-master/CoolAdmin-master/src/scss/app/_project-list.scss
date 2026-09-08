@@ -1,0 +1,188 @@
+/* ============================================================================
+   Project list (used by index4.html)
+   ============================================================================ */
+body.app .project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body.app .project-list > li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 16px;
+    row-gap: 8px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--m-divider);
+    align-items: center;
+}
+body.app .project-list > li:last-child { border-bottom: 0; }
+body.app .project-list__title {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+    line-height: 1.3;
+}
+body.app .project-list__meta {
+    font-family: var(--m-font);
+    font-size: 12px;
+    color: var(--m-text-faint);
+    margin-top: 2px;
+    display: block;
+}
+body.app .project-list__avatars {
+    display: inline-flex;
+    align-items: center;
+}
+body.app .project-list__avatars img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--m-surface);
+    margin-left: -6px;
+    object-fit: cover;
+    background: var(--m-surface-2);
+}
+body.app .project-list__avatars img:first-child { margin-left: 0; }
+body.app .project-list__bar {
+    grid-column: 1 / span 2;
+    height: 4px;
+    background: var(--m-divider);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+}
+body.app .project-list__bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: var(--pct, 0%);
+    background: var(--m-accent);
+    border-radius: inherit;
+}
+body.app .project-list__bar--success::after { background: var(--m-success); }
+body.app .project-list__bar--warning::after { background: var(--m-warning); }
+body.app .project-list__bar--danger::after  { background: var(--m-danger); }
+
+body.app .deadline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body.app .deadline-list > li {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .deadline-list > li:last-child { border-bottom: 0; }
+body.app .deadline-list__date {
+    flex: 0 0 44px;
+    text-align: center;
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+    border-radius: var(--m-radius-sm);
+    padding: 6px 0;
+    font-family: var(--m-font);
+    line-height: 1;
+}
+body.app .deadline-list__date strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+body.app .deadline-list__date span {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+body.app .deadline-list__body { flex: 1; min-width: 0; }
+body.app .deadline-list__title {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+    margin: 2px 0 2px;
+    line-height: 1.3;
+}
+body.app .deadline-list__project {
+    font-family: var(--m-font);
+    font-size: 12px;
+    color: var(--m-text-faint);
+}
+
+/* Team availability list */
+body.app .team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body.app .team-list > li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .team-list > li:last-child { border-bottom: 0; }
+body.app .team-list__avatar {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+body.app .team-list__avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+body.app .team-list__status {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--m-surface);
+}
+body.app .team-list__status--online { background: var(--m-success); }
+body.app .team-list__status--away   { background: var(--m-warning); }
+body.app .team-list__status--busy   { background: var(--m-danger); }
+body.app .team-list__status--offline { background: var(--m-text-faint); }
+body.app .team-list__name {
+    flex: 1;
+    min-width: 0;
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+}
+body.app .team-list__role {
+    display: block;
+    font-size: 11.5px;
+    color: var(--m-text-faint);
+    font-weight: 400;
+    margin-top: 1px;
+}
+body.app .team-list__badge {
+    font-family: var(--m-font);
+    font-size: 11px;
+    color: var(--m-text-faint);
+    text-transform: capitalize;
+}
+
+/* Donut chart wrapper for marketing dashboard */
+body.app .donut-wrap {
+    height: 260px;
+    position: relative;
+}
+
+/* Page-header subtitle on dashboard variants — slight tweak so the date chip
+   on the right doesn't overlap on narrow widths. */
+body.app .page-header h1 + .subtitle { white-space: normal; }
+
+
+

@@ -1,0 +1,35 @@
+/* ----- Progress ----- */
+.au-progress .au-progress__bar {
+    height: 10px;
+    position: relative;
+    background: #d9d9d9;
+    border-radius: 5px;
+}
+
+.au-progress .au-progress__bar .au-progress__inner {
+    position: absolute;
+    width: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+    background-color: #4272d7;
+    overflow: visible;
+}
+
+.au-progress__title {
+    font-size: 14px;
+    color: #808080;
+    display: inline-block;
+    margin-bottom: 9px;
+}
+
+.au-progress__value {
+    font-size: 14px;
+    color: #808080;
+    position: absolute;
+    top: -28px;
+    right: -15px;
+}
+

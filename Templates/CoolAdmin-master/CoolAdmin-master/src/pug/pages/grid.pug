@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Grid system", "description": "Bootstrap 5 12-column responsive grid system demonstration." }
+  - var activePage = 'grid.html'
+
+block content
+  include ../partials/content/grid.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

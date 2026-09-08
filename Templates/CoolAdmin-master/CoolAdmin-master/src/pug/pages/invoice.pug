@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Invoice", "description": "Sample invoice with print stylesheet." }
+  - var activePage = 'invoice.html'
+
+block content
+  include ../partials/content/invoice.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

@@ -1,0 +1,257 @@
+/* ============================================================================
+   Auth pages — modern centered card on a soft tinted background
+   Used by login.html, register.html, forget-pass.html.
+   ============================================================================ */
+body.app.auth-page {
+    background: linear-gradient(135deg, #eaf0fc 0%, #f4f6fa 50%, #fce7f3 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+body.app.auth-page .page-wrapper,
+body.app.auth-page .page-content--bge5,
+body.app.auth-page .container {
+    background: transparent;
+    height: auto;
+    width: 100%;
+    max-width: 440px;
+    padding: 0;
+    margin: 0 auto;
+}
+body.app.auth-page .login-wrap {
+    max-width: 440px;
+    margin: 0 auto;
+    padding-top: 0;
+}
+body.app.auth-page .login-content {
+    background: #ffffff;
+    border: 1px solid var(--m-border);
+    border-radius: 16px;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+    padding: 32px;
+}
+body.app.auth-page .auth-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+body.app.auth-page .auth-brand .logo-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #4272d7 0%, #3155b3 100%);
+    box-shadow: 0 4px 12px rgba(66, 114, 215, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: var(--m-font);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+body.app.auth-page .auth-brand .logo-text {
+    font-family: var(--m-font);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--m-text);
+}
+body.app.auth-page .auth-title {
+    font-family: var(--m-font);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--m-text);
+    text-align: center;
+    margin: 18px 0 4px;
+}
+body.app.auth-page .auth-subtitle {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    color: var(--m-text-muted);
+    text-align: center;
+    margin: 0 0 24px;
+}
+body.app.auth-page .login-form .form-group {
+    margin-bottom: 16px;
+}
+body.app.auth-page .login-form label {
+    display: block;
+    font-family: var(--m-font);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--m-text);
+    margin: 0 0 6px;
+}
+body.app.auth-page .login-form .au-input {
+    width: 100%;
+    height: 42px;
+    padding: 0 14px;
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: 8px;
+    font-family: var(--m-font);
+    font-size: 14px;
+    color: var(--m-text);
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+    outline: none;
+}
+body.app.auth-page .login-form .au-input::placeholder {
+    color: var(--m-text-faint);
+}
+body.app.auth-page .login-form .au-input:focus {
+    border-color: var(--m-accent);
+    box-shadow: 0 0 0 3px rgba(var(--m-accent-rgb), 0.15);
+}
+body.app.auth-page .login-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 18px 0 24px;
+    font-family: var(--m-font);
+    font-size: 13px;
+}
+body.app.auth-page .login-checkbox > label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--m-text-muted);
+    font-weight: 400;
+    cursor: pointer;
+}
+body.app.auth-page .login-checkbox input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--m-border);
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    transition: border-color 120ms ease, background 120ms ease;
+}
+body.app.auth-page .login-checkbox input[type="checkbox"]:checked {
+    background: var(--m-accent);
+    border-color: var(--m-accent);
+}
+body.app.auth-page .login-checkbox input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 4px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+body.app.auth-page .login-checkbox a {
+    color: var(--m-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+body.app.auth-page .login-checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* Submit button (overrides the legacy `.au-btn--green` saturated green) */
+body.app.auth-page .login-form .au-btn {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    background: var(--m-accent);
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    font-family: var(--m-font);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: background 120ms ease, transform 80ms ease;
+}
+body.app.auth-page .login-form .au-btn:hover {
+    background: var(--m-accent-hover);
+}
+body.app.auth-page .login-form .au-btn:active {
+    transform: translateY(0.5px);
+}
+body.app.auth-page .login-form .au-btn--green { background: var(--m-accent); }
+body.app.auth-page .login-form .au-btn--green:hover { background: var(--m-accent-hover); }
+
+/* Social buttons */
+body.app.auth-page .social-login-content {
+    margin-top: 8px;
+}
+body.app.auth-page .social-login-content::before {
+    content: 'or continue with';
+    display: block;
+    text-align: center;
+    color: var(--m-text-faint);
+    font-family: var(--m-font);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    margin: 18px 0 14px;
+    position: relative;
+}
+body.app.auth-page .social-login-content::before {
+    background: linear-gradient(to right, transparent 0%, transparent 30%, #fff 30%, #fff 70%, transparent 70%);
+}
+body.app.auth-page .social-button {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+body.app.auth-page .social-button .au-btn {
+    background: var(--m-surface);
+    color: var(--m-text);
+    border: 1px solid var(--m-border);
+    margin: 0;
+    font-weight: 500;
+}
+body.app.auth-page .social-button .au-btn:hover {
+    background: var(--m-surface-2);
+}
+body.app.auth-page .social-button .au-btn--blue,
+body.app.auth-page .social-button .au-btn--blue2 {
+    background: var(--m-surface);
+    color: var(--m-text);
+    border: 1px solid var(--m-border);
+}
+
+body.app.auth-page .register-link {
+    text-align: center;
+    margin: 24px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--m-divider);
+    color: var(--m-text-muted);
+    font-family: var(--m-font);
+    font-size: 13.5px;
+}
+body.app.auth-page .register-link p {
+    margin: 0;
+}
+body.app.auth-page .register-link a {
+    color: var(--m-accent);
+    font-weight: 500;
+    text-decoration: none;
+}
+body.app.auth-page .register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Hide the legacy logo image; the auth-brand markup carries the new mark+text. */
+body.app.auth-page .login-logo {
+    display: none;
+}
+
+

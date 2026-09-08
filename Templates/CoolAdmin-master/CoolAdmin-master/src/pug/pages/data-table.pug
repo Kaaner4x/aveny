@@ -1,0 +1,14 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Data table", "description": "Working data table with sort, search, and pagination — no library." }
+  - var activePage = 'data-table.html'
+
+block content
+  include ../partials/content/data-table.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')
+
+block extra_scripts
+  include ../partials/content/data-table.scripts.html

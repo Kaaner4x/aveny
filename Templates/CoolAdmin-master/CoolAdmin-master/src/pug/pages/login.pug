@@ -1,0 +1,9 @@
+extends ../layouts/_auth
+
+block variables
+  - var pageMeta = { title: 'Sign in', description: 'Sign in to the CoolAdmin dashboard.', noindex: true }
+  - var bodyClass = 'app auth-page'
+  - var skipLinkText = 'Skip to sign-in form'
+
+block content
+  include ../partials/content/login.html

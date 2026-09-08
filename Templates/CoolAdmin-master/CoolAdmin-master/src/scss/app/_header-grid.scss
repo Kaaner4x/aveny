@@ -1,0 +1,113 @@
+/* ============================================================================
+   ULTRA-FINAL header layout fix — replace flex on .header-desktop with grid
+   on .header-wrap. Eliminates the "section__content collapses to natural
+   width" issue that was making the hamburger center and the avatar drop
+   to a second row.
+   ============================================================================ */
+
+/* Reset .header-desktop — block-level (NOT flex), pinned to top.
+   `left` is intentionally NOT reset here because desktop needs `left: 260px`
+   (set earlier) to clear the sidebar; only mobile pulls it back to 0
+   (handled by the @media (max-width: 991.98px) rule above). */
+body.app .header-desktop {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    height: 64px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--m-border) !important;
+    box-shadow: none !important;
+    z-index: 1000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+/* Mobile: header spans full width (no sidebar gutter). */
+@media (max-width: 991.98px) {
+    body.app .header-desktop {
+        left: 0 !important;
+    }
+}
+
+/* Inner wrappers — full-width, no padding so .header-wrap owns its layout */
+body.app .header-desktop > .section__content,
+body.app .header-desktop .section__content,
+body.app .header-desktop .section__content--p30 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+}
+body.app .header-desktop .container-fluid {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* The actual layout — CSS Grid with three columns:
+     [hamburger]  [search/flex space]  [actions] */
+body.app .header-wrap {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    column-gap: 12px !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+}
+
+/* Each direct child sits in its own column */
+body.app .header-wrap > .sidebar-toggle {
+    grid-column: 1 !important;
+    justify-self: start !important;
+}
+body.app .header-wrap > .form-header {
+    grid-column: 2 !important;
+    justify-self: stretch !important;
+    margin: 0 !important;
+}
+body.app .header-wrap > .header-button {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    margin: 0 !important;
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 991.98px) {
+    body.app .header-desktop {
+        height: 60px !important;
+    }
+    body.app .main-content {
+        padding-top: 60px !important;
+    }
+    body.app .menu-sidebar__content {
+        height: calc(100vh - 60px) !important;
+    }
+    body.app .header-wrap {
+        padding: 0 12px !important;
+        column-gap: 8px !important;
+    }
+    /* Form-header (search) is hidden on mobile; the 1fr middle column
+       is still there to push the right group to the right edge. */
+    body.app .header-wrap > .form-header {
+        display: none !important;
+    }
+    /* Hide notification bells inside the header-button on mobile */
+    body.app .header-wrap > .header-button .noti-wrap {
+        display: none !important;
+    }
+    /* Account chip — avatar only on mobile */
+    body.app .header-wrap > .header-button .account-item > .content {
+        display: none !important;
+    }
+}
+
+

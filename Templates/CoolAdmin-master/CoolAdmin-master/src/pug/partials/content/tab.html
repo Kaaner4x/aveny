@@ -1,0 +1,69 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Tabs</h1>
+                                <p class="subtitle">Underline tabs, pill tabs, and vertical tabs — using Bootstrap's nav-tabs / nav-pills components.</p>
+                            </div>
+                        </div>
+
+                        <h5 class="section-eyebrow" style="margin-bottom: 8px;">UNDERLINE TABS (DEFAULT)</h5>
+                        <section class="m-card">
+                            <header class="m-card__header"><div><h2 class="m-card__title">Same pattern as the settings page</h2><p class="m-card__subtitle">Tabs sit on top of an underline; the active one shows a brand-blue rail.</p></div></header>
+                            <ul class="nav nav-tabs settings-tabs" role="tablist">
+                                <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-overview"><i class="fa-solid fa-chart-line"></i> Overview</button></li>
+                                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-details"><i class="fa-solid fa-file-lines"></i> Details</button></li>
+                                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-history"><i class="fa-regular fa-clock"></i> History</button></li>
+                                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-team"><i class="fa-solid fa-users"></i> Team</button></li>
+                            </ul>
+                            <div class="tab-content" style="margin-top:18px;">
+                                <div class="tab-pane fade show active" id="tab-overview"><p style="margin:0;color:var(--m-text-muted);">Overview content goes here. Quick summary of the active item with KPIs and a chart.</p></div>
+                                <div class="tab-pane fade" id="tab-details"><p style="margin:0;color:var(--m-text-muted);">Details tab — fields, attributes, descriptions.</p></div>
+                                <div class="tab-pane fade" id="tab-history"><p style="margin:0;color:var(--m-text-muted);">History tab — chronological log of changes.</p></div>
+                                <div class="tab-pane fade" id="tab-team"><p style="margin:0;color:var(--m-text-muted);">Team tab — members and their roles.</p></div>
+                            </div>
+                        </section>
+
+                        <h5 class="section-eyebrow" style="margin: 28px 0 8px;">PILL TABS</h5>
+                        <section class="m-card">
+                            <ul class="nav nav-pills" role="tablist" style="gap:4px;">
+                                <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pill-1">Inbox</button></li>
+                                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#pill-2">Starred</button></li>
+                                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#pill-3">Drafts</button></li>
+                                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#pill-4">Archive</button></li>
+                            </ul>
+                            <div class="tab-content" style="margin-top:18px;">
+                                <div class="tab-pane fade show active" id="pill-1"><p style="margin:0;color:var(--m-text-muted);">12 unread messages.</p></div>
+                                <div class="tab-pane fade" id="pill-2"><p style="margin:0;color:var(--m-text-muted);">3 starred messages.</p></div>
+                                <div class="tab-pane fade" id="pill-3"><p style="margin:0;color:var(--m-text-muted);">2 drafts saved.</p></div>
+                                <div class="tab-pane fade" id="pill-4"><p style="margin:0;color:var(--m-text-muted);">128 archived messages.</p></div>
+                            </div>
+                        </section>
+
+                        <h5 class="section-eyebrow" style="margin: 28px 0 8px;">VERTICAL TABS</h5>
+                        <section class="m-card">
+                            <div class="row" style="margin:0;">
+                                <div class="col-md-3" style="padding:0;">
+                                    <ul class="nav flex-column nav-pills" role="tablist" style="border-right:1px solid var(--m-divider);padding-right:12px;">
+                                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-1" style="text-align:left;justify-content:flex-start;width:100%;"><i class="fa-solid fa-user"></i> Account</button></li>
+                                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-2" style="text-align:left;justify-content:flex-start;width:100%;"><i class="fa-solid fa-shield-halved"></i> Security</button></li>
+                                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-3" style="text-align:left;justify-content:flex-start;width:100%;"><i class="fa-regular fa-bell"></i> Notifications</button></li>
+                                        <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-4" style="text-align:left;justify-content:flex-start;width:100%;"><i class="fa-solid fa-credit-card"></i> Billing</button></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-9" style="padding-left:24px;">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="v-1"><h3 style="margin:0 0 8px;font-size:15px;color:var(--m-text);font-weight:600;">Account</h3><p style="margin:0;color:var(--m-text-muted);">Profile photo, name, email, language, and timezone.</p></div>
+                                        <div class="tab-pane fade" id="v-2"><h3 style="margin:0 0 8px;font-size:15px;color:var(--m-text);font-weight:600;">Security</h3><p style="margin:0;color:var(--m-text-muted);">Password, two-factor authentication, and active sessions.</p></div>
+                                        <div class="tab-pane fade" id="v-3"><h3 style="margin:0 0 8px;font-size:15px;color:var(--m-text);font-weight:600;">Notifications</h3><p style="margin:0;color:var(--m-text-muted);">Email and in-app notification preferences.</p></div>
+                                        <div class="tab-pane fade" id="v-4"><h3 style="margin:0 0 8px;font-size:15px;color:var(--m-text);font-weight:600;">Billing</h3><p style="margin:0;color:var(--m-text-muted);">Plan, payment method, and invoices.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

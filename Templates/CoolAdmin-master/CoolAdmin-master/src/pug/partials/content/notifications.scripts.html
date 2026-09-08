@@ -1,0 +1,21 @@
+<script>
+    (function () {
+        const filters = document.querySelectorAll('.notif-filter');
+        filters.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                filters.forEach((b) => b.classList.remove('is-active'));
+                btn.classList.add('is-active');
+            });
+        });
+        document.querySelectorAll('.notif-list__close').forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const li = btn.closest('li');
+                li.style.transition = 'opacity 200ms ease, transform 200ms ease';
+                li.style.opacity = '0';
+                li.style.transform = 'translateX(20px)';
+                setTimeout(() => li.remove(), 220);
+            });
+        });
+    })();
+    </script>

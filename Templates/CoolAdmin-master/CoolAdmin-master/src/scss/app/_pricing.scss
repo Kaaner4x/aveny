@@ -1,0 +1,96 @@
+/* ============================================================================
+   Pricing page (marketing-style)
+   ============================================================================ */
+body.app .pricing-hero {
+    text-align: center;
+    padding: 24px 16px 32px;
+}
+body.app .pricing-hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #4272d7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 12px;
+}
+body.app .pricing-hero p {
+    color: var(--m-text-muted);
+    font-size: 16px;
+    max-width: 540px;
+    margin: 0 auto 24px;
+    line-height: 1.5;
+}
+body.app .pricing-toggle {
+    display: inline-flex;
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: 999px;
+    padding: 4px;
+    box-shadow: var(--m-shadow-xs);
+}
+body.app .pricing-toggle button {
+    border: 0;
+    background: transparent;
+    padding: 7px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--m-text-muted);
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--m-font);
+}
+body.app .pricing-toggle button.is-active {
+    background: var(--m-accent);
+    color: #fff;
+}
+body.app .pricing-toggle button .save-badge {
+    background: var(--m-success-soft);
+    color: var(--m-success);
+    font-size: 10.5px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    font-weight: 600;
+}
+body.app .pricing-toggle button.is-active .save-badge {
+    background: rgba(255, 255, 255, 0.20);
+    color: #fff;
+}
+body.app .pricing-faq summary {
+    cursor: pointer;
+    padding: 14px 0;
+    font-weight: 500;
+    color: var(--m-text);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .pricing-faq summary::-webkit-details-marker { display: none; }
+body.app .pricing-faq summary::after {
+    content: '\f078';
+    font-family: 'Font Awesome 7 Free';
+    font-weight: 900;
+    font-size: 11px;
+    color: var(--m-text-faint);
+    transition: transform 200ms ease;
+}
+body.app .pricing-faq details[open] summary::after {
+    transform: rotate(180deg);
+}
+body.app .pricing-faq details[open] summary {
+    color: var(--m-accent);
+}
+body.app .pricing-faq p {
+    padding: 12px 0 16px;
+    margin: 0;
+    color: var(--m-text-muted);
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+

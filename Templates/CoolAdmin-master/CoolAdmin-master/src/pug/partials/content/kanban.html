@@ -1,0 +1,219 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Kanban board</h1>
+                                <p class="subtitle">Drag cards between columns. Click "+ Add card" to draft a new task.</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="m-btn m-btn--ghost"><i class="fa-solid fa-filter"></i> Filter</button>
+                                <button type="button" class="m-btn m-btn--primary" id="kanban-new-btn"><i class="fa-solid fa-plus"></i> New card</button>
+                            </div>
+                        </div>
+
+                        <div class="kanban-board" id="kanban-board">
+                            <!-- BACKLOG -->
+                            <section class="kanban-col" data-status="backlog">
+                                <header class="kanban-col__header">
+                                    <h2 class="kanban-col__title">
+                                        <span class="kanban-col__rail kanban-col__rail--backlog"></span> Backlog
+                                        <span class="kanban-col__count">5</span>
+                                    </h2>
+                                    <button type="button" class="icon-btn" aria-label="Column options"><i class="fa-solid fa-ellipsis"></i></button>
+                                </header>
+                                <div class="kanban-col__list">
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--feature">Feature</span></div>
+                                        <p class="kanban-card__title">Add CSV export to data tables</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-comment"></i>3 <i class="fa-regular fa-paperclip"></i>1</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-04.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--research">Research</span></div>
+                                        <p class="kanban-card__title">User testing — onboarding flow v2</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-calendar"></i>May 22</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-05.jpg" alt=""><img src="images/icon/avatar-06.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--bug">Bug</span></div>
+                                        <p class="kanban-card__title">Sidebar collapses unexpectedly on Safari iOS</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-comment"></i>7</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-01.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--docs">Docs</span></div>
+                                        <p class="kanban-card__title">Document the chart factory helpers</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-paperclip"></i>2</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-03.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--feature">Feature</span></div>
+                                        <p class="kanban-card__title">Bulk-edit selected rows in tables</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-calendar"></i>Jun 02</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-02.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="kanban-col__add"><button type="button"><i class="fa-solid fa-plus"></i> Add card</button></div>
+                            </section>
+
+                            <!-- IN PROGRESS -->
+                            <section class="kanban-col" data-status="progress">
+                                <header class="kanban-col__header">
+                                    <h2 class="kanban-col__title">
+                                        <span class="kanban-col__rail kanban-col__rail--progress"></span> In progress
+                                        <span class="kanban-col__count">4</span>
+                                    </h2>
+                                    <button type="button" class="icon-btn" aria-label="Column options"><i class="fa-solid fa-ellipsis"></i></button>
+                                </header>
+                                <div class="kanban-col__list">
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--feature">Feature</span><span class="kanban-card__label kanban-card__label--design">Design</span></div>
+                                        <p class="kanban-card__title">Q2 dashboard redesign — sidebar + topbar</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-calendar"></i>May 18 <i class="fa-regular fa-comment"></i>12</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-01.jpg" alt=""><img src="images/icon/avatar-04.jpg" alt=""><img src="images/icon/avatar-06.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--bug">Bug</span></div>
+                                        <p class="kanban-card__title">Fix avatar alignment on mobile header</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-comment"></i>4</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-04.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--feature">Feature</span></div>
+                                        <p class="kanban-card__title">Cmd+K command palette</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-calendar"></i>Today</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-03.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--research">Research</span></div>
+                                        <p class="kanban-card__title">Pricing page A/B test analysis</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-paperclip"></i>5 <i class="fa-regular fa-comment"></i>2</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-05.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="kanban-col__add"><button type="button"><i class="fa-solid fa-plus"></i> Add card</button></div>
+                            </section>
+
+                            <!-- IN REVIEW -->
+                            <section class="kanban-col" data-status="review">
+                                <header class="kanban-col__header">
+                                    <h2 class="kanban-col__title">
+                                        <span class="kanban-col__rail kanban-col__rail--review"></span> In review
+                                        <span class="kanban-col__count">3</span>
+                                    </h2>
+                                    <button type="button" class="icon-btn" aria-label="Column options"><i class="fa-solid fa-ellipsis"></i></button>
+                                </header>
+                                <div class="kanban-col__list">
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--feature">Feature</span></div>
+                                        <p class="kanban-card__title">Auth flow refactor — PR #2148</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-comment"></i>14</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-04.jpg" alt=""><img src="images/icon/avatar-01.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--design">Design</span></div>
+                                        <p class="kanban-card__title">Pricing page — final visual review</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-calendar"></i>Tomorrow</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-06.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--docs">Docs</span></div>
+                                        <p class="kanban-card__title">API v2 docs — review by reviewers</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-comment"></i>3</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-03.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="kanban-col__add"><button type="button"><i class="fa-solid fa-plus"></i> Add card</button></div>
+                            </section>
+
+                            <!-- DONE -->
+                            <section class="kanban-col" data-status="done">
+                                <header class="kanban-col__header">
+                                    <h2 class="kanban-col__title">
+                                        <span class="kanban-col__rail kanban-col__rail--done"></span> Done
+                                        <span class="kanban-col__count">6</span>
+                                    </h2>
+                                    <button type="button" class="icon-btn" aria-label="Column options"><i class="fa-solid fa-ellipsis"></i></button>
+                                </header>
+                                <div class="kanban-col__list">
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--feature">Feature</span></div>
+                                        <p class="kanban-card__title">Toast notification system</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-calendar"></i>May 12</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-02.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--feature">Feature</span></div>
+                                        <p class="kanban-card__title">Calendar — date-relative event generator</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-comment"></i>5</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-01.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--bug">Bug</span></div>
+                                        <p class="kanban-card__title">Search field overflow on iPhone SE</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-comment"></i>2</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-04.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--design">Design</span></div>
+                                        <p class="kanban-card__title">Inbox redesign — folder tabs + email rows</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-paperclip"></i>3</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-06.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--docs">Docs</span></div>
+                                        <p class="kanban-card__title">v3 release notes</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-calendar"></i>May 8</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-03.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                    <article class="kanban-card" draggable="true">
+                                        <div class="kanban-card__labels"><span class="kanban-card__label kanban-card__label--research">Research</span></div>
+                                        <p class="kanban-card__title">Q1 customer interview synthesis</p>
+                                        <div class="kanban-card__footer">
+                                            <span class="kanban-card__meta"><i class="fa-regular fa-comment"></i>9</span>
+                                            <span class="kanban-card__avatars"><img src="images/icon/avatar-05.jpg" alt=""></span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

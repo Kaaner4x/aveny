@@ -1,0 +1,149 @@
+<script>
+    (function () {
+        const DATA = [
+            { name: 'Cynthia Harvey',  email: 'cynthia@acme.co',     plan: 'Enterprise', amount: 4800, status: 'active',   signup: '2024-08-12' },
+            { name: 'John Doe',        email: 'john@example.com',    plan: 'Pro',        amount: 240,  status: 'active',   signup: '2025-02-14' },
+            { name: 'Diane Myers',     email: 'diane@globex.io',     plan: 'Pro',        amount: 240,  status: 'active',   signup: '2025-04-22' },
+            { name: 'Michelle Moreno', email: 'michelle@umbrella.co',plan: 'Starter',    amount: 0,    status: 'trial',    signup: '2026-04-30' },
+            { name: 'Robert Taylor',   email: 'robert@hooli.com',    plan: 'Enterprise', amount: 4800, status: 'active',   signup: '2024-12-04' },
+            { name: 'Emma Carter',     email: 'emma@piedpiper.io',   plan: 'Pro',        amount: 240,  status: 'past_due', signup: '2025-01-08' },
+            { name: 'Nicholas Martinez', email: 'nick@initech.com',  plan: 'Pro',        amount: 240,  status: 'active',   signup: '2025-09-15' },
+            { name: 'Lisa Anderson',   email: 'lisa@example.org',    plan: 'Starter',    amount: 0,    status: 'trial',    signup: '2026-04-12' },
+            { name: 'David Chen',      email: 'david@startup.dev',   plan: 'Pro',        amount: 240,  status: 'active',   signup: '2025-06-20' },
+            { name: 'Sarah Wilson',    email: 'sarah@acme.co',       plan: 'Enterprise', amount: 4800, status: 'active',   signup: '2024-11-08' },
+            { name: 'Mike Johnson',    email: 'mike@example.io',     plan: 'Pro',        amount: 240,  status: 'cancelled', signup: '2024-07-30' },
+            { name: 'Lori Lynch',      email: 'lori@example.com',    plan: 'Pro',        amount: 240,  status: 'active',   signup: '2025-03-18' },
+            { name: 'James Walker',    email: 'james@startup.io',    plan: 'Starter',    amount: 0,    status: 'trial',    signup: '2026-05-01' },
+            { name: 'Olivia Brown',    email: 'olivia@example.com',  plan: 'Pro',        amount: 240,  status: 'active',   signup: '2025-10-12' },
+            { name: 'Ethan Garcia',    email: 'ethan@brand.co',      plan: 'Enterprise', amount: 4800, status: 'active',   signup: '2025-02-28' },
+            { name: 'Sophia Lee',      email: 'sophia@example.com',  plan: 'Pro',        amount: 240,  status: 'past_due', signup: '2024-12-22' },
+            { name: 'Henry Martinez',  email: 'henry@firm.com',      plan: 'Starter',    amount: 0,    status: 'trial',    signup: '2026-04-05' },
+            { name: 'Mia Robinson',    email: 'mia@example.org',     plan: 'Pro',        amount: 240,  status: 'active',   signup: '2025-07-09' },
+            { name: 'Liam Scott',      email: 'liam@example.com',    plan: 'Pro',        amount: 240,  status: 'cancelled',signup: '2024-09-15' },
+            { name: 'Ava White',       email: 'ava@example.com',     plan: 'Enterprise', amount: 4800, status: 'active',   signup: '2025-01-31' },
+            { name: 'Noah Hall',       email: 'noah@example.com',    plan: 'Pro',        amount: 240,  status: 'active',   signup: '2025-08-25' },
+            { name: 'Isabella Allen',  email: 'isabella@example.com',plan: 'Pro',        amount: 240,  status: 'trial',    signup: '2026-04-18' },
+        ];
+
+        const STATUS = {
+            active:    { label: 'Active',    cls: 'status--process' },
+            trial:     { label: 'Trial',     cls: 'status--approved' },
+            past_due:  { label: 'Past due',  cls: 'status--denied' },
+            cancelled: { label: 'Cancelled', cls: 'status--denied' },
+        };
+
+        const tbody    = document.getElementById('dt-body');
+        const empty    = document.getElementById('dt-empty');
+        const search   = document.getElementById('dt-search-input');
+        const pageSize = document.getElementById('dt-page-size');
+        const info     = document.getElementById('dt-info');
+        const nav      = document.getElementById('dt-nav');
+        const headers  = document.querySelectorAll('#dt-table th[data-sort]');
+        const clearBtn = document.getElementById('dt-clear-search');
+
+        let state = { sort: 'name', dir: 'asc', page: 1, perPage: 10, query: '' };
+
+        function format(d) {
+            if (!d) return '';
+            const date = new Date(d);
+            return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+        function escapeHtml(s) {
+            const div = document.createElement('div');
+            div.textContent = s;
+            return div.innerHTML;
+        }
+
+        function render() {
+            const q = state.query.trim().toLowerCase();
+            const filtered = q
+                ? DATA.filter((row) => Object.values(row).some((v) => String(v).toLowerCase().includes(q)))
+                : DATA.slice();
+
+            filtered.sort((a, b) => {
+                const va = a[state.sort];
+                const vb = b[state.sort];
+                let cmp;
+                if (typeof va === 'number' && typeof vb === 'number') cmp = va - vb;
+                else cmp = String(va).localeCompare(String(vb));
+                return state.dir === 'asc' ? cmp : -cmp;
+            });
+
+            const total = filtered.length;
+            const totalPages = Math.max(1, Math.ceil(total / state.perPage));
+            if (state.page > totalPages) state.page = totalPages;
+            const start = (state.page - 1) * state.perPage;
+            const slice = filtered.slice(start, start + state.perPage);
+
+            if (total === 0) {
+                tbody.innerHTML = '';
+                empty.style.display = 'flex';
+            } else {
+                empty.style.display = 'none';
+                tbody.innerHTML = slice.map((row) => {
+                    const s = STATUS[row.status] || { label: row.status, cls: '' };
+                    return '<tr>' +
+                        '<td><strong style="color:var(--m-text);font-weight:500;">' + escapeHtml(row.name) + '</strong></td>' +
+                        '<td><a href="#" style="color:var(--m-accent);text-decoration:none;">' + escapeHtml(row.email) + '</a></td>' +
+                        '<td>' + escapeHtml(row.plan) + '</td>' +
+                        '<td class="num">$' + row.amount.toLocaleString() + '</td>' +
+                        '<td><span class="' + s.cls + '">' + s.label + '</span></td>' +
+                        '<td>' + format(row.signup) + '</td>' +
+                        '</tr>';
+                }).join('');
+            }
+
+            info.textContent = total === 0
+                ? 'No results'
+                : 'Showing ' + (start + 1) + '–' + (start + slice.length) + ' of ' + total;
+
+            // Pagination buttons
+            nav.innerHTML = '';
+            const make = (label, page, opts = {}) => {
+                const btn = document.createElement('button');
+                btn.innerHTML = label;
+                btn.disabled = !!opts.disabled;
+                if (opts.active) btn.classList.add('is-active');
+                btn.addEventListener('click', () => { state.page = page; render(); });
+                nav.appendChild(btn);
+            };
+            make('<i class="fa-solid fa-chevron-left"></i>', Math.max(1, state.page - 1), { disabled: state.page === 1 });
+            for (let p = 1; p <= totalPages; p++) {
+                if (totalPages > 7 && p !== 1 && p !== totalPages && Math.abs(p - state.page) > 1) {
+                    if (p === state.page - 2 || p === state.page + 2) {
+                        const span = document.createElement('span');
+                        span.textContent = '…';
+                        span.style.padding = '0 6px';
+                        span.style.color = 'var(--m-text-faint)';
+                        nav.appendChild(span);
+                    }
+                    continue;
+                }
+                make(String(p), p, { active: p === state.page });
+            }
+            make('<i class="fa-solid fa-chevron-right"></i>', Math.min(totalPages, state.page + 1), { disabled: state.page === totalPages });
+
+            // Sort indicators on headers
+            headers.forEach((h) => {
+                h.classList.remove('dt-sort-asc', 'dt-sort-desc');
+                if (h.dataset.sort === state.sort) {
+                    h.classList.add(state.dir === 'asc' ? 'dt-sort-asc' : 'dt-sort-desc');
+                }
+            });
+        }
+
+        headers.forEach((h) => {
+            h.addEventListener('click', () => {
+                const col = h.dataset.sort;
+                if (state.sort === col) state.dir = state.dir === 'asc' ? 'desc' : 'asc';
+                else { state.sort = col; state.dir = 'asc'; }
+                render();
+            });
+        });
+        search.addEventListener('input', () => { state.query = search.value; state.page = 1; render(); });
+        pageSize.addEventListener('change', () => { state.perPage = parseInt(pageSize.value, 10); state.page = 1; render(); });
+        if (clearBtn) clearBtn.addEventListener('click', () => { search.value = ''; state.query = ''; render(); });
+
+        render();
+    })();
+    </script>

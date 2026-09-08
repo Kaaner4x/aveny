@@ -1,0 +1,48 @@
+// CoolAdmin — 2026 modern overlay (compiled to css/app.css).
+// Loaded AFTER css/theme.css; scoped via `body.app` so pages opt in.
+// @use order below matches the original document order so the cascade —
+// including the various "FINAL"/"ULTRA-FINAL" mobile-topbar fixes — is
+// preserved verbatim.
+
+@use 'app/variables';
+@use 'app/overlay-base';
+@use 'app/responsive-sidebar';
+@use 'app/dropdowns';
+@use 'app/topbar-layout';
+@use 'app/auth';
+@use 'app/legacy-overrides';
+@use 'app/rank-list';
+@use 'app/section-cards';
+@use 'app/project-list';
+@use 'app/forms-bootstrap';
+@use 'app/inbox';
+@use 'app/card-showcase';
+
+// Mobile / responsive cascade — order is load-bearing here.
+@use 'app/mobile-refinements';
+@use 'app/mobile-topbar';
+@use 'app/mobile-topbar-final';
+@use 'app/hamburger';
+@use 'app/header-grid';
+@use 'app/mobile-header-restore';
+
+// Cross-cutting UI patterns.
+@use 'app/toast';
+@use 'app/empty-states';
+@use 'app/skeleton';
+@use 'app/command-palette';
+@use 'app/error-pages';
+
+// Per-page styling.
+@use 'app/settings';
+@use 'app/kanban';
+@use 'app/pricing';
+@use 'app/invoice';
+@use 'app/wizard';
+@use 'app/data-table';
+@use 'app/theme-presets';
+@use 'app/theme-switcher';
+@use 'app/docs';
+@use 'app/notifications';
+@use 'app/inbox-pane';
+@use 'app/component-extras';

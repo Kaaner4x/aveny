@@ -1,0 +1,19 @@
+<script>
+    (function () {
+        const btn = document.getElementById('loading-demo-btn');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+            const original = btn.innerHTML;
+            btn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> Saving…';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #fff;"></i> Saved';
+                if (window.toast) window.toast.success('Saved successfully');
+                setTimeout(() => {
+                    btn.innerHTML = original;
+                    btn.disabled = false;
+                }, 1400);
+            }, 1100);
+        });
+    })();
+    </script>

@@ -1,0 +1,107 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Calendar</h1>
+                                <p class="subtitle">Schedule of meetings, deadlines, and events.</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="m-btn m-btn--ghost">
+                                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                                    Export
+                                </button>
+                                <button type="button" class="m-btn m-btn--primary" onclick="addNewEvent()">
+                                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                    Add event
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row row-tight">
+                            <div class="col-lg-9">
+                                <section class="m-card">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title">Event calendar</h2>
+                                            <p class="m-card__subtitle">Click any day or event to see details.</p>
+                                        </div>
+                                    </header>
+                                    <div id="calendar" class="calendar-container"></div>
+                                </section>
+                            </div>
+                            <div class="col-lg-3">
+                                <section class="m-card">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title">Upcoming events</h2>
+                                            <p class="m-card__subtitle">Next two weeks.</p>
+                                        </div>
+                                    </header>
+                                    <ul class="deadline-list">
+                                        <li>
+                                            <div class="deadline-list__date"><strong>16</strong><span>May</span></div>
+                                            <div class="deadline-list__body">
+                                                <p class="deadline-list__title">Team meeting</p>
+                                                <span class="deadline-list__project">9:00 AM &middot; 60 min</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="deadline-list__date"><strong>18</strong><span>May</span></div>
+                                            <div class="deadline-list__body">
+                                                <p class="deadline-list__title">Sprint planning</p>
+                                                <span class="deadline-list__project">10:00 AM &middot; 90 min</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="deadline-list__date"><strong>20</strong><span>May</span></div>
+                                            <div class="deadline-list__body">
+                                                <p class="deadline-list__title">Project deadline</p>
+                                                <span class="deadline-list__project">All day</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="deadline-list__date"><strong>22</strong><span>May</span></div>
+                                            <div class="deadline-list__body">
+                                                <p class="deadline-list__title">Client presentation</p>
+                                                <span class="deadline-list__project">2:00 PM &middot; 90 min</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="deadline-list__date"><strong>24</strong><span>May</span></div>
+                                            <div class="deadline-list__body">
+                                                <p class="deadline-list__title">1:1 with John</p>
+                                                <span class="deadline-list__project">3:00 PM &middot; 30 min</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="deadline-list__date"><strong>28</strong><span>May</span></div>
+                                            <div class="deadline-list__body">
+                                                <p class="deadline-list__title">Quarterly review</p>
+                                                <span class="deadline-list__project">11:00 AM &middot; 120 min</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </section>
+
+                                <section class="m-card" style="margin-top: 16px;">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title">Event types</h2>
+                                        </div>
+                                    </header>
+                                    <ul class="legend-list">
+                                        <li><span class="legend-dot" style="background: var(--m-c1);"></span>Meetings</li>
+                                        <li><span class="legend-dot" style="background: var(--m-c2);"></span>Tasks</li>
+                                        <li><span class="legend-dot" style="background: var(--m-warning);"></span>Appointments</li>
+                                        <li><span class="legend-dot" style="background: var(--m-danger);"></span>Deadlines</li>
+                                        <li><span class="legend-dot" style="background: var(--m-c4);"></span>Presentations</li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

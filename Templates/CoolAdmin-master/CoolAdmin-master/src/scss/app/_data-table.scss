@@ -1,0 +1,106 @@
+/* ============================================================================
+   Working data-table demo (sort/filter/paginate)
+   ============================================================================ */
+body.app .dt-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+body.app .dt-search {
+    position: relative;
+    flex: 1 1 240px;
+    max-width: 320px;
+}
+body.app .dt-search input {
+    width: 100%;
+    height: 36px;
+    padding: 0 12px 0 36px;
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: 8px;
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    color: var(--m-text);
+    outline: none;
+}
+body.app .dt-search input:focus {
+    border-color: var(--m-accent);
+    box-shadow: 0 0 0 3px rgba(var(--m-accent-rgb), 0.15);
+}
+body.app .dt-search i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--m-text-faint);
+    font-size: 13px;
+    pointer-events: none;
+}
+body.app .dt-table th[data-sort] {
+    cursor: pointer;
+    user-select: none;
+}
+body.app .dt-table th[data-sort]::after {
+    content: '\f0dc';
+    font-family: 'Font Awesome 7 Free';
+    font-weight: 900;
+    font-size: 9px;
+    color: var(--m-text-faint);
+    margin-left: 6px;
+    opacity: 0.5;
+}
+body.app .dt-table th[data-sort].dt-sort-asc::after {
+    content: '\f0d8';
+    opacity: 1;
+    color: var(--m-accent);
+}
+body.app .dt-table th[data-sort].dt-sort-desc::after {
+    content: '\f0d7';
+    opacity: 1;
+    color: var(--m-accent);
+}
+body.app .dt-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+body.app .dt-pagination__info {
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+}
+body.app .dt-pagination__nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+body.app .dt-pagination__nav button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--m-border);
+    background: var(--m-surface);
+    color: var(--m-text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--m-font);
+}
+body.app .dt-pagination__nav button.is-active {
+    background: var(--m-accent);
+    border-color: var(--m-accent);
+    color: #fff;
+}
+body.app .dt-pagination__nav button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+body.app .dt-pagination__nav button:hover:not(:disabled):not(.is-active) {
+    background: var(--m-surface-2);
+}
+
+

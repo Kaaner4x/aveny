@@ -1,0 +1,30 @@
+/* ============================================================================
+   Hamburger button — Font Awesome bars icon styling
+   The legacy CSS-drawn `<span class="sidebar-toggle__bars">` was replaced
+   with `<i class="fa-solid fa-bars">` for predictable cross-browser rendering.
+   ============================================================================ */
+body.app .sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+body.app .sidebar-toggle > i {
+    font-size: 18px;
+    line-height: 1;
+    color: inherit;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+/* Mobile-specific hamburger: a touch larger so the tap target reads well */
+@media (max-width: 991.98px) {
+    body.app .header-wrap .sidebar-toggle > i {
+        font-size: 18px !important;
+        line-height: 1 !important;
+        color: var(--m-text) !important;
+    }
+}
+
+
+

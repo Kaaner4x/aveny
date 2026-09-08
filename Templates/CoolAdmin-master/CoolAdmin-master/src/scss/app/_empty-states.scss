@@ -1,0 +1,45 @@
+/* ============================================================================
+   Empty states
+   ============================================================================ */
+body.app .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 24px;
+    text-align: center;
+    color: var(--m-text-muted);
+}
+body.app .empty-state__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+body.app .empty-state__title {
+    font-family: var(--m-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--m-text);
+    margin: 0 0 4px;
+}
+body.app .empty-state__text {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    color: var(--m-text-muted);
+    margin: 0 0 16px;
+    max-width: 360px;
+    line-height: 1.5;
+}
+body.app .empty-state__actions {
+    display: inline-flex;
+    gap: 8px;
+}
+
+

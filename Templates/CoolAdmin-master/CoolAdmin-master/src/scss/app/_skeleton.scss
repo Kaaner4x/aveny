@@ -1,0 +1,28 @@
+/* ============================================================================
+   Loading skeletons
+   ============================================================================ */
+body.app .skeleton {
+    background: linear-gradient(90deg, #f1f3f5 0%, #e9ecef 50%, #f1f3f5 100%);
+    background-size: 200% 100%;
+    animation: skel-pulse 1.4s ease-in-out infinite;
+    border-radius: 6px;
+    display: inline-block;
+}
+@keyframes skel-pulse {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+body.app .skeleton-line { height: 12px; width: 100%; border-radius: 4px; }
+body.app .skeleton-line--short { width: 60%; }
+body.app .skeleton-line--xshort { width: 40%; }
+body.app .skeleton-circle { border-radius: 50%; aspect-ratio: 1; }
+body.app .skeleton-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .skeleton-row:last-child { border-bottom: 0; }
+
+

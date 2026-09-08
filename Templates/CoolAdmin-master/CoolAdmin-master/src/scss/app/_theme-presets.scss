@@ -1,0 +1,63 @@
+/* ============================================================================
+   Color theme presets
+   The accent color cascade is driven by `--m-accent`, `--m-accent-rgb`,
+   `--m-accent-hover`, `--m-accent-soft`. Any element using these variables
+   reskins automatically. Apply a `theme-{name}` class on <body> to switch.
+   ============================================================================ */
+
+/* Blue (default — already set via the base :root tokens, but make explicit) */
+body.app.theme-blue {
+    --m-accent:        #4272d7;
+    --m-accent-rgb:    66, 114, 215;
+    --m-accent-hover:  #355cb8;
+    --m-accent-soft:   #eaf0fc;
+}
+body.app.theme-purple {
+    --m-accent:        #7c3aed;
+    --m-accent-rgb:    124, 58, 237;
+    --m-accent-hover:  #6b2fd0;
+    --m-accent-soft:   #ede9fe;
+}
+body.app.theme-teal {
+    --m-accent:        #0d9488;
+    --m-accent-rgb:    13, 148, 136;
+    --m-accent-hover:  #0a7d72;
+    --m-accent-soft:   #ccfbf1;
+}
+body.app.theme-rose {
+    --m-accent:        #e11d48;
+    --m-accent-rgb:    225, 29, 72;
+    --m-accent-hover:  #be1239;
+    --m-accent-soft:   #ffe4e6;
+}
+body.app.theme-amber {
+    --m-accent:        #d97706;
+    --m-accent-rgb:    217, 119, 6;
+    --m-accent-hover:  #b86204;
+    --m-accent-soft:   #fef3c7;
+}
+body.app.theme-graphite {
+    --m-accent:        #334155;
+    --m-accent-rgb:    51, 65, 85;
+    --m-accent-hover:  #1f2937;
+    --m-accent-soft:   #e2e8f0;
+}
+
+/* Sidebar variants — the dark navy uses brand blue accents in the active state.
+   For non-blue themes the sidebar accent border / icon should follow the new
+   brand. The :root cascade handles most of this through `var(--m-accent)`. */
+
+/* Logo mark — gradient based on the active accent + a softer companion */
+body.app .menu-sidebar .logo .logo-mark {
+    background: linear-gradient(135deg, var(--m-accent) 0%, var(--m-accent-hover) 100%);
+    box-shadow: 0 4px 12px rgba(var(--m-accent-rgb), 0.35);
+}
+body.app .auth-page .auth-brand .logo-mark,
+body.app .invoice-doc__brand .logo-mark,
+body.app .error-card .logo-mark,
+body.app .cmdk-item__icon {
+    background: linear-gradient(135deg, var(--m-accent) 0%, var(--m-accent-hover) 100%);
+    box-shadow: 0 4px 12px rgba(var(--m-accent-rgb), 0.35);
+}
+
+

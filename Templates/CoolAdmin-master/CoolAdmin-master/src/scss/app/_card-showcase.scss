@@ -1,0 +1,364 @@
+/* ============================================================================
+   Card showcase patterns (used by card.html)
+   ============================================================================ */
+
+/* Profile / team member card */
+body.app .profile-card {
+    text-align: center;
+    padding: 24px 20px;
+}
+body.app .profile-card__avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    overflow: hidden;
+    border: 3px solid var(--m-surface);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+body.app .profile-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+body.app .profile-card__name {
+    font-family: var(--m-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--m-text);
+    margin: 0 0 2px;
+}
+body.app .profile-card__role {
+    font-family: var(--m-font);
+    font-size: 13px;
+    color: var(--m-text-muted);
+    margin: 0;
+}
+body.app .profile-card__divider {
+    border: 0;
+    border-top: 1px solid var(--m-divider);
+    margin: 16px 0;
+}
+body.app .profile-card__socials {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+body.app .profile-card__socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--m-surface-2);
+    color: var(--m-text-muted);
+    text-decoration: none;
+    transition: background 120ms ease, color 120ms ease;
+}
+body.app .profile-card__socials a:hover {
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+}
+body.app .profile-card__socials a i { font-size: 13px; }
+body.app .profile-card__stats {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 12px 0 0;
+}
+body.app .profile-card__stat {
+    flex: 0 0 auto;
+}
+body.app .profile-card__stat-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--m-text);
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+}
+body.app .profile-card__stat-label {
+    font-size: 11.5px;
+    color: var(--m-text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+/* Image cover card */
+body.app .cover-card {
+    padding: 0 !important;
+    overflow: hidden;
+}
+body.app .cover-card__image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+body.app .cover-card__body {
+    padding: 18px 20px 20px;
+}
+body.app .cover-card__tag {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 999px;
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+}
+body.app .cover-card__title {
+    font-family: var(--m-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--m-text);
+    margin: 0 0 6px;
+    letter-spacing: -0.005em;
+}
+body.app .cover-card__text {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    color: var(--m-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+body.app .cover-card__footer {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--m-divider);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+body.app .cover-card__author {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+}
+body.app .cover-card__author img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Pricing card */
+body.app .pricing-card {
+    padding: 28px 24px;
+    text-align: center;
+    position: relative;
+}
+body.app .pricing-card--featured {
+    border-color: var(--m-accent) !important;
+    box-shadow: 0 4px 24px rgba(var(--m-accent-rgb), 0.12);
+}
+body.app .pricing-card__badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--m-accent);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+body.app .pricing-card__tier {
+    font-family: var(--m-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--m-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 6px;
+}
+body.app .pricing-card__price {
+    margin: 0;
+    font-family: var(--m-font);
+    color: var(--m-text);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+body.app .pricing-card__price small {
+    font-size: 14px;
+    color: var(--m-text-muted);
+    font-weight: 500;
+    margin-left: 4px;
+}
+body.app .pricing-card__period {
+    color: var(--m-text-faint);
+    font-size: 12.5px;
+    margin: 6px 0 18px;
+}
+body.app .pricing-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+body.app .pricing-card__features li {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--m-text);
+}
+body.app .pricing-card__features li i {
+    color: var(--m-success);
+    margin-top: 2px;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+/* Notification / status card */
+body.app .notice-card {
+    display: flex;
+    gap: 14px;
+    padding: 18px 20px;
+}
+body.app .notice-card__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+}
+body.app .notice-card__body { flex: 1; min-width: 0; }
+body.app .notice-card__title {
+    font-family: var(--m-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--m-text);
+    margin: 0 0 4px;
+}
+body.app .notice-card__text {
+    font-family: var(--m-font);
+    font-size: 13px;
+    color: var(--m-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+body.app .notice-card__actions {
+    display: inline-flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+body.app .notice-card--info    .notice-card__icon { background: var(--m-c1-soft); color: var(--m-c1); }
+body.app .notice-card--success .notice-card__icon { background: var(--m-success-soft); color: var(--m-success); }
+body.app .notice-card--warning .notice-card__icon { background: var(--m-warning-soft); color: var(--m-warning); }
+body.app .notice-card--danger  .notice-card__icon { background: var(--m-danger-soft); color: var(--m-danger); }
+
+/* List-group card */
+body.app .card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body.app .card-list > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--m-divider);
+    transition: background 120ms ease;
+}
+body.app .card-list > li:last-child { border-bottom: 0; }
+body.app .card-list > li:hover { background: var(--m-surface-2); }
+body.app .card-list__main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+body.app .card-list__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--m-accent-soft);
+    color: var(--m-accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 12px;
+}
+body.app .card-list__title {
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+}
+body.app .card-list__sub {
+    font-family: var(--m-font);
+    font-size: 11.5px;
+    color: var(--m-text-faint);
+    display: block;
+    margin-top: 2px;
+}
+body.app .card-list__meta {
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+    flex-shrink: 0;
+}
+
+/* Mini stat card with sparkline (chart preview) */
+body.app .preview-card {
+    padding: 18px 20px 0;
+}
+body.app .preview-card__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+body.app .preview-card__label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--m-text-muted);
+    margin: 0;
+}
+body.app .preview-card__value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--m-text);
+    margin: 4px 0 6px;
+    font-variant-numeric: tabular-nums;
+}
+body.app .preview-card__chart {
+    margin: 0 -20px;
+    height: 64px;
+    position: relative;
+}
+
+/* Outline accent card (left rail in brand color) */
+body.app .accent-card {
+    border-left: 4px solid var(--m-accent) !important;
+    padding: 18px 20px 18px 18px !important;
+}
+body.app .accent-card--success { border-left-color: var(--m-success) !important; }
+body.app .accent-card--warning { border-left-color: var(--m-warning) !important; }
+body.app .accent-card--danger  { border-left-color: var(--m-danger) !important; }
+
+

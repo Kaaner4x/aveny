@@ -1,0 +1,289 @@
+/* ============================================================================
+   Comprehensive mobile refinements
+   ============================================================================ */
+
+/* ---------- Tablet & mobile (< 992px) ---------------------------------- */
+@media (max-width: 991.98px) {
+    /* Page padding tightened on smaller viewports */
+    body.app .main-content > .section__content--p30 {
+        padding: 16px 16px 40px;
+    }
+
+    /* Page header — stack the title and actions vertically on narrow
+       screens; let the actions wrap to a row of their own. */
+    body.app .page-header {
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    body.app .page-header h1 {
+        font-size: 20px;
+    }
+    body.app .page-header .subtitle {
+        font-size: 13px;
+    }
+    body.app .page-header__actions {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    body.app .page-header__actions .m-btn,
+    body.app .page-header__actions .date-chip {
+        flex: 0 1 auto;
+    }
+
+    /* m-card header — let the right-side actions slide below the title on
+       narrow widths instead of crowding it. */
+    body.app .m-card__header {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    body.app .m-card__header > div:first-child {
+        min-width: 0;
+        flex: 1 1 100%;
+    }
+    body.app .m-card {
+        padding: 16px;
+    }
+    body.app .stat-card {
+        padding: 14px 16px 0;
+    }
+
+    /* KPI strip cards — bottom-spacing when stacking */
+    body.app .row.row-tight > [class*="col-"] {
+        margin-bottom: 12px;
+    }
+    body.app .row.row-tight > [class*="col-"]:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Tables — every legacy / modern table inside an m-card gets a
+       horizontal-scroll wrapper automatically. */
+    body.app .m-card > .m-table,
+    body.app .m-card > .table,
+    body.app .m-card > .table-top-countries,
+    body.app .m-card > .table-top-campaign {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    body.app .m-table th,
+    body.app .m-table td {
+        white-space: nowrap;
+    }
+
+    /* Charts — slightly shorter to feel proportional on portrait phones */
+    body.app .m-card > div[style*="height: 280px"],
+    body.app .m-card > section > div[style*="height: 280px"] {
+        height: 220px !important;
+    }
+
+    /* Pricing cards — drop the elevated featured-card glow on mobile */
+    body.app .pricing-card {
+        padding: 24px 18px;
+    }
+    body.app .pricing-card--featured {
+        box-shadow: var(--m-shadow-xs);
+    }
+
+    /* Cover-image cards — shorter cover image on phones */
+    body.app .cover-card__image {
+        height: 140px;
+    }
+
+    /* Inbox — stats can wrap freely */
+    body.app .inbox-stat {
+        flex: 1 1 calc(50% - 6px);
+        min-width: 0;
+    }
+
+    /* Email row — drop the bulk-checkbox column on narrow viewports */
+    body.app .email-item {
+        grid-template-columns: 24px 36px 1fr auto;
+        column-gap: 10px;
+        padding: 10px 14px;
+    }
+    body.app .email-item__check { display: none; }
+    body.app .email-item__preview { display: none; }
+    body.app .email-item__sender .email-item__label { display: none; }
+
+    /* Filter selects in card headers — full-width row on mobile */
+    body.app .m-card__header .user-data.filters,
+    body.app .m-card__header .filters {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    body.app .m-card__header .user-data.filters .select-wrapper {
+        flex: 1 1 calc(50% - 4px);
+        min-width: 0;
+    }
+
+    /* Forms — Bootstrap "row mb-3" form rows: tighter stacking */
+    body.app form .row.mb-3 > [class*="col-md-3"] {
+        margin-bottom: 6px;
+    }
+
+    /* Project list — drop the avatar stack on very narrow widths so the
+       title + bar don't get crowded. */
+    body.app .project-list > li {
+        column-gap: 12px;
+    }
+
+    /* Footer copyright — center + smaller on phones */
+    body.app .copyright {
+        text-align: center;
+        padding: 0 8px;
+    }
+
+    /* Sidebar drawer — slightly larger drag-friendly close button */
+    body.app .sidebar-close {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ---------- Small phones (< 576px) ------------------------------------- */
+@media (max-width: 575.98px) {
+    /* Topbar — drop the search field on phones (use the sidebar nav instead) */
+    body.app .form-header { display: none; }
+
+    /* Topbar — collapse account chip to avatar-only */
+    body.app .account-item {
+        padding: 4px;
+        gap: 0;
+        margin-left: 4px;
+    }
+    body.app .account-item > .content {
+        display: none;
+    }
+
+    /* Notification bells — hide just the messages bell on tiny phones to
+       free room (keep emails + notifications which are usually more
+       actionable). */
+    body.app .header-button .noti-wrap > .noti__item:nth-child(1) {
+        display: none;
+    }
+
+    /* Sidebar toggle — slightly larger tap target on phones */
+    body.app .sidebar-toggle {
+        width: 40px;
+        height: 40px;
+        margin-right: 6px;
+    }
+    body.app .header-wrap {
+        padding: 0 10px 0 6px;
+    }
+
+    /* Page header — even smaller title */
+    body.app .page-header h1 {
+        font-size: 18px;
+    }
+    body.app .page-header .subtitle {
+        font-size: 12.5px;
+    }
+    body.app .page-header__actions .m-btn,
+    body.app .page-header__actions .date-chip {
+        height: 32px;
+        padding: 0 10px;
+        font-size: 12.5px;
+    }
+
+    /* Stat cards — smaller numbers + tighter padding */
+    body.app .stat-card {
+        padding: 12px 14px 0;
+    }
+    body.app .stat-card__value {
+        font-size: 22px;
+    }
+    body.app .stat-card__sparkline {
+        margin: 8px -14px 0;
+    }
+
+    /* m-card — lighter outer padding on phones */
+    body.app .m-card {
+        padding: 14px;
+    }
+    body.app .m-card__title {
+        font-size: 13.5px;
+    }
+
+    /* Inbox stats — full width each */
+    body.app .inbox-stat {
+        flex: 1 1 100%;
+    }
+
+    /* Inbox toolbar — drop the count summary on very narrow */
+    body.app .inbox-toolbar__count {
+        display: none;
+    }
+    body.app .inbox-toolbar {
+        padding: 10px 12px;
+    }
+
+    /* Email row — even tighter */
+    body.app .email-item {
+        padding: 10px 12px;
+        column-gap: 8px;
+    }
+
+    /* Profile / pricing / cover cards — full-width */
+    body.app .profile-card { padding: 20px 16px; }
+    body.app .pricing-card { padding: 22px 16px; }
+
+    /* Notification cards — icon shrinks */
+    body.app .notice-card {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+    body.app .notice-card__icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Tables in dashboards — smaller font on phones */
+    body.app .m-table th,
+    body.app .m-table td {
+        font-size: 12.5px;
+        padding: 8px 0;
+    }
+
+    /* Activity / deadline / team lists — tighter row padding */
+    body.app .activity-item,
+    body.app .task-item,
+    body.app .deadline-list > li,
+    body.app .team-list > li {
+        padding: 8px 0;
+    }
+    body.app .activity-item__text,
+    body.app .task-item__title,
+    body.app .deadline-list__title {
+        font-size: 13px;
+    }
+
+    /* Section eyebrow */
+    body.app .section-eyebrow {
+        font-size: 10.5px;
+        margin-bottom: 6px;
+    }
+
+    /* Calendar — FullCalendar 7 handles its own responsive toolbar collapsing.
+       The v6 .fc-toolbar / .fc-toolbar-title overrides that used to live here
+       targeted class names that no longer exist in v7. */
+}
+
+/* ---------- Very narrow phones (< 380px) ------------------------------- */
+@media (max-width: 379.98px) {
+    body.app .page-header__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    body.app .page-header__actions .m-btn,
+    body.app .page-header__actions .date-chip {
+        width: 100%;
+        justify-content: center;
+    }
+    body.app .stat-card__delta-period {
+        display: none;
+    }
+}
+
+

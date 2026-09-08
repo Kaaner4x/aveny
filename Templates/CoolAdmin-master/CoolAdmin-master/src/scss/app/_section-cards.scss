@@ -1,0 +1,512 @@
+/* ============================================================================
+   Vintage section cards across the dashboard variants and listing pages
+   Used by: index2, index3, index4, inbox, calendar, chart, form, etc.
+   ============================================================================ */
+
+/* The `<section class="statistic">` wrapper at the top of index2/index3 had a
+   57px top padding and no internal frame. Make it match the dashboard's
+   normal section spacing. */
+body.app .statistic {
+    padding-top: 0;
+}
+body.app .statistic .section__content--p30 {
+    padding: 0 28px 0;
+}
+
+/* Each `.statistic__item` is the legacy 4-tile equivalent of the new
+   .stat-card — with a giant 180px decorative icon at the bottom-right and a
+   weight-300 36px number. Reset to a clean modern KPI tile. */
+body.app .statistic__item {
+    background: var(--m-surface) !important;
+    border: 1px solid var(--m-border) !important;
+    border-radius: var(--m-radius);
+    padding: 18px 20px;
+    box-shadow: var(--m-shadow-xs);
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+body.app .statistic__item:hover {
+    border-color: #d6dae0 !important;
+    box-shadow: var(--m-shadow-sm);
+}
+body.app .statistic__item h2,
+body.app .statistic__item .number {
+    font-family: var(--m-font);
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--m-text) !important;
+    margin: 0 0 4px;
+    font-variant-numeric: tabular-nums;
+}
+body.app .statistic__item .desc {
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--m-text-muted) !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    display: block;
+}
+body.app .statistic__item .icon {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    bottom: auto;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--m-radius-sm);
+    background: var(--m-c1-soft);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+body.app .statistic__item .icon i {
+    font-size: 14px !important;
+    line-height: 1;
+    color: var(--m-c1) !important;
+    opacity: 1 !important;
+}
+/* Per-tile color variant — overrides the saturated full-tile gradients with
+   accent-tinted icon corners, c1/c2/c3/c4 palette. */
+body.app .statistic__item--blue {
+    background: var(--m-surface) !important;
+}
+body.app .statistic__item--blue .icon { background: var(--m-c1-soft); }
+body.app .statistic__item--blue .icon i { color: var(--m-c1) !important; }
+body.app .statistic__item--green {
+    background: var(--m-surface) !important;
+}
+body.app .statistic__item--green .icon { background: var(--m-c2-soft); }
+body.app .statistic__item--green .icon i { color: var(--m-c2) !important; }
+body.app .statistic__item--orange {
+    background: var(--m-surface) !important;
+}
+body.app .statistic__item--orange .icon { background: var(--m-c3-soft); }
+body.app .statistic__item--orange .icon i { color: var(--m-c3) !important; }
+body.app .statistic__item--red {
+    background: var(--m-surface) !important;
+}
+body.app .statistic__item--red .icon { background: var(--m-c4-soft); }
+body.app .statistic__item--red .icon i { color: var(--m-c4) !important; }
+
+/* Auto-rotate icon palette across siblings so 4 statistic tiles each get a
+   different accent without needing the variant classes. */
+body.app .statistic .row > [class*="col-"]:nth-child(1) .statistic__item:not([class*="--"]) .icon { background: var(--m-c1-soft); }
+body.app .statistic .row > [class*="col-"]:nth-child(1) .statistic__item:not([class*="--"]) .icon i { color: var(--m-c1) !important; }
+body.app .statistic .row > [class*="col-"]:nth-child(2) .statistic__item:not([class*="--"]) .icon { background: var(--m-c2-soft); }
+body.app .statistic .row > [class*="col-"]:nth-child(2) .statistic__item:not([class*="--"]) .icon i { color: var(--m-c2) !important; }
+body.app .statistic .row > [class*="col-"]:nth-child(3) .statistic__item:not([class*="--"]) .icon { background: var(--m-c3-soft); }
+body.app .statistic .row > [class*="col-"]:nth-child(3) .statistic__item:not([class*="--"]) .icon i { color: var(--m-c3) !important; }
+body.app .statistic .row > [class*="col-"]:nth-child(4) .statistic__item:not([class*="--"]) .icon { background: var(--m-c4-soft); }
+body.app .statistic .row > [class*="col-"]:nth-child(4) .statistic__item:not([class*="--"]) .icon i { color: var(--m-c4) !important; }
+
+/* `.statistic2` (alternative tile pattern in index4) — use same look. */
+body.app .statistic2 {
+    background: var(--m-surface) !important;
+    border: 1px solid var(--m-border) !important;
+    border-radius: var(--m-radius);
+    padding: 18px 20px;
+    box-shadow: var(--m-shadow-xs);
+}
+
+/* `.statistic-chart-1` (large stats chart card on index3) */
+body.app .statistic-chart-1,
+body.app .chart-percent-2,
+body.app .chart-percent-3 {
+    background: var(--m-surface) !important;
+    border: 1px solid var(--m-border) !important;
+    border-radius: var(--m-radius);
+    padding: 24px !important;
+    box-shadow: var(--m-shadow-xs);
+    margin-bottom: 16px !important;
+}
+body.app .statistic-chart-1-note span {
+    font-family: var(--m-font);
+    color: var(--m-text-muted) !important;
+    font-size: 13px;
+}
+body.app .statistic-chart-1-note .big {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: var(--m-text) !important;
+}
+
+/* `.recent-report2` / `.recent-report3` chart wrappers */
+body.app .recent-report2,
+body.app .recent-report3 {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    padding: 20px;
+    box-shadow: var(--m-shadow-xs);
+    margin-bottom: 16px;
+}
+body.app .recent-report__chart {
+    margin: 0 -8px;
+}
+body.app .recent-report2 .chart-info,
+body.app .recent-report3 .chart-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 16px;
+}
+body.app .recent-report2 .chart-info__left,
+body.app .recent-report3 .chart-info__left {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+body.app .recent-report2 .chart-info-right,
+body.app .recent-report3 .chart-info-right {
+    display: flex;
+    gap: 8px;
+}
+body.app .chart-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+}
+body.app .chart-note .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+body.app .chart-note .dot--blue   { background: var(--m-c1); }
+body.app .chart-note .dot--green  { background: var(--m-c2); }
+body.app .chart-note .dot--orange { background: var(--m-c3); }
+body.app .chart-note .dot--red    { background: var(--m-c4); }
+
+/* `.task-progress` block (skill bars on index2 right column) */
+body.app .task-progress {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    padding: 20px;
+    box-shadow: var(--m-shadow-xs);
+    margin-bottom: 16px;
+}
+body.app .au-progress {
+    margin: 0 0 14px;
+}
+body.app .au-progress:last-child { margin-bottom: 0; }
+body.app .au-progress__title {
+    font-family: var(--m-font);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--m-text);
+    margin: 0 0 6px;
+    display: block;
+}
+body.app .au-progress__bar {
+    height: 6px;
+    background: var(--m-divider);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+}
+body.app .au-progress__inner {
+    height: 100%;
+    background: var(--m-accent) !important;
+    border-radius: 999px;
+    transition: width 360ms ease;
+}
+/* Override the gradient backgrounds set by `:nth-child` rules in theme.css */
+body.app .au-progress:nth-child(1) .au-progress__inner { background: var(--m-c1) !important; }
+body.app .au-progress:nth-child(2) .au-progress__inner { background: var(--m-c2) !important; }
+body.app .au-progress:nth-child(3) .au-progress__inner { background: var(--m-c3) !important; }
+body.app .au-progress:nth-child(4) .au-progress__inner { background: var(--m-c4) !important; }
+body.app .au-progress__value {
+    position: absolute;
+    right: 0;
+    top: -22px;
+    font-size: 12px;
+    color: var(--m-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* `.au-task` task list (used by inbox-style sections + index2) */
+body.app .au-task,
+body.app .au-task--border {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    padding: 0;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+body.app .au-task__title {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--m-divider);
+    border-left: 0 !important;
+    border-right: 0 !important;
+    background: var(--m-surface);
+    margin: 0;
+}
+body.app .au-task__title h3,
+body.app .au-task__title .title-3 {
+    margin: 0;
+    font-family: var(--m-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--m-text);
+    text-transform: none;
+}
+body.app .au-task-list {
+    padding: 4px 0;
+}
+body.app .au-task__item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--m-divider);
+    background: transparent;
+    border-left: 3px solid transparent;
+    transition: background 120ms ease;
+}
+body.app .au-task__item:last-child { border-bottom: 0; }
+body.app .au-task__item:hover { background: var(--m-surface-2); }
+body.app .au-task__item--primary { border-left-color: var(--m-accent); }
+body.app .au-task__item--success { border-left-color: var(--m-success); }
+body.app .au-task__item--warning { border-left-color: var(--m-warning); }
+body.app .au-task__item--danger  { border-left-color: var(--m-danger); }
+body.app .au-task__item-inner h5 {
+    margin: 0 0 4px;
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+}
+body.app .au-task__item-inner .time {
+    font-family: var(--m-font);
+    font-size: 11.5px;
+    color: var(--m-text-faint);
+}
+body.app .au-task__footer {
+    padding: 12px 20px;
+    background: var(--m-surface-2);
+    border-top: 1px solid var(--m-divider);
+    text-align: center;
+}
+body.app .au-task__footer a {
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--m-accent);
+    text-decoration: none;
+}
+
+/* `.au-message` email/message list (used by inbox.html) */
+body.app .au-message {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+body.app .au-message-list {
+    padding: 4px 0;
+}
+body.app .au-message__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--m-divider);
+    transition: background 120ms ease;
+    cursor: pointer;
+}
+body.app .au-message__item:last-child { border-bottom: 0; }
+body.app .au-message__item:hover { background: var(--m-surface-2); }
+body.app .au-message__item.unread { background: var(--m-accent-soft); }
+body.app .au-message__item.unread:hover { background: rgba(var(--m-accent-rgb), 0.10); }
+body.app .au-message__item-inner {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+body.app .au-message__item .av-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+body.app .au-message__item .av-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+body.app .au-message__item-text {
+    flex: 1;
+    min-width: 0;
+}
+body.app .au-message__item-text h5 {
+    margin: 0 0 2px;
+    font-family: var(--m-font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--m-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+body.app .au-message__item.unread .au-message__item-text h5 { font-weight: 600; }
+body.app .au-message__item-text p {
+    margin: 0;
+    font-family: var(--m-font);
+    font-size: 13px;
+    color: var(--m-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+body.app .au-message__item-time {
+    font-family: var(--m-font);
+    font-size: 11.5px;
+    color: var(--m-text-faint);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+body.app .au-message__noti {
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: var(--m-accent);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 500;
+    margin-left: 8px;
+}
+body.app .au-message__footer {
+    padding: 12px 20px;
+    background: var(--m-surface-2);
+    border-top: 1px solid var(--m-divider);
+    text-align: center;
+}
+body.app .au-message__footer a {
+    font-family: var(--m-font);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--m-accent);
+    text-decoration: none;
+}
+
+/* `.au-chat` chat panel (used by inbox or messaging pages) */
+body.app .au-chat,
+body.app .au-chat--border {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+body.app .au-chat__title {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--m-divider);
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+body.app .au-chat__title h3 {
+    margin: 0;
+    font-family: var(--m-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--m-text);
+    text-transform: none;
+}
+body.app .au-chat__content {
+    padding: 16px 20px;
+}
+body.app .au-chat-info {
+    padding: 16px 20px;
+    border-top: 1px solid var(--m-divider);
+}
+body.app .au-chat-textfield {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-top: 1px solid var(--m-divider);
+}
+
+/* `.welcome` / `.welcome2` hero blocks (index3 / index4) */
+body.app .welcome,
+body.app .welcome2 {
+    background: linear-gradient(135deg, var(--m-accent-soft) 0%, var(--m-c4-soft) 100%);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    padding: 32px;
+    margin-bottom: 16px;
+    box-shadow: var(--m-shadow-xs);
+}
+body.app .welcome2 {
+    padding: 40px 32px !important;
+}
+body.app .welcome2-greeting {
+    font-family: var(--m-font);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--m-text) !important;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+}
+body.app .welcome2-greeting + p,
+body.app .welcome2 p {
+    color: var(--m-text-muted);
+    font-size: 14px;
+}
+
+/* `.au-card` general modernizing override */
+body.app .au-card {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-xs);
+    margin-bottom: 16px;
+}
+body.app .au-card--no-shadow { box-shadow: var(--m-shadow-xs); }
+body.app .au-card--no-pad { padding: 0; }
+body.app .au-card--border { border: 1px solid var(--m-border); }
+body.app .au-card-inner { padding: 20px; }
+body.app .au-card-title {
+    padding: 16px 20px !important;
+    border-bottom: 1px solid var(--m-divider);
+    background: var(--m-surface) !important;
+    border-top-left-radius: var(--m-radius) !important;
+    border-top-right-radius: var(--m-radius) !important;
+}
+body.app .au-card-title h3,
+body.app .au-card-title h4 {
+    margin: 0;
+    font-family: var(--m-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--m-text);
+    text-transform: none;
+}
+
+/* Section spacing — drop the section__content--p30 huge default padding when
+   it's used inside content rows on dashboard variants. */
+body.app main .section__content--p30 {
+    padding: 28px 28px 60px;
+}
+
+

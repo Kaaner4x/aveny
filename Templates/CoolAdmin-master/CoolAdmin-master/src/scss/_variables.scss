@@ -1,0 +1,85 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:  CoolAdmin
+Primary use:  Open Source — Bootstrap 5.3 admin dashboard template
+-------------------------------------------------------------------*/
+
+/* ========================================================================
+   Design tokens — override these to retheme the dashboard.
+   ======================================================================== */
+:root {
+    /* Brand */
+    --ca-primary:       #4272d7;
+    --ca-primary-rgb:   66, 114, 215;
+    --ca-secondary:     #6c757d;
+    --ca-success:       #28a745;
+    --ca-warning:       #ffc107;
+    --ca-danger:        #dc3545;
+    --ca-info:          #17a2b8;
+
+    /* Surfaces */
+    --ca-body-bg:       #f8f9fa;
+    --ca-card-bg:       #ffffff;
+    --ca-sidebar-bg:    #2c3e50;
+    --ca-topbar-bg:     #ffffff;
+
+    /* Text */
+    --ca-text:          #333333;
+    --ca-text-muted:    #6c757d;
+    --ca-text-on-dark:  #ffffff;
+
+    /* Borders + dividers */
+    --ca-border:        #e9ecef;
+    --ca-divider:       #f1f3f5;
+
+    /* Shadows */
+    --ca-shadow-sm:     0 1px 3px rgba(0, 0, 0, 0.05);
+    --ca-shadow:        0 4px 12px rgba(0, 0, 0, 0.08);
+    --ca-shadow-lg:     0 12px 32px rgba(0, 0, 0, 0.12);
+
+    /* Layout */
+    --ca-sidebar-width: 240px;
+    --ca-topbar-height: 70px;
+    --ca-radius:        4px;
+    --ca-transition:    150ms ease;
+}
+
+/* Dark theme — opt in via `<html data-bs-theme="dark">` */
+[data-bs-theme="dark"] {
+    --ca-body-bg:       #121417;
+    --ca-card-bg:       #1c1f24;
+    --ca-sidebar-bg:    #0f1115;
+    --ca-topbar-bg:     #1c1f24;
+    --ca-text:          #e9ecef;
+    --ca-text-muted:    #adb5bd;
+    --ca-border:        #2a2e35;
+    --ca-divider:       #23262c;
+    --ca-shadow-sm:     0 1px 3px rgba(0, 0, 0, 0.4);
+    --ca-shadow:        0 4px 12px rgba(0, 0, 0, 0.45);
+    --ca-shadow-lg:     0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+/*------------------------------------------------------------------
+[LAYOUT]
+
+* body
+    + Header / header
+	+ Page Content / .page-content .name-page
+        + Section Layouts / section .name-section
+        ...
+	+ Footer / footer
+
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+# [Color codes]
+
+# Text Color (text): #666666
+# Text Color Deep (Text, title): #333333
+
+------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[Typography]
+
+Notes:	decreasing heading by 0.4em with every subsequent heading level
+-------------------------------------------------------------------*/

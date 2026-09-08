@@ -1,0 +1,500 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Account &amp; settings</h1>
+                                <p class="subtitle">Manage your profile, security, notifications, and billing.</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="m-btn m-btn--ghost" onclick="window.toast && window.toast.info('Discarded changes')">Cancel</button>
+                                <button type="button" class="m-btn m-btn--primary" onclick="window.toast && window.toast.success('Settings saved')">
+                                    <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save changes
+                                </button>
+                            </div>
+                        </div>
+
+                        <ul class="nav nav-tabs settings-tabs" role="tablist" style="border-bottom: 1px solid var(--m-divider); margin-bottom: 24px;">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-account" type="button" role="tab">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i> Account
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-security" type="button" role="tab">
+                                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-notifications" type="button" role="tab">
+                                    <i class="fa-regular fa-bell" aria-hidden="true"></i> Notifications
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-billing" type="button" role="tab">
+                                    <i class="fa-solid fa-credit-card" aria-hidden="true"></i> Billing
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-api" type="button" role="tab">
+                                    <i class="fa-solid fa-key" aria-hidden="true"></i> API keys
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <!-- ACCOUNT TAB -->
+                            <div class="tab-pane fade show active" id="tab-account" role="tabpanel">
+                                <div class="row row-tight">
+                                    <div class="col-lg-4">
+                                        <section class="m-card">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Profile photo</h2>
+                                                    <p class="m-card__subtitle">JPG, PNG or GIF, up to 2 MB.</p>
+                                                </div>
+                                            </header>
+                                            <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 8px 0;">
+                                                <img src="images/icon/avatar-01.jpg" alt="" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--m-surface); box-shadow: 0 4px 16px rgba(15,23,42,0.10);">
+                                                <div style="display: flex; gap: 8px;">
+                                                    <button type="button" class="m-btn m-btn--primary"><i class="fa-solid fa-cloud-arrow-up"></i> Upload</button>
+                                                    <button type="button" class="m-btn m-btn--ghost"><i class="fa-regular fa-trash-can"></i> Remove</button>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <section class="m-card" style="margin-top: 16px;">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Connected accounts</h2>
+                                                </div>
+                                            </header>
+                                            <ul class="card-list" style="margin: 0 -20px -8px;">
+                                                <li>
+                                                    <div class="card-list__main">
+                                                        <span class="card-list__icon" style="background:#f4f6fa; color:#1f2937;"><i class="fa-brands fa-google"></i></span>
+                                                        <div>
+                                                            <span class="card-list__title">Google</span>
+                                                            <span class="card-list__sub">Connected as john@example.com</span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="m-btn m-btn--ghost" style="height:30px; padding:0 12px; font-size:12.5px;">Disconnect</button>
+                                                </li>
+                                                <li>
+                                                    <div class="card-list__main">
+                                                        <span class="card-list__icon" style="background:#f4f6fa; color:#1f2937;"><i class="fa-brands fa-github"></i></span>
+                                                        <div>
+                                                            <span class="card-list__title">GitHub</span>
+                                                            <span class="card-list__sub">Not connected</span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="m-btn m-btn--ghost" style="height:30px; padding:0 12px; font-size:12.5px;">Connect</button>
+                                                </li>
+                                                <li>
+                                                    <div class="card-list__main">
+                                                        <span class="card-list__icon" style="background:#f4f6fa; color:#1f2937;"><i class="fa-brands fa-slack"></i></span>
+                                                        <div>
+                                                            <span class="card-list__title">Slack</span>
+                                                            <span class="card-list__sub">Connected to acme-team</span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="m-btn m-btn--ghost" style="height:30px; padding:0 12px; font-size:12.5px;">Disconnect</button>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                    <div class="col-lg-8">
+                                        <section class="m-card">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Personal information</h2>
+                                                    <p class="m-card__subtitle">Used across the dashboard and on invoices.</p>
+                                                </div>
+                                            </header>
+                                            <form onsubmit="event.preventDefault(); window.toast && window.toast.success('Profile updated');">
+                                                <div class="row">
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="first-name">First name</label>
+                                                        <input id="first-name" type="text" class="form-control" value="John" autocomplete="given-name">
+                                                    </div>
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="last-name">Last name</label>
+                                                        <input id="last-name" type="text" class="form-control" value="Doe" autocomplete="family-name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">Email address</label>
+                                                    <input id="email" type="email" class="form-control" value="johndoe@example.com" autocomplete="email">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="role">Job title</label>
+                                                    <input id="role" type="text" class="form-control" value="Engineering lead">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="bio">Bio</label>
+                                                    <textarea id="bio" class="form-control">Backend engineer focused on distributed systems. Currently leading the auth-flow refactor.</textarea>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="timezone">Timezone</label>
+                                                        <select id="timezone" class="form-select">
+                                                            <option>UTC</option>
+                                                            <option selected>America/Los_Angeles</option>
+                                                            <option>America/New_York</option>
+                                                            <option>Europe/London</option>
+                                                            <option>Europe/Berlin</option>
+                                                            <option>Asia/Tokyo</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6 form-group">
+                                                        <label for="lang">Language</label>
+                                                        <select id="lang" class="form-select">
+                                                            <option selected>English (US)</option>
+                                                            <option>English (UK)</option>
+                                                            <option>Deutsch</option>
+                                                            <option>Français</option>
+                                                            <option>Español</option>
+                                                            <option>日本語</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECURITY TAB -->
+                            <div class="tab-pane fade" id="tab-security" role="tabpanel">
+                                <div class="row row-tight">
+                                    <div class="col-lg-7">
+                                        <section class="m-card">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Change password</h2>
+                                                    <p class="m-card__subtitle">Use at least 12 characters with a mix of letters, numbers, and symbols.</p>
+                                                </div>
+                                            </header>
+                                            <form onsubmit="event.preventDefault(); window.toast && window.toast.success('Password updated');">
+                                                <div class="form-group">
+                                                    <label for="cur-pw">Current password</label>
+                                                    <input id="cur-pw" type="password" class="form-control" autocomplete="current-password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="new-pw">New password</label>
+                                                    <input id="new-pw" type="password" class="form-control" autocomplete="new-password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="confirm-pw">Confirm new password</label>
+                                                    <input id="confirm-pw" type="password" class="form-control" autocomplete="new-password">
+                                                </div>
+                                                <button type="submit" class="m-btn m-btn--primary">Update password</button>
+                                            </form>
+                                        </section>
+
+                                        <section class="m-card" style="margin-top: 16px;">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Two-factor authentication</h2>
+                                                    <p class="m-card__subtitle">Add an extra layer of security with an authenticator app.</p>
+                                                </div>
+                                                <span class="status--process">Enabled</span>
+                                            </header>
+                                            <p style="margin: 0 0 16px; color: var(--m-text-muted); font-size: 13.5px;">Currently using <strong style="color: var(--m-text);">Google Authenticator</strong>. Backup codes were generated 14 days ago.</p>
+                                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                                <button type="button" class="m-btn m-btn--ghost"><i class="fa-solid fa-arrows-rotate"></i> Reconfigure</button>
+                                                <button type="button" class="m-btn m-btn--ghost"><i class="fa-solid fa-list"></i> Show backup codes</button>
+                                                <button type="button" class="m-btn m-btn--ghost" style="color: var(--m-danger);"><i class="fa-solid fa-power-off"></i> Disable</button>
+                                            </div>
+                                        </section>
+                                    </div>
+
+                                    <div class="col-lg-5">
+                                        <section class="m-card">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Active sessions</h2>
+                                                </div>
+                                            </header>
+                                            <ul class="card-list" style="margin: 0 -20px -8px;">
+                                                <li>
+                                                    <div class="card-list__main">
+                                                        <span class="card-list__icon" style="background:var(--m-success-soft); color:var(--m-success);"><i class="fa-solid fa-laptop"></i></span>
+                                                        <div>
+                                                            <span class="card-list__title">MacBook Pro &middot; Chrome</span>
+                                                            <span class="card-list__sub">Portland, OR &middot; current session</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="status--process">Active</span>
+                                                </li>
+                                                <li>
+                                                    <div class="card-list__main">
+                                                        <span class="card-list__icon" style="background:var(--m-c2-soft); color:var(--m-c2);"><i class="fa-solid fa-mobile-screen"></i></span>
+                                                        <div>
+                                                            <span class="card-list__title">iPhone 15 Pro &middot; Safari</span>
+                                                            <span class="card-list__sub">Portland, OR &middot; 12 minutes ago</span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="m-btn m-btn--ghost" style="height:28px; padding:0 10px; font-size:12px;">Sign out</button>
+                                                </li>
+                                                <li>
+                                                    <div class="card-list__main">
+                                                        <span class="card-list__icon" style="background:var(--m-c3-soft); color:var(--m-c3);"><i class="fa-solid fa-tablet"></i></span>
+                                                        <div>
+                                                            <span class="card-list__title">iPad &middot; Safari</span>
+                                                            <span class="card-list__sub">Seattle, WA &middot; 3 days ago</span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="m-btn m-btn--ghost" style="height:28px; padding:0 10px; font-size:12px;">Sign out</button>
+                                                </li>
+                                            </ul>
+                                            <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--m-divider);">
+                                                <button type="button" class="m-btn m-btn--ghost" style="color: var(--m-danger); width: 100%;">Sign out of all other sessions</button>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTIFICATIONS TAB -->
+                            <div class="tab-pane fade" id="tab-notifications" role="tabpanel">
+                                <section class="m-card">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title">Email notifications</h2>
+                                            <p class="m-card__subtitle">Choose which updates you want delivered to your inbox.</p>
+                                        </div>
+                                    </header>
+                                    <div class="notif-grid">
+                                        <div class="notif-row">
+                                            <div>
+                                                <p class="notif-row__title">Product updates</p>
+                                                <p class="notif-row__sub">New features, improvements, and changelog entries.</p>
+                                            </div>
+                                            <label class="form-check"><input type="checkbox" class="form-check-input" checked></label>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <p class="notif-row__title">Weekly digest</p>
+                                                <p class="notif-row__sub">A weekly recap of activity in your workspace.</p>
+                                            </div>
+                                            <label class="form-check"><input type="checkbox" class="form-check-input" checked></label>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <p class="notif-row__title">Comments &amp; mentions</p>
+                                                <p class="notif-row__sub">Notify me when someone replies or @mentions me.</p>
+                                            </div>
+                                            <label class="form-check"><input type="checkbox" class="form-check-input" checked></label>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <p class="notif-row__title">Marketing &amp; tips</p>
+                                                <p class="notif-row__sub">Best-practice guides and the occasional promo.</p>
+                                            </div>
+                                            <label class="form-check"><input type="checkbox" class="form-check-input"></label>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="m-card" style="margin-top: 16px;">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title">Push notifications</h2>
+                                            <p class="m-card__subtitle">In-app and mobile push alerts.</p>
+                                        </div>
+                                    </header>
+                                    <div class="notif-grid">
+                                        <div class="notif-row">
+                                            <div>
+                                                <p class="notif-row__title">Real-time activity</p>
+                                                <p class="notif-row__sub">Comments, mentions, and direct messages.</p>
+                                            </div>
+                                            <label class="form-check"><input type="checkbox" class="form-check-input" checked></label>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <p class="notif-row__title">Daily summary</p>
+                                                <p class="notif-row__sub">A morning digest of yesterday&rsquo;s key events.</p>
+                                            </div>
+                                            <label class="form-check"><input type="checkbox" class="form-check-input"></label>
+                                        </div>
+                                        <div class="notif-row">
+                                            <div>
+                                                <p class="notif-row__title">System alerts</p>
+                                                <p class="notif-row__sub">Outages, security alerts, and other critical events.</p>
+                                            </div>
+                                            <label class="form-check"><input type="checkbox" class="form-check-input" checked></label>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <!-- BILLING TAB -->
+                            <div class="tab-pane fade" id="tab-billing" role="tabpanel">
+                                <div class="row row-tight">
+                                    <div class="col-lg-8">
+                                        <section class="m-card accent-card" style="background: linear-gradient(135deg, var(--m-accent-soft) 0%, var(--m-c4-soft) 100%); border-left: 4px solid var(--m-accent);">
+                                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                                                <div>
+                                                    <p class="section-eyebrow" style="margin-bottom: 4px;">CURRENT PLAN</p>
+                                                    <h2 class="m-card__title" style="font-size: 18px; margin-bottom: 2px;">Pro &middot; $24/month</h2>
+                                                    <p style="margin: 0; font-size: 13px; color: var(--m-text-muted);">Renews on June 15, 2026 &middot; Visa ending 4242</p>
+                                                </div>
+                                                <div style="display: flex; gap: 8px;">
+                                                    <a href="pricing.html" class="m-btn m-btn--ghost">Change plan</a>
+                                                    <button type="button" class="m-btn m-btn--primary">Manage billing</button>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <section class="m-card" style="margin-top: 16px;">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Invoices</h2>
+                                                    <p class="m-card__subtitle">All your billing receipts.</p>
+                                                </div>
+                                                <a href="invoice.html" class="m-btn m-btn--ghost" style="height:30px; padding:0 12px; font-size:12.5px;">Latest invoice</a>
+                                            </header>
+                                            <table class="m-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Invoice</th>
+                                                        <th>Amount</th>
+                                                        <th>Status</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>May 1, 2026</td>
+                                                        <td>INV-2026-05</td>
+                                                        <td class="num">$24.00</td>
+                                                        <td><span class="status--process">Paid</span></td>
+                                                        <td><a href="invoice.html" style="color: var(--m-accent); font-size: 12.5px;">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 1, 2026</td>
+                                                        <td>INV-2026-04</td>
+                                                        <td class="num">$24.00</td>
+                                                        <td><span class="status--process">Paid</span></td>
+                                                        <td><a href="#" style="color: var(--m-accent); font-size: 12.5px;">View</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mar 1, 2026</td>
+                                                        <td>INV-2026-03</td>
+                                                        <td class="num">$24.00</td>
+                                                        <td><span class="status--process">Paid</span></td>
+                                                        <td><a href="#" style="color: var(--m-accent); font-size: 12.5px;">View</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </section>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <section class="m-card">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Payment method</h2>
+                                                </div>
+                                            </header>
+                                            <div style="border: 1px solid var(--m-border); border-radius: 10px; padding: 16px; display: flex; align-items: center; gap: 12px;">
+                                                <i class="fa-brands fa-cc-visa" style="font-size: 32px; color: #1a1f71;"></i>
+                                                <div style="flex:1; min-width:0;">
+                                                    <p style="margin:0; font-size: 13.5px; font-weight: 500; color: var(--m-text);">Visa &middot;&middot;&middot;&middot; 4242</p>
+                                                    <p style="margin:0; font-size: 12px; color: var(--m-text-muted);">Expires 11/28</p>
+                                                </div>
+                                            </div>
+                                            <div style="margin-top: 12px; display: flex; gap: 8px;">
+                                                <button type="button" class="m-btn m-btn--ghost" style="flex: 1;"><i class="fa-solid fa-pen-to-square"></i> Update</button>
+                                                <button type="button" class="m-btn m-btn--ghost" style="color: var(--m-danger);"><i class="fa-regular fa-trash-can"></i></button>
+                                            </div>
+                                        </section>
+
+                                        <section class="m-card" style="margin-top: 16px;">
+                                            <header class="m-card__header">
+                                                <div>
+                                                    <h2 class="m-card__title">Usage this month</h2>
+                                                </div>
+                                            </header>
+                                            <div class="au-progress" style="margin-bottom: 14px;">
+                                                <span class="au-progress__title">API calls &middot; 412k of 500k</span>
+                                                <div class="au-progress__bar"><div class="au-progress__inner" style="width: 82%;"></div></div>
+                                            </div>
+                                            <div class="au-progress" style="margin-bottom: 14px;">
+                                                <span class="au-progress__title">Storage &middot; 24 GB of 100 GB</span>
+                                                <div class="au-progress__bar"><div class="au-progress__inner" style="width: 24%;"></div></div>
+                                            </div>
+                                            <div class="au-progress">
+                                                <span class="au-progress__title">Team seats &middot; 6 of 10</span>
+                                                <div class="au-progress__bar"><div class="au-progress__inner" style="width: 60%;"></div></div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- API KEYS TAB -->
+                            <div class="tab-pane fade" id="tab-api" role="tabpanel">
+                                <section class="m-card">
+                                    <header class="m-card__header">
+                                        <div>
+                                            <h2 class="m-card__title">API keys</h2>
+                                            <p class="m-card__subtitle">Use these to authenticate API requests. Keep them secret.</p>
+                                        </div>
+                                        <button type="button" class="m-btn m-btn--primary"><i class="fa-solid fa-plus"></i> Create new key</button>
+                                    </header>
+                                    <table class="m-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Label</th>
+                                                <th>Key</th>
+                                                <th>Created</th>
+                                                <th>Last used</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="row-product"><span class="row-product__icon"><i class="fa-solid fa-key"></i></span>Production</span></td>
+                                                <td><code style="font-size: 12px; background: var(--m-surface-2); padding: 3px 8px; border-radius: 4px;">sk_live_••••••••••WFq2</code></td>
+                                                <td>Mar 12, 2025</td>
+                                                <td>2 minutes ago</td>
+                                                <td>
+                                                    <button type="button" class="icon-btn" aria-label="Copy"><i class="fa-regular fa-copy"></i></button>
+                                                    <button type="button" class="icon-btn" aria-label="Revoke" style="color: var(--m-danger);"><i class="fa-regular fa-trash-can"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="row-product"><span class="row-product__icon" style="background:var(--m-c2-soft); color:var(--m-c2);"><i class="fa-solid fa-key"></i></span>Staging</span></td>
+                                                <td><code style="font-size: 12px; background: var(--m-surface-2); padding: 3px 8px; border-radius: 4px;">sk_test_••••••••••3kfP</code></td>
+                                                <td>Jan 8, 2026</td>
+                                                <td>4 hours ago</td>
+                                                <td>
+                                                    <button type="button" class="icon-btn" aria-label="Copy"><i class="fa-regular fa-copy"></i></button>
+                                                    <button type="button" class="icon-btn" aria-label="Revoke" style="color: var(--m-danger);"><i class="fa-regular fa-trash-can"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="row-product"><span class="row-product__icon" style="background:var(--m-c3-soft); color:var(--m-c3);"><i class="fa-solid fa-key"></i></span>Local dev</span></td>
+                                                <td><code style="font-size: 12px; background: var(--m-surface-2); padding: 3px 8px; border-radius: 4px;">sk_test_••••••••••a2eX</code></td>
+                                                <td>Apr 22, 2026</td>
+                                                <td>Never</td>
+                                                <td>
+                                                    <button type="button" class="icon-btn" aria-label="Copy"><i class="fa-regular fa-copy"></i></button>
+                                                    <button type="button" class="icon-btn" aria-label="Revoke" style="color: var(--m-danger);"><i class="fa-regular fa-trash-can"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

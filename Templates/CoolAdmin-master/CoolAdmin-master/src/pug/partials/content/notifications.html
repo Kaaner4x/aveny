@@ -1,0 +1,202 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Notifications</h1>
+                                <p class="subtitle">Mentions, system updates, and recent account activity.</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="m-btn m-btn--ghost" onclick="window.toast && window.toast.success('All notifications marked as read')"><i class="fa-solid fa-check-double"></i> Mark all read</button>
+                                <a href="profile.html#tab-notifications" class="m-btn m-btn--primary"><i class="fa-solid fa-gear"></i> Preferences</a>
+                            </div>
+                        </div>
+
+                        <div class="notif-filters" style="margin-bottom: 20px;">
+                            <button type="button" class="notif-filter is-active">All <span style="opacity:0.6;margin-left:4px;">14</span></button>
+                            <button type="button" class="notif-filter">Mentions <span style="opacity:0.6;margin-left:4px;">3</span></button>
+                            <button type="button" class="notif-filter">System <span style="opacity:0.6;margin-left:4px;">5</span></button>
+                            <button type="button" class="notif-filter">Billing <span style="opacity:0.6;margin-left:4px;">2</span></button>
+                            <button type="button" class="notif-filter">Security <span style="opacity:0.6;margin-left:4px;">4</span></button>
+                        </div>
+
+                        <!-- TODAY -->
+                        <div class="notif-day">
+                            <p class="notif-day__label">TODAY</p>
+                            <ul class="notif-list">
+                                <li class="is-unread">
+                                    <span class="notif-list__icon"><img src="images/icon/avatar-04.jpg" alt=""></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>Diane Myers</b> mentioned you in <b>"Auth flow refactor — PR #2148"</b>: "The session token migration touches more than I thought, can you review?"</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--mention">Mention</span>
+                                            <span>14 min ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li class="is-unread">
+                                    <span class="notif-list__icon notif-list__icon--success"><i class="fa-solid fa-circle-check"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>Backup completed</b> &mdash; weekly backup finished in 2m 14s. 4.2 GB archived to off-site storage.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--system">System</span>
+                                            <span>1 hour ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li class="is-unread">
+                                    <span class="notif-list__icon notif-list__icon--warning"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>Storage at 82%</b> &mdash; you&rsquo;ve used 82 GB of your 100 GB plan. Consider upgrading or pruning old projects.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--billing">Billing</span>
+                                            <span>2 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon"><img src="images/icon/avatar-06.jpg" alt=""></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>Cynthia Harvey</b> approved your PR <b>"Q2 dashboard redesign"</b>.</p>
+                                        <div class="notif-list__meta">
+                                            <span>3 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon notif-list__icon--info"><i class="fa-solid fa-bolt"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>New version deployed</b> &mdash; v3.1.0 is now live. Includes the new analytics dashboard and a redesigned billing flow.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--system">System</span>
+                                            <span>5 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- YESTERDAY -->
+                        <div class="notif-day">
+                            <p class="notif-day__label">YESTERDAY</p>
+                            <ul class="notif-list">
+                                <li>
+                                    <span class="notif-list__icon notif-list__icon--danger"><i class="fa-solid fa-shield-halved"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>New sign-in from Berlin</b> &mdash; iPhone 15 Pro, Safari. If this wasn&rsquo;t you, secure your account immediately.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--security">Security</span>
+                                            <span>Yesterday, 22:14</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon"><img src="images/icon/avatar-05.jpg" alt=""></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>Michelle Moreno</b> uploaded 3 files to <b>Brand assets v3</b>.</p>
+                                        <div class="notif-list__meta">
+                                            <span>Yesterday, 16:42</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon notif-list__icon--info"><i class="fa-regular fa-credit-card"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>Receipt available</b> &mdash; invoice INV-2026-05 for $369.50 was paid successfully.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--billing">Billing</span>
+                                            <span>Yesterday, 09:15</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon"><img src="images/icon/avatar-01.jpg" alt=""></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>John Doe</b> mentioned you in <b>"Q1 customer-interview synthesis"</b>: "Great point about onboarding friction — let&rsquo;s prioritize this for next sprint."</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--mention">Mention</span>
+                                            <span>Yesterday, 08:30</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- THIS WEEK -->
+                        <div class="notif-day">
+                            <p class="notif-day__label">EARLIER THIS WEEK</p>
+                            <ul class="notif-list">
+                                <li>
+                                    <span class="notif-list__icon notif-list__icon--danger"><i class="fa-solid fa-shield-halved"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>2FA backup codes regenerated</b> &mdash; previous codes are now invalid. Make sure your new codes are stored safely.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--security">Security</span>
+                                            <span>2 days ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon"><img src="images/icon/avatar-02.jpg" alt=""></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>Robert Taylor</b> assigned 5 issues to <b>you</b> on <b>API v2 documentation</b>.</p>
+                                        <div class="notif-list__meta">
+                                            <span>3 days ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon notif-list__icon--success"><i class="fa-solid fa-circle-check"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>Deploy succeeded</b> &mdash; <code style="background:var(--m-surface-2); padding:1px 6px; border-radius:4px; font-size:11.5px;">main</code> deployed to production. 142 commits since the last release.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--system">System</span>
+                                            <span>4 days ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon notif-list__icon--danger"><i class="fa-solid fa-key"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text"><b>API key rotated</b> &mdash; the production key was rotated by <b>Diane Myers</b>. Old key invalidated.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--security">Security</span>
+                                            <span>5 days ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                                <li>
+                                    <span class="notif-list__icon notif-list__icon--info"><i class="fa-regular fa-bell"></i></span>
+                                    <div class="notif-list__body">
+                                        <p class="notif-list__text">A new <b>weekly digest</b> is ready. Highlights: 3 new customers, 12 closed tickets, 8 deploys.</p>
+                                        <div class="notif-list__meta">
+                                            <span class="notif-list__chip notif-list__chip--system">System</span>
+                                            <span>6 days ago</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="notif-list__close" aria-label="Dismiss"><i class="fa-solid fa-xmark"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div style="text-align: center; margin: 24px 0;">
+                            <button type="button" class="m-btn m-btn--ghost">Load older notifications</button>
+                        </div>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

@@ -1,0 +1,30 @@
+//- Default dashboard layout — sidebar + topbar + main content.
+//- Pages extend this layout and override `block content`. Optional overrides:
+//-   block vendor_scripts  — extra <script> tags before main JS (e.g. Chart.js)
+//-   block extra_head      — extra <link>/<style> in <head>
+
+include ../partials/_head
+
+block variables
+  - var pageMeta = pageMeta || { title: 'Page', description: '' }
+  - var activePage = activePage || ''
+
+doctype html
+html(lang='en')
+  head
+    +head(pageMeta)
+    block extra_head
+  body.app
+    a.visually-hidden-focusable.skip-link(href='#main-content') Skip to main content
+    .page-wrapper
+      include ../partials/header-mobile
+      include ../partials/sidebar
+      .page-container
+        include ../partials/header-desktop
+        main#main-content.main-content
+          .section__content.section__content--p30
+            .container-fluid
+              block content
+        block post_main
+    include ../partials/footer-scripts
+    block extra_scripts

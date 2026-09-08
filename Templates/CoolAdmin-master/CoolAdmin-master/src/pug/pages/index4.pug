@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Projects", "description": "Project management dashboard with active projects, deadlines, and team availability." }
+  - var activePage = 'index4.html'
+
+block content
+  include ../partials/content/index4.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

@@ -1,0 +1,32 @@
+//- Mobile header — logo + hamburger + collapsible nav.
+//- Shares the same navItems data as the desktop sidebar.
+
+include _nav-data
+
+header.header-mobile.d-block.d-lg-none
+  .header-mobile__bar
+    .container-fluid
+      .header-mobile-inner
+        a.logo(href='index.html')
+          img(src='images/icon/logo.png' alt='CoolAdmin')
+        button.hamburger.hamburger--slider(type='button' aria-label='Toggle navigation')
+          span.hamburger-box
+            span.hamburger-inner
+  nav.navbar-mobile
+    .container-fluid
+      ul.navbar-mobile__list.list-unstyled
+        each item in navItems
+          if item.children
+            li.has-sub
+              a.js-arrow(href='#')
+                i(class=item.icon)
+                = item.label
+              ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
+                each child in item.children
+                  li
+                    a(href=child.href)= child.label
+          else
+            li
+              a(href=item.href)
+                i(class=item.icon)
+                = item.label

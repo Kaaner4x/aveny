@@ -1,0 +1,9 @@
+extends ../layouts/_auth
+
+block variables
+  - var pageMeta = { "title": "Create account", "description": "Create a new CoolAdmin account.", "noindex": true }
+  - var bodyClass = 'app auth-page'
+  - var skipLinkText = 'Skip to sign-up form'
+
+block content
+  include ../partials/content/register.html

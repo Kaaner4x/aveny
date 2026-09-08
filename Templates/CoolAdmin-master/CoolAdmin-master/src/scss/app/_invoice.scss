@@ -1,0 +1,141 @@
+/* ============================================================================
+   Invoice page
+   ============================================================================ */
+body.app .invoice-doc {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    padding: 48px;
+    box-shadow: var(--m-shadow-xs);
+}
+body.app .invoice-doc__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--m-divider);
+}
+body.app .invoice-doc__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+body.app .invoice-doc__brand .logo-mark { width: 44px; height: 44px; font-size: 18px; }
+body.app .invoice-doc__brand .logo-text { font-size: 22px; }
+body.app .invoice-doc__title-wrap {
+    text-align: right;
+}
+body.app .invoice-doc__title-wrap h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--m-text);
+}
+body.app .invoice-doc__title-wrap p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--m-text-muted);
+}
+body.app .invoice-doc__parties {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+body.app .invoice-doc__party h6 {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--m-text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 8px;
+}
+body.app .invoice-doc__party p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--m-text);
+    line-height: 1.5;
+}
+body.app .invoice-doc__party strong { color: var(--m-text); display: block; margin-bottom: 4px; }
+body.app .invoice-doc__lines {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+body.app .invoice-doc__lines thead th {
+    background: var(--m-surface-2);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--m-text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--m-border);
+}
+body.app .invoice-doc__lines tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--m-divider);
+    font-size: 13.5px;
+    color: var(--m-text);
+    vertical-align: top;
+}
+body.app .invoice-doc__lines tbody td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+body.app .invoice-doc__totals {
+    margin-left: auto;
+    width: 320px;
+    max-width: 100%;
+}
+body.app .invoice-doc__totals tr td {
+    padding: 6px 0;
+    font-size: 13.5px;
+    color: var(--m-text-muted);
+}
+body.app .invoice-doc__totals tr td:last-child {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--m-text);
+    font-weight: 500;
+}
+body.app .invoice-doc__totals tr.invoice-doc__grand td {
+    border-top: 1px solid var(--m-border);
+    padding-top: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--m-text);
+}
+body.app .invoice-doc__notes {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--m-divider);
+    color: var(--m-text-muted);
+    font-size: 12.5px;
+    line-height: 1.5;
+}
+
+/* Print stylesheet — clean, no chrome */
+@media print {
+    body.app .menu-sidebar,
+    body.app .header-desktop,
+    body.app .page-header,
+    body.app .copyright,
+    body.app .invoice-actions {
+        display: none !important;
+    }
+    body.app .page-container { padding-left: 0 !important; }
+    body.app .main-content { padding-top: 0 !important; }
+    body.app .invoice-doc {
+        border: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+}
+
+

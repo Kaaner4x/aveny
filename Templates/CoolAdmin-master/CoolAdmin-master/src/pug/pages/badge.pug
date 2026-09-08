@@ -1,0 +1,11 @@
+extends ../layouts/_default
+
+block variables
+  - var pageMeta = { "title": "Badges", "description": "Bootstrap 5 badge styles, sizes, and colour variations." }
+  - var activePage = 'badge.html'
+
+block content
+  include ../partials/content/badge.html
+
+block vendor_scripts
+  script(src='vendor/chartjs/chart.umd.js-4.5.1.min.js')

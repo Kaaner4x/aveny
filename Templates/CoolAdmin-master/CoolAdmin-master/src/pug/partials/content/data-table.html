@@ -1,0 +1,67 @@
+                        <div class="page-header">
+                            <div>
+                                <h1>Data table</h1>
+                                <p class="subtitle">Vanilla-JS table with column sort, search filtering, and pagination &mdash; no library needed.</p>
+                            </div>
+                            <div class="page-header__actions">
+                                <button type="button" class="m-btn m-btn--ghost"><i class="fa-solid fa-download"></i> Export</button>
+                                <button type="button" class="m-btn m-btn--primary"><i class="fa-solid fa-plus"></i> Add row</button>
+                            </div>
+                        </div>
+
+                        <section class="m-card" style="padding: 20px;">
+                            <div class="dt-toolbar">
+                                <div class="dt-search">
+                                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                                    <input type="search" id="dt-search-input" placeholder="Search any column…" aria-label="Search">
+                                </div>
+                                <div style="display: flex; gap: 8px; align-items: center;">
+                                    <label style="font-size: 12.5px; color: var(--m-text-muted); display: inline-flex; align-items: center; gap: 8px;">
+                                        Show
+                                        <select id="dt-page-size" class="form-select" style="width: 80px; height: 32px; padding: 0 24px 0 10px; font-size: 12.5px;">
+                                            <option>5</option>
+                                            <option selected>10</option>
+                                            <option>20</option>
+                                            <option>50</option>
+                                        </select>
+                                        rows
+                                    </label>
+                                </div>
+                            </div>
+
+                            <table class="m-table dt-table" id="dt-table">
+                                <thead>
+                                    <tr>
+                                        <th data-sort="name">Customer</th>
+                                        <th data-sort="email">Email</th>
+                                        <th data-sort="plan">Plan</th>
+                                        <th data-sort="amount" class="num">MRR</th>
+                                        <th data-sort="status">Status</th>
+                                        <th data-sort="signup">Signed up</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dt-body"></tbody>
+                            </table>
+
+                            <div id="dt-empty" class="empty-state" style="display: none;">
+                                <span class="empty-state__icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <h3 class="empty-state__title">No results</h3>
+                                <p class="empty-state__text">Try a different search term, or clear the filter to show everything again.</p>
+                                <div class="empty-state__actions">
+                                    <button type="button" class="m-btn m-btn--ghost" id="dt-clear-search">Clear search</button>
+                                </div>
+                            </div>
+
+                            <div class="dt-pagination">
+                                <span class="dt-pagination__info" id="dt-info"></span>
+                                <div class="dt-pagination__nav" id="dt-nav"></div>
+                            </div>
+                        </section>
+
+                        <div class="row" style="margin-top: 28px;">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2026 Colorlib. All rights reserved. Template by <a href="https://colorlib.com" rel="nofollow" target="_blank">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>

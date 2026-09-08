@@ -1,0 +1,269 @@
+/* ============================================================================
+   Topbar dropdown panels — modernised content layout
+   The legacy CSS triangle arrows (`:after`) are flattened. The 305px-min
+   panels are slimmed and re-typed with crisp Inter sizing.
+   ============================================================================ */
+
+body.app .mess-dropdown,
+body.app .email-dropdown,
+body.app .notifi-dropdown,
+body.app .account-dropdown {
+    background: var(--m-surface);
+    border: 1px solid var(--m-border);
+    border-radius: var(--m-radius);
+    box-shadow: var(--m-shadow-lg);
+    min-width: 320px;
+    width: 320px;
+    margin-top: 8px;
+    transform-origin: right top;
+    overflow: hidden;
+}
+
+/* Drop the legacy CSS triangle arrows entirely. */
+body.app .mess-dropdown:before,
+body.app .email-dropdown:before,
+body.app .notifi-dropdown:before,
+body.app .account-dropdown:after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Header strip inside each dropdown */
+body.app .mess__title,
+body.app .email__title,
+body.app .notifi__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--m-divider);
+    background: var(--m-surface);
+}
+body.app .mess__title p,
+body.app .email__title p,
+body.app .notifi__title p {
+    margin: 0;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--m-text);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* Item rows */
+body.app .mess__item,
+body.app .email__item,
+body.app .notifi__item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--m-divider);
+    cursor: pointer;
+    transition: background 120ms ease;
+}
+body.app .mess__item:hover,
+body.app .email__item:hover,
+body.app .notifi__item:hover {
+    background: var(--m-surface-2);
+}
+body.app .mess__item:last-of-type,
+body.app .email__item:last-of-type,
+body.app .notifi__item:last-of-type {
+    border-bottom: 0;
+}
+
+/* Avatars / icon discs */
+body.app .mess__item .image,
+body.app .email__item .image,
+body.app .notifi__item .img-cir {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--m-surface-2);
+}
+body.app .mess__item .image img,
+body.app .email__item .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Notification "color disc" rebrand — flat soft-tinted circles, not the
+   legacy bg-c1..bg-c4 saturated swatches. */
+body.app .notifi__item .bg-c1 { background: var(--m-c1-soft); color: var(--m-c1); }
+body.app .notifi__item .bg-c2 { background: var(--m-c2-soft); color: var(--m-c2); }
+body.app .notifi__item .bg-c3 { background: var(--m-c3-soft); color: var(--m-c3); }
+body.app .notifi__item .bg-c4 { background: var(--m-c4-soft); color: var(--m-c4); }
+body.app .notifi__item .img-cir i { font-size: 13px; }
+
+/* Item content */
+body.app .mess__item .content,
+body.app .email__item .content,
+body.app .notifi__item .content {
+    flex: 1;
+    min-width: 0;
+}
+body.app .mess__item .content h6 {
+    margin: 0 0 2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--m-text);
+}
+body.app .mess__item .content p,
+body.app .email__item .content p,
+body.app .notifi__item .content p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--m-text-muted);
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+body.app .mess__item .content .time,
+body.app .email__item .content span,
+body.app .notifi__item .content .date {
+    display: block;
+    font-size: 11.5px;
+    color: var(--m-text-faint);
+    margin-top: 3px;
+}
+
+/* Footer "View all" links */
+body.app .mess__footer,
+body.app .email__footer,
+body.app .notifi__footer {
+    border-top: 1px solid var(--m-divider);
+    background: var(--m-surface-2);
+}
+body.app .mess__footer a,
+body.app .email__footer a,
+body.app .notifi__footer a {
+    display: block;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--m-accent);
+    text-decoration: none;
+    transition: background 120ms ease;
+}
+body.app .mess__footer a:hover,
+body.app .email__footer a:hover,
+body.app .notifi__footer a:hover {
+    background: var(--m-accent-soft);
+}
+
+/* Account dropdown — info row + items */
+body.app .account-dropdown .info {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    border-top: 0;
+    border-bottom: 1px solid var(--m-divider);
+    background: linear-gradient(180deg, var(--m-accent-soft) 0%, var(--m-surface) 100%);
+}
+body.app .account-dropdown .info .image {
+    float: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+body.app .account-dropdown .info .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+body.app .account-dropdown .info .content {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    min-width: 0;
+}
+body.app .account-dropdown .info .content .name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+body.app .account-dropdown .info .content .name a {
+    color: var(--m-text);
+    text-decoration: none;
+    font-weight: 600;
+}
+body.app .account-dropdown .info .content .email {
+    font-size: 12.5px;
+    color: var(--m-text-muted);
+    line-height: 1.3;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body.app .account-dropdown__body {
+    padding: 4px 0;
+}
+body.app .account-dropdown__item a,
+body.app .account-dropdown__footer a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 16px;
+    font-size: 13.5px;
+    color: var(--m-text);
+    text-decoration: none;
+    transition: background 120ms ease;
+}
+body.app .account-dropdown__item a:hover,
+body.app .account-dropdown__footer a:hover {
+    background: var(--m-surface-2);
+    color: var(--m-text);
+}
+body.app .account-dropdown__item a i,
+body.app .account-dropdown__footer a i {
+    width: 16px;
+    margin-right: 0;                /* override legacy 20px */
+    font-size: 13px;
+    color: var(--m-text-faint);
+}
+body.app .account-dropdown__footer {
+    border-top: 1px solid var(--m-divider);
+    background: var(--m-surface-2);
+}
+body.app .account-dropdown__footer a {
+    color: var(--m-danger);
+}
+body.app .account-dropdown__footer a i {
+    color: var(--m-danger);
+}
+
+/* Open animation — replace the legacy `transform: scale(0)` snap with a
+   subtle fade + slight slide. */
+body.app .mess-dropdown,
+body.app .email-dropdown,
+body.app .notifi-dropdown,
+body.app .account-dropdown {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+    transition: opacity 160ms ease, transform 160ms ease;
+    pointer-events: none;
+}
+body.app .js-item-menu.show-dropdown > .mess-dropdown,
+body.app .js-item-menu.show-dropdown > .email-dropdown,
+body.app .js-item-menu.show-dropdown > .notifi-dropdown,
+body.app .js-item-menu.show-dropdown > .account-dropdown {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+
