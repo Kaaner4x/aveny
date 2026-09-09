@@ -36,6 +36,7 @@ app.Use(async (context, next) =>
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; " +
         "font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; " +
         "img-src 'self' data: https:; " +
+        "frame-src 'self' https://www.google.com; " +
         "connect-src 'self';");
 
     context.Response.Headers.Append("X-Content-Type-Options", "nosniff");

@@ -1,0 +1,137 @@
+@{
+    ViewData["Title"] = "Projelerimiz";
+}
+
+<section class="section banner pt-5 pb-4">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<h2><span class="text-color">Tasarım Çözümleri</span> Sunuyorum. <br>Çalışmalarım burada sunulmuştur, aşağıdan inceleyebilirsiniz.</h2>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="portfolio pt-4">
+	<div class="container">
+		<div class="row mb-5 justify-content-center">
+	      	<div class="col-10 text-center">
+		        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+		          <label class="btn active ">
+		            <input type="radio" name="shuffle-filter" value="all" checked="checked" />Tüm Projeler
+		          </label>
+		          <label class="btn">
+		            <input type="radio" name="shuffle-filter" value="design" />UI/UX Tasarım
+		          </label>
+		          <label class="btn">
+		            <input type="radio" name="shuffle-filter" value="branding" />Marka Kimliği
+		          </label>
+		          <label class="btn">
+		            <input type="radio" name="shuffle-filter" value="illustration" />Web Geliştirme
+		          </label>
+		           <label class="btn">
+		            <input type="radio" name="shuffle-filter" value="photo" />Fotoğrafçılık
+		          </label>
+		        </div>
+	      	</div>
+    	</div>	
+
+		<div class="row shuffle-wrapper portfolio-gallery">
+	      <div class="col-lg-4 col-6 mb-4 shuffle-item"  data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+		      	<div class="position-relative inner-box">
+		          <div class="image position-relative ">
+	               <img src="~/user-interface/images/portfolio/1.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
+	                <a class="overlay-box" asp-controller="Project" asp-action="Detail" asp-route-id="1">
+	                  <div class="overlay-inner">
+	                    <div class="overlay-content">
+	                      <h5 class="mb-0 ">Resim & Çizim</h5>
+	                      <p>Tasarım</p>
+	                    </div>
+	                  </div> 
+	                </a>
+	            </div>
+		      </div>
+	      </div>
+
+	      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]">
+	        <div class="position-relative inner-box" >
+	            <div class="image position-relative ">
+	               <img src="~/user-interface/images/portfolio/bag.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
+	                <a class="overlay-box" asp-controller="Project" asp-action="Detail" asp-route-id="2">
+	                  <div class="overlay-inner">
+	                    <div class="overlay-content">
+	                      <h5 class="mb-0">Web Uygulaması</h5>
+	                      <p>E-Ticaret</p>
+	                    </div>
+		                </div> 
+		            </a>
+		        </div>
+		      </div>
+	      </div>
+
+	      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;illustration&quot;]">
+	        <div class="position-relative inner-box">
+	            <div class="image position-relative ">
+	               <img src="~/user-interface/images/portfolio/3.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
+	                <a class="overlay-box" asp-controller="Project" asp-action="Detail" asp-route-id="3">
+	                  <div class="overlay-inner">
+	                    <div class="overlay-content">
+	                      <h5 class="mb-0">Kurumsal </h5>
+	                      <p>Pazarlama</p>
+	                    </div>
+	                  </div> 
+	                </a>
+	            </div>
+	        </div>
+	      </div>
+
+	      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;branding&quot;]">
+	        <div class="position-relative inner-box">
+	            <div class="image position-relative ">
+	               <img src="~/user-interface/images/portfolio/m-3.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
+	                <a class="overlay-box" asp-controller="Project" asp-action="Detail" asp-route-id="4">
+	                  <div class="overlay-inner">
+	                    <div class="overlay-content">
+	                      <h5 class="mb-0">Portfolyo</h5>
+	                      <p>Tasarım</p>
+	                    </div>
+	                  </div> 
+	                </a>
+	            </div>
+	        </div>
+	      </div>
+
+	      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;illustration&quot;]">
+	        <div class="position-relative inner-box">
+	            <div class="image position-relative ">
+	               <img src="~/user-interface/images/portfolio/bottle.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
+	                <a class="overlay-box" asp-controller="Project" asp-action="Detail" asp-route-id="5">
+	                  <div class="overlay-inner">
+	                    <div class="overlay-content">
+	                       <h5 class="mb-0">Modern Web</h5>
+	                      	<p>SEO</p>
+	                    </div>
+	                  </div> 
+	                </a>
+	            </div>
+	        </div>
+	      </div>
+
+	      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;photo&quot;]">
+	        <div class="position-relative inner-box">
+	            <div class="image position-relative ">
+	               <img src="~/user-interface/images/portfolio/6.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
+	                <a class="overlay-box" asp-controller="Project" asp-action="Detail" asp-route-id="6">
+	                  <div class="overlay-inner">
+	                    <div class="overlay-content">
+	                       <h5 class="mb-0">Ajans Web</h5>
+	                      	<p>Tasarım</p>
+	                    </div>
+	                  </div> 
+	                </a>
+	            </div>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+</section>

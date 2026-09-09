@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nascore - Yenilikçi dijital stratejiler, modern web geliştirme ve kullanıcı odaklı UI/UX tasarım stüdyosu." />
+    <meta name="theme-color" content="#007aff" />
     <title>@ViewData["Title"] - Nascore</title>
 
     <!-- Google Fonts Preconnect & Stylesheet (Plus Jakarta Sans & Inter with complete Turkish Latin-Ext support) -->
@@ -30,6 +32,7 @@
 </head>
 
 <body>
+
     <header>
         <!-- Header Top Bar (Minimal Style) -->
         <div class="header-top-bar">
@@ -38,23 +41,23 @@
                     <div class="col-md-7 col-12 text-center text-md-left">
                         <ul class="list-inline mb-0 top-contact-info">
                             <li class="list-inline-item mr-3">
-                                <a href="tel:+902125550123">
-                                    <i class="ti-mobile mr-1"></i>+90 (212) 555 01 23
+                                <a href="tel:+902125550123" aria-label="Telefon: +90 212 555 01 23">
+                                    <i class="ti-mobile mr-1" aria-hidden="true"></i>+90 (212) 555 01 23
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="mailto:info@Nascore.com">
-                                    <i class="ti-email mr-1"></i>info@Nascore.com
+                                <a href="mailto:info@nascore.com" aria-label="E-Posta: info@nascore.com">
+                                    <i class="ti-email mr-1" aria-hidden="true"></i>info@nascore.com
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-5 col-12 text-center text-md-right d-none d-md-block">
                         <ul class="list-inline mb-0 top-social-links">
-                            <li class="list-inline-item"><a href="#!" title="LinkedIn"><i class="ti-linkedin"></i></a></li>
-                            <li class="list-inline-item"><a href="#!" title="Instagram"><i class="ti-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="#!" title="Twitter"><i class="ti-twitter-alt"></i></a></li>
-                            <li class="list-inline-item"><a href="#!" title="GitHub"><i class="ti-github"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" title="LinkedIn" aria-label="Nascore LinkedIn"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" title="Instagram" aria-label="Nascore Instagram"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" title="Twitter" aria-label="Nascore Twitter"><i class="ti-twitter-alt" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item"><a href="#!" title="GitHub" aria-label="Nascore GitHub"><i class="ti-github" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -69,40 +72,39 @@
 
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                         data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="ti-align-justify"></span>
+                        aria-label="Menüyü Aç/Kapat">
+                    <span class="ti-menu"></span>
                 </button>
+
+                @{
+                    var currentCtrl = ViewContext.RouteData.Values["controller"]?.ToString() ?? "Home";
+                }
 
                 <div class="collapse navbar-collapse" id="navbarsExample09">
                     <ul class="navbar-nav ml-auto">
                         <!-- Ana Sayfa -->
-                        <li class="nav-item active"><a class="nav-link" asp-controller="Home" asp-action="Index">Ana
-                            Sayfa</a></li>
+                        <li class="nav-item @(currentCtrl.Equals("Home", StringComparison.OrdinalIgnoreCase) ? "active" : "")">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                        </li>
 
-                            <!-- Hakkımızda -->
-                            <li class="nav-item"><a class="nav-link" asp-controller="About" asp-action="Index">Hakkımızda</a>
-                            </li>
+                        <!-- Hakkımızda -->
+                        <li class="nav-item @(currentCtrl.Equals("About", StringComparison.OrdinalIgnoreCase) ? "active" : "")">
+                            <a class="nav-link" asp-controller="About" asp-action="Index">Hakkımızda</a>
+                        </li>
 
-                            <!-- Projelerimiz -->
-                            <li class="nav-item"><a class="nav-link" asp-controller="Project" asp-action="Index">Projelerimiz</a>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">Portfolyo</a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdown02">
-                                    <li><a class="dropdown-item" href="#">Portfolyo Masonry</a></li>
-                                    <li><a class="dropdown-item" href="#">Portfolyo Lightbox</a></li>
-                                    <li><a class="dropdown-item" href="#">Portfolyo 2 Sütun</a></li>
-                                    <li><a class="dropdown-item" href="#">Portfolyo Detayı</a></li>
-                                </ul>
-                            </li>
+                        <!-- Projelerimiz -->
+                        <li class="nav-item @(currentCtrl.Equals("Project", StringComparison.OrdinalIgnoreCase) ? "active" : "")">
+                            <a class="nav-link" asp-controller="Project" asp-action="Index">Projelerimiz</a>
+                        </li>
                             
-                            <li class="nav-item"><a class="nav-link" href="#">İletişim</a></li>
-                        </ul>
-                    </div>
+                        <!-- İletişim -->
+                        <li class="nav-item @(currentCtrl.Equals("Contact", StringComparison.OrdinalIgnoreCase) ? "active" : "")">
+                            <a class="nav-link" asp-controller="Contact" asp-action="Index">İletişim</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
         </header>
 
         <main role="main">
@@ -110,15 +112,15 @@
         </main>
 
         <!-- Footer start -->
-        <section class="footer">
+        <footer class="footer">
             <div class="container">
                 <div class="row ">
                     <div class="col-lg-6">
                         <p class="mb-0 text-white">
                             © @DateTime.Now.Year <strong>Nascore</strong> - Tüm hakları saklıdır. <br>
                             <small class="text-white-50">
-                                Tasarım Altyapısı: <a target="_blank" href="https://themefisher.com"
-                                                      class="text-white-50">Themefisher</a> & <a target="_blank" href="https://themewagon.com"
+                                Tasarım Altyapısı: <a target="_blank" rel="noopener noreferrer" href="https://themefisher.com"
+                                                      class="text-white-50">Themefisher</a> & <a target="_blank" rel="noopener noreferrer" href="https://themewagon.com"
                                                                            class="text-white-50">ThemeWagon</a>
                             </small>
                         </p>
@@ -126,41 +128,41 @@
                     <div class="col-lg-6">
                         <div class="widget footer-widget text-lg-right mt-5 mt-lg-0">
                             <ul class="list-inline mb-0">
-                                <li class="list-inline-item"><a href="#!" target="_blank"><i
-                                    class="ti-facebook mr-3"></i></a></li>
-                                    <li class="list-inline-item"><a href="#!" target="_blank"><i
-                                        class="ti-twitter mr-3"></i></a></li>
-                                        <li class="list-inline-item"><a href="#!" target="_blank"><i class="ti-github mr-3"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="#!" target="_blank"><i
-                                            class="ti-pinterest mr-3"></i></a></li>
-                                            <li class="list-inline-item"><a href="#!" target="_blank"><i
-                                                class="ti-dribbble mr-3"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- Footer End -->
+                                <li class="list-inline-item"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook Sayfası"><i
+                                    class="ti-facebook mr-3" aria-hidden="true"></i></a></li>
+                                <li class="list-inline-item"><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter" aria-label="Twitter Profili"><i
+                                    class="ti-twitter mr-3" aria-hidden="true"></i></a></li>
+                                <li class="list-inline-item"><a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub Profili"><i class="ti-github mr-3" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="list-inline-item"><a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" title="Pinterest" aria-label="Pinterest Profili"><i
+                                    class="ti-pinterest mr-3" aria-hidden="true"></i></a></li>
+                                <li class="list-inline-item"><a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" title="Dribbble" aria-label="Dribbble Profili"><i
+                                    class="ti-dribbble mr-3" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End -->
 
-                        <!-- jQuery -->
-                        <script src="~/user-interface/plugins/jQuery/jquery.min.js"></script>
+        <!-- jQuery -->
+        <script src="~/user-interface/plugins/jQuery/jquery.min.js"></script>
 
-                        <!-- Bootstrap JS -->
-                        <script src="~/user-interface/plugins/bootstrap/bootstrap.min.js"></script>
-                        <script src="~/user-interface/plugins/aos/aos.js"></script>
-                        <script src="~/user-interface/plugins/owl-carousel/owl.carousel.min.js"></script>
-                        <script src="~/user-interface/plugins/shuffle/shuffle.min.js"></script>
-                        <script src="~/user-interface/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-                        <script src="~/user-interface/plugins/animated-text/animated-text.js"></script>
-                        <script src="~/user-interface/plugins/counto/apear.js"></script>
-                        <script src="~/user-interface/plugins/counto/counTo.js"></script>
-                        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="~/user-interface/plugins/bootstrap/bootstrap.min.js"></script>
+        <script src="~/user-interface/plugins/aos/aos.js"></script>
+        <script src="~/user-interface/plugins/owl-carousel/owl.carousel.min.js"></script>
+        <script src="~/user-interface/plugins/shuffle/shuffle.min.js"></script>
+        <script src="~/user-interface/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="~/user-interface/plugins/animated-text/animated-text.js"></script>
+        <script src="~/user-interface/plugins/counto/apear.js"></script>
+        <script src="~/user-interface/plugins/counto/counTo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-                        <!-- Main Script -->
-                        <script src="~/user-interface/js/Nascore.js" asp-append-version="true"></script>
-                        @await RenderSectionAsync("Scripts", required: false)
-                    </body>
+        <!-- Main Script -->
+        <script src="~/user-interface/js/nascore.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
 
-                </html>
+</html>

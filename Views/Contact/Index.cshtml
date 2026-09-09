@@ -1,0 +1,217 @@
+@{
+    ViewData["Title"] = "İletişim";
+}
+
+<!-- Banner / Page Header Start -->
+<section class="section banner pt-5 pb-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <h1 class="h2"><span class="text-color">Bizimle İletişime</span> Geçin. <br>Projelerinizi Birlikte Hayata Geçirelim.</h1>
+                <p class="lead-text mt-3 mb-0">Sorularınız, iş ortaklığı talepleriniz veya yeni projeleriniz için bize her zaman ulaşabilirsiniz. Size en kısa sürede dönüş yapacağız.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner / Page Header End -->
+
+<!-- Contact Section Start -->
+<section class="section contact-section pt-4 pb-5">
+    <div class="container">
+        <div class="row">
+            <!-- Sol Taraf: İletişim Bilgileri & Harita -->
+            <div class="col-lg-5 col-md-12 mb-5 mb-lg-0 d-flex flex-column" data-aos="fade-right">
+                <div class="contact-info-card d-flex flex-column h-100">
+                    <h2 class="contact-card-title mb-3">İletişim Bilgileri</h2>
+                    <p class="contact-card-desc mb-4">Ofisimize uğrayabilir veya iletişim kanallarımızdan bize dilediğiniz an ulaşabilirsiniz.</p>
+
+                    <div class="contact-info-list mb-4">
+                        <div class="contact-info-item d-flex align-items-start mb-4">
+                            <div class="contact-icon-box mr-3">
+                                <i class="ti-location-pin" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="contact-info-heading mb-1">Adresimiz</h3>
+                                <p class="mb-0 text-muted">Büyükdere Cad. No: 142, Levent, Beşiktaş / İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item d-flex align-items-start mb-4">
+                            <div class="contact-icon-box mr-3">
+                                <i class="ti-mobile" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="contact-info-heading mb-1">Telefon Numarası</h3>
+                                <p class="mb-0"><a href="tel:+902125550123" class="contact-link">+90 (212) 555 01 23</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item d-flex align-items-start mb-4">
+                            <div class="contact-icon-box mr-3">
+                                <i class="ti-email" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="contact-info-heading mb-1">E-Posta Adresi</h3>
+                                <p class="mb-0"><a href="mailto:info@nascore.com" class="contact-link">info@nascore.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item d-flex align-items-start mb-4">
+                            <div class="contact-icon-box mr-3">
+                                <i class="ti-time" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="contact-info-heading mb-1">Çalışma Saatleri</h3>
+                                <p class="mb-0 text-muted">Pazartesi - Cuma: 09:00 - 18:00 <br><small class="text-muted">Cumartesi - Pazar: Kapalı</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Harita -->
+                    <div class="contact-map-wrapper mt-auto">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.277873919426!2d29.009477!3d41.077673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab65d642da659%3A0x63351ec646e7f7b!2sLevent%2C%20Be%C5%9Fikta%C5%9F%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+                            width="100%" 
+                            height="230" 
+                            title="Nascore Ofis Lokasyonu Google Haritası"
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Taraf: Mesaj Gönderme Formu -->
+            <div class="col-lg-7 col-md-12" data-aos="fade-left">
+                <div class="contact-form-card">
+                    <h2 class="contact-card-title mb-2">Bize Mesaj Gönderin</h2>
+                    <p class="contact-card-desc mb-4">Aşağıdaki formu doldurarak bize projeniz hakkında bilgi verebilirsiniz. En kısa sürede sizinle iletişime geçeceğiz.</p>
+
+                    <div id="contact-alert-success" class="alert alert-success alert-dismissible fade show d-none mb-4" role="alert" aria-live="polite">
+                        <i class="ti-check mr-2" aria-hidden="true"></i> <strong>Teşekkürler!</strong> Mesajınız başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Kapat">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <form id="contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="contact-name" class="contact-form-label">Adınız Soyadınız <span class="text-danger" aria-hidden="true">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="ti-user form-icon" aria-hidden="true"></i>
+                                    <input type="text" class="form-control contact-form-control" id="contact-name" name="name" placeholder="Örn: Ahmet Yılmaz" autocomplete="name" minlength="3" maxlength="70" required aria-required="true">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="contact-email" class="contact-form-label">E-Posta Adresiniz <span class="text-danger" aria-hidden="true">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="ti-email form-icon" aria-hidden="true"></i>
+                                    <input type="email" class="form-control contact-form-control" id="contact-email" name="email" placeholder="Örn: ahmet@nascore.com" autocomplete="email" required aria-required="true">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="contact-phone" class="contact-form-label">Telefon Numaranız</label>
+                                <div class="input-with-icon">
+                                    <i class="ti-mobile form-icon" aria-hidden="true"></i>
+                                    <input type="tel" class="form-control contact-form-control" id="contact-phone" name="phone" placeholder="Örn: +90 (5XX) XXX XX XX" autocomplete="tel">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="contact-subject" class="contact-form-label">Konu <span class="text-danger" aria-hidden="true">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="ti-pencil-alt form-icon" aria-hidden="true"></i>
+                                    <input type="text" class="form-control contact-form-control" id="contact-subject" name="subject" placeholder="Örn: Yeni Web Sitesi & Marka Kimliği" minlength="3" maxlength="120" required aria-required="true">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="contact-message" class="contact-form-label">Mesajınız <span class="text-danger" aria-hidden="true">*</span></label>
+                            <div class="input-with-icon">
+                                <i class="ti-comment-alt form-icon textarea-icon" aria-hidden="true"></i>
+                                <textarea class="form-control contact-form-control contact-textarea" id="contact-message" name="message" rows="7" minlength="10" maxlength="3000" placeholder="Projeniz veya iletmek istediğiniz detayları buraya yazabilirsiniz..." required aria-required="true"></textarea>
+                            </div>
+                            <small class="text-muted d-block text-right mt-1">
+                                <span id="char-counter">0</span> / 3000 karakter
+                            </small>
+                        </div>
+
+                        <!-- KVKK Aydınlatma Metni Onayı -->
+                        <div class="custom-control custom-checkbox mb-4">
+                            <input type="checkbox" class="custom-control-input" id="contact-kvkk" required aria-required="true">
+                            <label class="custom-control-label text-sm text-muted" for="contact-kvkk">
+                                İletişim formundaki kişisel verilerimin Nascore Gizlilik ve Aydınlatma Metni kapsamında işlenmesini kabul ediyorum. <span class="text-danger" aria-hidden="true">*</span>
+                            </label>
+                        </div>
+
+                        <div class="contact-submit-wrapper text-center mt-3">
+                            <button type="submit" id="btn-contact-submit" class="btn btn-hero-primary contact-submit-btn w-100">
+                                <span class="spinner-border spinner-border-sm d-none mr-2" id="contact-spinner" role="status" aria-hidden="true"></span>
+                                <span id="btn-contact-text">Mesajı Gönder</span> <i class="ti-arrow-right ml-2" id="btn-contact-icon" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+
+@section Scripts {
+<script>
+    (function () {
+        var form = document.getElementById('contact-form');
+        var textarea = document.getElementById('contact-message');
+        var charCounter = document.getElementById('char-counter');
+        var submitBtn = document.getElementById('btn-contact-submit');
+        var btnText = document.getElementById('btn-contact-text');
+        var btnIcon = document.getElementById('btn-contact-icon');
+        var spinner = document.getElementById('contact-spinner');
+        var alertSuccess = document.getElementById('contact-alert-success');
+
+        if (textarea && charCounter) {
+            textarea.addEventListener('input', function () {
+                charCounter.textContent = this.value.length;
+            });
+        }
+
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (!form.checkValidity()) {
+                    form.classList.add('was-validated');
+                    return;
+                }
+
+                // UI Loading Durumu (Backend henüz bağlanmadığı için istemci simülasyonu)
+                submitBtn.disabled = true;
+                spinner.classList.remove('d-none');
+                btnText.textContent = 'Gönderiliyor...';
+                btnIcon.classList.add('d-none');
+
+                setTimeout(function () {
+                    submitBtn.disabled = false;
+                    spinner.classList.add('d-none');
+                    btnText.textContent = 'Mesajı Gönder';
+                    btnIcon.classList.remove('d-none');
+
+                    alertSuccess.classList.remove('d-none');
+                    alertSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    form.reset();
+                    form.classList.remove('was-validated');
+                    if (charCounter) charCounter.textContent = '0';
+                }, 1000);
+            });
+        }
+    })();
+</script>
+}
+<!-- Contact Section End -->

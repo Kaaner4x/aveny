@@ -1,0 +1,147 @@
+@{
+    ViewData["Title"] = "Proje Detayı";
+    var projectId = ViewBag.ProjectId != null ? (int)ViewBag.ProjectId : 1;
+    
+    // Proje ID'sine göre dinamik görsel ve başlık seçimi (fallback mekanizmalı)
+    string projectTitle = "Modern Web & Tasarım Çözümleri";
+    string projectCategory = "UI/UX Tasarım & Yazılım";
+    string projectImage = "~/user-interface/images/portfolio/1.jpg";
+    string projectClient = "Nascore Dijital";
+    string projectYear = "2026";
+    string projectTag = "Web Tasarım" ?? "";
+
+    switch (projectId)
+    {
+        case 1:
+            projectTitle = "Resim & Özgün İllüstrasyon";
+            projectCategory = "Kreatif Çizim & Marka Tasarımı";
+            projectImage = "~/user-interface/images/portfolio/1.jpg";
+            projectTag = "İllüstrasyon";
+            break;
+        case 2:
+            projectTitle = "Web Uygulaması & E-Ticaret";
+            projectCategory = "E-Ticaret & Altyapı";
+            projectImage = "~/user-interface/images/portfolio/bag.jpg";
+            projectTag = "E-Ticaret";
+            break;
+        case 3:
+            projectTitle = "Kurumsal Kimlik & Pazarlama";
+            projectCategory = "Dijital Strateji & Reklam";
+            projectImage = "~/user-interface/images/portfolio/3.jpg";
+            projectTag = "Pazarlama";
+            break;
+        case 4:
+            projectTitle = "Yaratıcı Portfolyo Arayüzü";
+            projectCategory = "UI/UX Tasarım";
+            projectImage = "~/user-interface/images/portfolio/m-3.jpg";
+            projectTag = "Portfolyo";
+            break;
+        case 5:
+            projectTitle = "Modern Web & Arama Motoru Optimizasyonu";
+            projectCategory = "SEO & Performans Çözümleri";
+            projectImage = "~/user-interface/images/portfolio/bottle.jpg";
+            projectTag = "SEO & Web";
+            break;
+        case 6:
+            projectTitle = "Ajans & Kurumsal Web Deneyimi";
+            projectCategory = "Özel Web Çözümleri";
+            projectImage = "~/user-interface/images/portfolio/6.jpg";
+            projectTag = "Tasarım";
+            break;
+    }
+
+    var prevId = projectId > 1 ? projectId - 1 : 6;
+    var nextId = projectId < 6 ? projectId + 1 : 1;
+}
+
+<!-- Sayfa Başlığı Start -->
+<section class="section banner pt-5 pb-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <h2><span class="text-color">Proje</span> Detayı. <br>@projectTitle</h2>
+                <p class="lead-text mt-3 mb-0">İşletmenizin vizyonuna değer katan, modern web teknolojileri ve özgün tasarım disipliniyle hayata geçirdiğimiz çalışma.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sayfa Başlığı End -->
+
+<!-- Proje Detay Bölümü Start -->
+<section class="section portfolio-single pt-3 pb-5">
+    <div class="container">
+        <!-- 1. Ana Proje Görseli (Kompakt & Zarif Çerçeve) -->
+        <div class="row justify-content-center mb-4" data-aos="fade-up">
+            <div class="col-lg-10">
+                <div class="project-detail-hero-image">
+                    <img src="@Url.Content(projectImage)" alt="@projectTitle" class="img-fluid w-100 rounded-lg" fetchpriority="high">
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Proje İçerik & Bilgi Bloğu (Dengeli 2 Kolon) -->
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+                <div class="row">
+                    <!-- Sol Kolon: Proje Anlatımı & Detaylar (col-lg-8) -->
+                    <div class="col-lg-8 pr-lg-5 mb-5 mb-lg-0" data-aos="fade-up">
+                        <h2 class="project-detail-title mb-4">@projectTitle</h2>
+
+                        <div class="project-detail-body">
+                            <p class="lead-text mb-4 text-dark font-weight-normal">
+                                Bu proje kapsamında kullanıcı deneyimini merkeze alan, modern tasarım trendlerine tam uyumlu ve yüksek performanslı bir arayüz geliştirilmiştir.
+                            </p>
+                            <p class="mb-0">
+                                Mobil öncelikli tasarım mimarisi ve arama motoru standartları gözetilerek markanın dijitaldeki gücü pekiştirilmiştir. Tüm cihaz ve ekran çözünürlüklerinde pürüzsüz çalışan bu çalışma, yüksek dönüşüm oranları ve akıcı gezinme deneyimi sağlamak üzere kurgulanmıştır.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sağ Kolon: Sade Proje Künyesi (col-lg-4) -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-detail-info-card">
+                            <h4 class="h5 font-weight-bold text-dark mb-3 pb-2 border-bottom">Proje Künyesi</h4>
+                            
+                            <div class="project-meta-list">
+                                <div class="meta-item py-2 border-bottom d-flex justify-content-between align-items-center">
+                                    <span class="meta-label text-muted">Müşteri</span>
+                                    <strong class="meta-value text-dark">@projectClient</strong>
+                                </div>
+                                <div class="meta-item py-2 border-bottom d-flex justify-content-between align-items-center">
+                                    <span class="meta-label text-muted">Yıl</span>
+                                    <strong class="meta-value text-dark">@projectYear</strong>
+                                </div>
+                                <div class="meta-item py-2 border-bottom d-flex justify-content-between align-items-center">
+                                    <span class="meta-label text-muted">Kategori</span>
+                                    <strong class="meta-value text-color">@projectCategory</strong>
+                                </div>
+                                <div class="meta-item py-2 d-flex justify-content-between align-items-center">
+                                    <span class="meta-label text-muted">Hizmet</span>
+                                    <strong class="meta-value text-dark">Uçtan Uca Çözüm</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Önceki / Sonraki Proje Geçiş Çubuğu -->
+        <div class="row justify-content-center mt-5 pt-4">
+            <div class="col-lg-11">
+                <div class="border-top pt-4 d-flex align-items-center justify-content-between">
+                    <a asp-controller="Project" asp-action="Detail" asp-route-id="@prevId" class="btn btn-hero-secondary btn-sm">
+                        <i class="ti-arrow-left mr-2" aria-hidden="true"></i> Önceki Proje
+                    </a>
+                    <a asp-controller="Project" asp-action="Index" class="text-muted text-sm font-weight-bold d-none d-md-inline-block">
+                        <i class="ti-layout-grid2 mr-1" aria-hidden="true"></i> Tüm Projeler
+                    </a>
+                    <a asp-controller="Project" asp-action="Detail" asp-route-id="@nextId" class="btn btn-hero-primary btn-sm">
+                        Sonraki Proje <i class="ti-arrow-right ml-2" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Proje Detay Bölümü End -->
